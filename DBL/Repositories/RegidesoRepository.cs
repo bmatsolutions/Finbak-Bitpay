@@ -40,6 +40,7 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@ChequeNo", bill.ChequeNo);
                 parameters.Add("@ReceivedFrom", bill.ReceivedFrom);
                 parameters.Add("@Remarks", bill.Remarks);
+                parameters.Add("@DRAccount", bill.Accnt_no);
                 parameters.Add("@DeductionAmount", bill.Amnt);
                 parameters.Add("@InvoiceAmount", bill.Amnt_paid);
                 return await connection.QueryFirstOrDefaultAsync<GenericModel>("sp_AddPostPayTrns", parameters, commandType: CommandType.StoredProcedure);
@@ -278,7 +279,7 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@UserCode", payment.Maker);
                 parameters.Add("@BillCode", payment.BillCode);
-                parameters.Add("@Amount", payment.Amount);
+                parameters.Add("@Amount", payment.Amnt);
                 parameters.Add("@ModeCode", payment.PayMode);
                 parameters.Add("@Remarks", payment.Remarks);
                 parameters.Add("@Extra1", payment.ChequeNo);
@@ -307,6 +308,27 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@Extra3", payment.Extra1);
                 parameters.Add("@Extra4", payment.Extra2);
                 parameters.Add("@Dr_Account", payment.DrAccount);
+
+                return await connection.QueryFirstOrDefaultAsync<BuyTokenPostModel>("sp_RGPostPayment", parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+        public async Task<BuyTokenPostModel> MakeApprovalPostPaymentAsync(Bills payment)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@UserCode", payment.Maker);
+                parameters.Add("@BillCode", payment.BillCode);
+                parameters.Add("@Amount", payment.Amount);
+                parameters.Add("@ModeCode", payment.PayMode);
+                parameters.Add("@Remarks", payment.Remarks);
+                parameters.Add("@Extra1", payment.ChequeNo);
+                parameters.Add("@Extra2", payment.SortCode);
+                parameters.Add("@Extra3", payment.Extra1);
+                parameters.Add("@Extra4", payment.Extra2);
+                parameters.Add("@Dr_Account", payment.Accnt_no);
 
                 return await connection.QueryFirstOrDefaultAsync<BuyTokenPostModel>("sp_RGPostPayment", parameters, commandType: CommandType.StoredProcedure);
             }

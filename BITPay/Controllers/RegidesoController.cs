@@ -48,7 +48,7 @@ namespace BITPay.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> PrePayList(int stat= 2)
+        public async Task<IActionResult> PrePayList(int stat= 1)
         {
             var model = new List<BuyTokenReportModels>();
             try

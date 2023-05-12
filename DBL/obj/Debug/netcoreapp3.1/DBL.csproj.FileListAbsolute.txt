@@ -39,3 +39,16 @@ E:\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInput
 E:\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
 E:\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
 E:\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb
+D:\Projects\Work\Finbank Bitpay 2023\DBL\bin\Debug\netcoreapp3.1\NOTICE.TXT
+D:\Projects\Work\Finbank Bitpay 2023\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.deps.json
+D:\Projects\Work\Finbank Bitpay 2023\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.dll
+D:\Projects\Work\Finbank Bitpay 2023\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.pdb
+D:\Projects\Work\Finbank Bitpay 2023\DBL\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfo.cs
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
+D:\Projects\Work\Finbank Bitpay 2023\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb

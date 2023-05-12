@@ -176,6 +176,7 @@ namespace BITPay.Controllers
                     model.NeedApproval = queryResult.Data21;
                     model.Msg = queryResult.RespMessage;
                     model.BillCode = queryResult.Data20;
+                    model.units = queryResult.Data19;
                     return PartialView("_Finish", model);
                 }
                 else

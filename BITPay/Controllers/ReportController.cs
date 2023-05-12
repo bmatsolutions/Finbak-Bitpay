@@ -324,16 +324,14 @@ namespace BITPay.Controllers
             {
                 PostPayReportModels r = new PostPayReportModels();
                 var reportData = await bl.GetPostPayReceipt(code);
-                    Audit.AuditAction(_appSett, GetUserBrowser(), "Generate PostPayReceipt ReceiptNo " + reportData.InvoiceNo + "/" + reportData.ClientName + " Recieved from " + reportData.ClientName, 1, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());
+                if (reportData == null)
+                {
+                    return View("NoData", r);
+                }
+                Audit.AuditAction(_appSett, GetUserBrowser(), "Generate PostPayReceipt ReceiptNo " + reportData.InvoiceNo + "/" + reportData.ClientName + " Recieved from " + reportData.ClientName, 1, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());
                     string title = SessionUserData.Title + " - BITPay";
                     var header = await JsRService.RenderViewToStringAsync(HttpContext, RouteData, "_ReportHeader", new ReportHeader { Title = title });
                     var footer = await JsRService.RenderViewToStringAsync(HttpContext, RouteData, "_ReportFooter", new { });
-
-                    if (reportData == null)
-                    {
-                        return View("NoData", r);
-                    }
-
                     reportData.AmountWords = NumberUtil.ToWords(Math.Round(reportData.PaidAmount, 0).ToString());
                     return View(reportData);
             }

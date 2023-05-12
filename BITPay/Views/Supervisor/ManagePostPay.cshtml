@@ -21,13 +21,7 @@
             <div class="row">
                 <div class="col-md-3">Invoice No.</div>
                 <div class="col-md-9 control-label">
-                    <strong>@Model.Invoice_no</strong>
-                </div>
-            </div>
-             <div class="row">
-                <div class="col-md-3">Account No.</div>
-                <div class="col-md-9 control-label">
-                    <strong>@Model.Accnt_no</strong>
+                    <strong>@Model.InvoiceNo</strong>
                 </div>
             </div>
             <div class="row">
@@ -35,15 +29,7 @@
                     Amount:
                 </div>
                 <div class="col-md-9">
-                    <span class="label label-inverse font-600"><strong>@Model.Amnt.ToString("#,##0.00")</strong></span>
-                </div>
-            </div>
-             <div class="row">
-                <div class="col-md-3">
-                    Activity:
-                </div>
-                <div class="col-md-9">
-                    <span class="label label-inverse font-600"><strong>@Model.Activity</strong></span>
+                    <span class="label label-inverse font-600"><strong>@Model.Amount.ToString("#,##0.00")</strong></span>
                 </div>
             </div>
             <div class="row">
@@ -52,14 +38,6 @@
                 </div>
                 <div class="col-md-9">
                     <strong>@Model.PhoneNo</strong>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    Invoice No.:
-                </div>
-                <div class="col-md-9">
-                    <strong>@Model.Invoice_no</strong>
                 </div>
             </div>
             <div class="row">

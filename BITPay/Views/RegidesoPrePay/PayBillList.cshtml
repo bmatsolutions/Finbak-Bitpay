@@ -15,7 +15,6 @@
                     <td>Payer Name</td>
                     <td>Phone Number</td>
                     <td>Amount</td>
-                    <td>Paid Amount</td>
                     <td>Maker</td>
                     <td></td>
                 </tr>
@@ -28,7 +27,6 @@
                     <td>@item.ClientName</td>
                     <td>@item.PhoneNo</td>
                     <td>@item.Amount.ToString("#,##0.00")</td>
-                    <td>@item.PaidAmount.ToString("#,##0.00")</td>
                     <td>@item.UserName</td>
                     <td><a asp-action="PostPayReceipt" asp-controller="report" asp-route-code="@item.InvoiceNo" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
                 </tr>

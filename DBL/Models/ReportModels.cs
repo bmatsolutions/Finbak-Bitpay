@@ -82,7 +82,7 @@ namespace BITPay.DBL.Models
         public string ErrorCode { get; set; }
         public string PayModeName { get; set; }
         public string ReceivedFrom { get; set; }
-        public int PayMode{ get; set; }
+        public int PayMode { get; set; }
 
     }
     public class PostPayReportModels : BaseReportModels
@@ -105,6 +105,7 @@ namespace BITPay.DBL.Models
         public string InstallationCode { get; set; }
         public string UserName { get; set; }
         public string PayMode { get; set; }
+        public string DRAccount { get; set; }
     }
 
     public class DomesticReportModels : BaseReportModels

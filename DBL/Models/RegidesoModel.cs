@@ -48,6 +48,7 @@ namespace BITPay.DBL.Models
         [JsonProperty("paid_amount")]
         public decimal Amnt_paid { get; set; }
         [JsonProperty("amount")]
+         public decimal units { get; set; }
          public decimal Amount { get; set; }
         [JsonProperty("invoice_amnt")]
         public decimal invoice_amnt { get; set; } 
@@ -74,6 +75,7 @@ namespace BITPay.DBL.Models
         public int Month { get; set; }
         [JsonProperty("invoice_no")]
         public string Invoice_no { get; set; }
+        public string InvoiceNo { get; set; }
         [Required]
         [Display(Name = "Customer Name")]
         [JsonProperty("cust_name")]
@@ -102,6 +104,7 @@ namespace BITPay.DBL.Models
         public string CBSRef { get; set; }
         public string UserName { get; set; }
         public string Remarks { get; set; }
+        public string DRAccount { get; set; }
         public string Extra1 { get; set; }
         public string Extra2 { get; set; }
         public string Extra3 { get; set; }
@@ -134,7 +137,7 @@ namespace BITPay.DBL.Models
         public int Stat { get; set; }
         public int Maker { get; set; }
         public int BillCode { get; set; }
-        public int units { get; set; }
+        public decimal units { get; set; }
         public string Msg { get; set; }
         public string Data { get; set; }
         public string ReceivedFrom { get; set; }
