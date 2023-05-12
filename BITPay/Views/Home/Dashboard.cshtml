@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div id="myDBoard">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="purple">
+                    <i class="fa fa-clipboard"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">All Tax File(s)</p>
+                    <h3 class="title" data-bind="text:allFiles">0</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="fa fa-book"></i> Today all tax files
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="orange">
+                    <i class="fa fa-spinner"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Partial File(s)</p>
+                    <h3 class="title" data-bind="text:pending">0</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="fa fa-info-circle"></i> Files pending OBR
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Completed File(s)</p>
+                    <h3 class="title" data-bind="text:completed">0</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="fa fa-check-square"></i> Fully processed tax files
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="fa fa-exclamation-circle"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Failed File(s)</p>
+                    <h3 class="title" data-bind="text:failed">0</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="fa fa-exclamation-triangle text-danger"></i> Files failed OBR notification
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="fa fa-check-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">All TopUP(s)</p>
+                        <h3 class="title" data-bind="text:alltopups">0</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-book"></i> Today all retailer topups
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="fa fa-check-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">All Token Purchase(s)</p>
+                        <h3 class="title" data-bind="text:alltokenpurchase">0</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-book"></i> Today all token purchases
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card-box">
+                <p class="text-muted">
+                    Click on one the button below to initiate the process of tax payment<br />
+                    <strong>Note:</strong> You need the tax declaration details to run through this process
+                </p>
+                <div class="list-group">
+                    <a asp-action="pay" asp-controller="tax" class="list-group-item list-group-item-info"><span class="badge"><i class="fa fa-long-arrow-right"></i></span><i class="fa fa-money"></i> Make Custom Tax Payment</a>
+                    <a asp-action="pay" asp-controller="domestic" class="list-group-item list-group-item-warning"><span class="badge"><i class="fa fa-long-arrow-right"></i></span><i class="fa fa-money"></i> Make Domestic Tax Payment</a>
+                    <a asp-action="pay" asp-controller="miarie" class="list-group-item list-group-item-success"><span class="badge"><i class="fa fa-long-arrow-right"></i></span><i class="fa fa-money"></i> Make Mairie Tax Payment</a>
+                    <a asp-action="RetailerTopUp" asp-controller="paywaygateway" class="list-group-item list-group-item-danger"><span class="badge"><i class="fa fa-long-arrow-right"></i></span><i class="fa fa-money"></i> Payway E-Value Topup</a>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-lg-6 col-md-6">
+                <div class="card-box">
+                    <p class="text-muted">
+                        Click on the button below to initiate the process of payway payment<br />
+                        <strong>Note:</strong> You need the payway details to run through this process
+                    </p>
+                    <a asp-action="buytoken" asp-controller="paywaygateway" class="btn btn-lg btn-info"><i class="fa fa-money"></i> Make Payway Payment <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>*@
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+    getDBoardDataUrl = function () {
+            return "@Url.Action("DBoardData", "Data")";
+        }
+
+        var dboardModel = {
+            allFiles: ko.observable(0),
+            pending: ko.observable(0),
+            completed: ko.observable(0),
+            failed: ko.observable(0),
+            approval: ko.observable(0),
+            loadData: function () {
+                var self = this;
+                $.ajax({
+                    type: "GET",
+                    url: getDBoardDataUrl(),
+                }).done(function (data) {
+                    console.log(data);
+                    self.allFiles(data.allFiles);
+                    self.pending(data.pending);
+                    self.completed(data.completed);
+                    self.failed(data.failed);
+                    self.approval(data.approval);
+                }).error(function (ex) {
+                    //alert("Error");
+                });
+            }
+        };
+
+        $(document).ready(function () {
+            dboardModel.loadData();
+        });
+
+        ko.applyBindings(dboardModel, document.getElementById('myDBoard'));
+    </script>
+}

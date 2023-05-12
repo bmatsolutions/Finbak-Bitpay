@@ -1,0 +1,359 @@
+﻿
+@{
+    ViewData["Title"] = "Regideso Pay Bill";
+}
+
+<h2 class="header-title">Pay Bill</h2>
+<div id="mywizard">
+    <h3>Query Bills</h3>
+    <section data-mode="async" data-url="@Url.Action("QueryPostPay")"></section>
+    <h3>Make Payment</h3>
+    <section>
+        <div id="paymentContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+    <h3>Confirm</h3>
+    <section>
+        <div id="confirmContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+    <h3>Finish</h3>
+    <section>
+        <div id="finishContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+</div>
+
+@section css{
+    <link href="~/lib/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" />
+}
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/lib/jquery.steps/build/jquery.steps.min.js"></script>
+
+    <script>
+        var ur =  '/regideso/BillConfirm';
+         var dt = {};
+       
+
+        var settings = {
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            transitionEffectSpeed: 400,
+            /* Events */
+            onContentLoaded: function (event, currentIndex) {
+                if (currentIndex == 0) {
+                    listenPayModeChange();
+                    //--- Manage types
+                    $('#myTaxType').on("change", function () {
+                        var type = $(this).val();
+                        loadTaxTypes(type);
+                    });
+                    $('#myTaxType').change();
+
+                    $('#myTypeCode').on("change", function () {
+                        var type = $(this).val();
+                        loadTypeFields(type);
+                    });  
+                     
+                }
+                //////listenPayModeChange();
+            },
+            onStepChanging: function (event, currentIndex, newIndex) {
+                if ($('.frm-validate').length) {
+                    $('.frm-validate').validate();
+                    if ($('.frm-validate').valid() == false) {
+                        console.log('Validation failed!');
+                        return false;
+                    }
+                    console.log('Validation passed.');
+                }
+                return changingStep(event, currentIndex, newIndex);
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                stepChanged(event, currentIndex, priorIndex);
+            },
+            onFinishing: function (event, currentIndex) {
+                return true;
+            },
+            onFinished: function (event, currentIndex) {
+                location.reload();
+            },
+            labels: {
+                finish: "Finish <i class='fa fa-check'></i>",
+                next: "Next <i class='fa fa-arrow-right'></i>",
+                previous: "<i class='fa fa-arrow-left'></i> Previous",
+                loading: "Loading ..."
+            },
+            loadingTemplate: '<h3><i class="fa fa-spin fa-spinner"></i> <strong>#text#</strong></h3>'
+        };
+
+        $("#mywizard").steps(settings);
+
+        function changingStep(event, currentIndex, newIndex) {
+            console.log(currentIndex + ", " + newIndex);
+            var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
+            if (currentIndex == 0 && newIndex == 1) {
+              var step = $("#tax_step").val();
+                if (step === "0") {
+                    if(Object.keys(dt).length > 0)
+                    {
+                    var myForm = $('#frmQuey');
+                    $("#taxDetsContent").html(progress); 
+                        $.ajax({
+                            type: 'Post',
+                            url: ur,
+                            data: dt
+                        })
+                    .done(function (resp) {
+                         listenPayModeChange();
+                        $("#paymentContent").html(resp);
+                         });
+                       return true;
+                    }else{
+                    listenPayModeChange();
+                    return false;
+                    }
+                } else {
+                    listenPayModeChange();
+                    return false;
+                }
+            }
+
+            if (currentIndex == 1 && newIndex == 2) {
+                //--- Payment screen
+                if ($("#twende").val() === "1") {
+                    //----- Post form
+                    var myForm = $('#taxForm');
+                    var frmData = myForm.serialize();
+                    $.ajax({
+                        type: myForm.attr('method'),
+                        url: myForm.attr('action'),
+                        data: frmData
+                    })
+                        .done(function (resp) {
+                           listenPayModeChange();
+                            $("#confirmContent").html(resp);
+
+                        });
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (currentIndex == 2 && newIndex == 3) {
+                //--- Confirmation screen
+                if ($("#twende").val() === "1") {
+                    //----- Post form
+                    var myForm = $('#confirmForm');
+                    var frmData = myForm.serialize();
+                    $.ajax({
+                        type: myForm.attr('method'),
+                        url: myForm.attr('action'),
+                        data: frmData
+                    })
+                        .done(function (resp) {
+                            $("#finishContent").html(resp);
+                            listenPayModeChange();
+                        });
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (currentIndex == 3) {
+                //--- Never go back the process was a success
+                if ($("#twende").val() === "1") {
+                    return false;
+                }
+            }
+            if (currentIndex == 1 && newIndex == 0) {
+                return false;
+            }
+            return true;
+        }
+
+        function stepChanged(event, currentIndex, newIndex) {
+
+
+        }
+        
+       
+        function listenPayModeChange() {
+            $("#pay_mode").on("change", function () {
+                var mode = $(this).val();
+                console.log('Pay Mode: ' + mode);
+                $("#account_no").hide();
+                $("#cheque_no").hide();
+                $("#sort_code").hide();
+
+                if (mode === "1") {
+                    $("#account_no").show();
+                } else if (mode === "2") {
+                    $("#account_no").show();
+                    $("#cheque_no").show();
+                } else if (mode === "3") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                } else if (mode === "4") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                }
+
+                setCharge(mode);
+
+            });
+            $("#pay_mode").change();
+        }
+
+        function setCharge(mode) {
+            var url = "@Url.Action("GetPayMode")";
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: { payMode: mode}
+            })
+                .done(function (resp) {
+                    $("#chargeVal").val(resp);
+                });
+
+        }
+
+        function listenPaymentStatus() {
+            $("#btnRefreshStat").click(function (e) {
+                e.preventDefault();
+                $('#payStatView').html('<h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Loading..............</strong></h3>');
+                var url = $(this).attr('href');
+                $.get(url, function (data) {
+                    $('#payStatView').html(data);
+                });
+            });
+        }
+
+        function loadBanks() {
+            $("#banks").empty();
+
+            var url = "@Url.Action("getbanks")";
+            $.getJSON(url, function (data) {
+                $.each(data, function (i, item) {
+                    $("#banks").append('<option value="' + item.value + '">' + item.text + '</option>');
+                });
+
+            })
+        }
+
+        $(document).on('click', ".opendetails", function () {
+          
+            var amnt_paid =  $(this).attr('data-amnt_paid');
+            var amnt = $(this).attr('data-amnt');
+            var accnt_no = $(this).attr('data-accnt_no');
+            var cust_no = $(this).attr('data-cust_no');
+            var year = $(this).attr('data-year');
+            var month = $(this).attr('data-month');
+            var invoice_no = $(this).attr('data-invoice_no');
+            var cust_name = $(this).attr('data-cust_name');
+            var activity = $(this).attr('data-activity');
+            $('.modal-body #amnt_paid').val(amnt_paid);
+            $('.modal-body #amnt').val(amnt);
+            $('.modal-body #accnt_no').val(accnt_no);
+            $('.modal-body #cust_no').val(cust_no);
+            $('.modal-body #year').val(year);
+            $('.modal-body #month').val(month);
+            $('.modal-body #invoice_no').val(invoice_no);
+            $('.modal-body #cust_name').val(cust_name);
+            $('.modal-body #activity').val(activity);
+        });
+
+        //function func(x) {
+           
+        //    var amnt_paid = document.getElementById("amnt_paid").value;
+        //    var amnt = document.getElementById("amnt").value;
+        //    var accnt_no = document.getElementById("accnt_no").value;
+        //    var cust_no = document.getElementById("cust_no").value;
+        //    var year = document.getElementById("year").value;
+        //    var month = document.getElementById("month").value;
+        //    var invoice_no = document.getElementById("invoice_no").value;
+        //    var cust_name = document.getElementById("cust_name").value;
+        //    var activity = document.getElementById("activity").value;
+        //     console.log("good new")
+        //    $.ajax({
+        //        url: '/regideso/BillConfirm',
+        //        type: 'Post',
+        //        dataType: 'application/json',
+        //        data: { 'amnt_paid': amnt_paid, 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity },
+        //        success: function (data) {
+        //           var msg =JSON.parse(data.responseText);
+        //            var success = msg.success;
+        //            var response = msg.responseText;
+
+        //            alert(response);
+        //        },
+        //        error: function (data) {
+        //            var msg =JSON.parse(data.responseText);
+        //            var success = msg.success;
+        //            var response = msg.responseText;
+
+        //            alert(response);
+        //        }
+        //    });
+        //}
+        function func(x) {
+             var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
+            var amnt_paid = document.getElementById("amnt_paid").value;
+            var amnt = document.getElementById("amnt").value;
+            var accnt_no = document.getElementById("accnt_no").value;
+            var cust_no = document.getElementById("cust_no").value;
+            var year = document.getElementById("year").value;
+            var month = document.getElementById("month").value;
+            var invoice_no = document.getElementById("invoice_no").value;
+            var cust_name = document.getElementById("cust_name").value;
+            var activity = document.getElementById("activity").value;
+             dt =  { 'amnt_paid': amnt_paid, 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity }
+             $('#details').modal('hide');
+              $("#frmQuey").show();
+              //$("#mywizard").steps(settings);
+        }
+
+        function resetValidation (form) {
+            form.removeData('validator');
+            form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse(form);
+            form.addClass('frm-validate');
+        }
+
+        function loadTaxTypes(type) {
+            console.log("Type change -> ", type);
+
+            $('#myTypeCode').empty();
+            $('#myTypeCode').append(new Option('Loading........'));
+            var url = "@Url.Action("gettaxtypes")/" + type;
+            $.get(url, function (data) {
+                $('#myTypeCode').empty();
+                $.each(data, function () {
+                    $('#myTypeCode').append(new Option(this.name, this.code));
+                });
+                $('#myTypeCode').change();
+            })
+        }
+
+        function loadTypeFields(type) {
+            console.log("Fields -> ", type);
+            $('#typeFields').html('<div class="row"><div class="col-md-offset-5 col-md-7"><p><i class="fa fa-spin fa-spinner"></i> Loading....</p></div></div>');
+            var url = "@Url.Action("gettypefields")/" + type;
+            $.get(url, function (data) {
+                $('#typeFields').html(data);
+
+                resetValidation($('#frmQuey'));
+            })           
+        }
+    </script>
+    }
+

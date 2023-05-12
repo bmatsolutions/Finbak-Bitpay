@@ -1,0 +1,134 @@
+﻿@model IEnumerable<FailedTransactions>
+@{
+    ViewData["Title"] = "Failed Payments";
+}
+
+<h3 class="header-title">Failed Payments</h3>
+<div class="card-box">
+    <p class="text-muted">You can filter the records to view by selecting the below options</p>
+    <form method="get">
+        <div class="row">
+            <div class="col-md-4">
+                <div>Date Range:</div>
+                <div class="input-group drp">
+                    <input name="dateRange" type="text" class="form-control" aria-describedby="drp-icon">
+                    <span class="input-group-addon" id="drp-icon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>.</div>
+                <button class="btn btn-default"><i class="fa fa-search"></i> Get</button>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive m-t-10">
+        @*@(Html.Grid(Model).Build(cols =>
+    {
+        cols.Add(m => m.Year).Titled("Reg Year");
+        cols.Add(m => m.RegNo).Titled("Reg No");
+        cols.Add(m => m.RegSerial).Titled("Reg Serial");
+        cols.Add(m => m.Amount).Titled("Tax Amount");
+        cols.Add(m => m.Status).Titled("Status");
+        cols.Add(m => m.StatMsg).Titled("Status Msg");
+        cols.Add(m => m.OfficeCode).Titled("Office Code");
+        cols.Add(m => m.OfficeName).Titled("Office Name");
+        cols.Add(m => m.DeclCode).Titled("Decl Code");
+        cols.Add(m => m.DeclName).Titled("Decl Name");
+        cols.Add(m => m.Nif).Titled("Nif");
+        cols.Add(m => m.CompName).Titled("Company Name");
+        cols.Add(m => m.CreateDate.ToString("M/d/yyyy HH:mm:ss")).Titled("Create Date");
+        cols.Add(m => m.CrAccount).Titled("Cr Account");
+        cols.Add(m => m.DrAccount).Titled("Dr Account");
+        cols.Add(m => m.Remarks).Titled("Remarks");
+        cols.Add(m => m.CBSRef).Titled("CBSRef");
+        cols.Add().Encoded(false).RenderedAs(m => $"<a href=\"{Url.Action("pushfailed", "supervisor", new { code = m.FileCode })}\" class=''><i class='fa fa-toggle-right'></i> Push</a>");
+    }).Pageable()                                                                                       .Empty("No data to display!")
+                                                                                        .Css("table-striped table-hover")
+        )*@
+        <table class="table table-striped table-hover table-bordered table-responsive-md" id="tblData">
+            <thead>
+                <tr>
+                    <td>Reg. Year</td>
+                    <td>Reg. No</td>
+                    <td>Reg. Serial</td>
+                    <td>Tax Amount</td>
+                    <td>Status</td>
+                    <td>Status Msg</td>
+                    <td>Office Code</td>
+                    <td>Decl Code</td>
+                    <td>Decl Name</td>
+                    <td>Nif</td>
+                    <td>Company Name</td>
+                    <td>Cr Account</td>
+                    <td>Dr Account</td>
+                    <td>Remarks</td>
+                    <td>CBSRef</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Year</td>
+                    <td>@item.RegNo</td>
+                     <td>@item.RegSerial</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Status</td>
+                    <td>@item.StatMsg</td>
+                    <td>@item.OfficeCode</td>
+                    <td>@item.OfficeName</td>
+                    <td>@item.DeclCode</td>
+                    <td>@item.Status</td>
+                    <td>@item.DeclName</td>
+                    <td>@item.CompName</td>
+                    <td>@item.CrAccount</td>
+                    <td>@item.DrAccount</td>
+                    <td>@item.Status</td>
+                    <td>@item.Remarks</td>
+                    <td>@item.CBSRef</td>
+                    <td><a asp-action="receipt" asp-controller="pushfailed" asp-route-code="@item.FileCode" class="text-right"><i class="fa fa-toggle-right"></i> Push</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+    <link href="~/css/daterangepicker.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+    <script src="~/js/daterangepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('#tblData').dataTable();
+            var start = moment();
+            var end = moment();
+
+            function cb(start, end) {
+                $('.drp input').val(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+
+            $('.drp').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+            cb(start, end);
+
+        });
+    </script>
+}
+
+

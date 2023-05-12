@@ -1,0 +1,72 @@
+﻿@model vwUser
+@{
+    ViewData["Title"] = "Update User";
+    var roles = ViewData["Roles"] as List<SelectListItem>;
+    var branches = ViewData["Branches"] as List<SelectListItem>;
+}
+
+<h2 class="header-title">Update User</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <div class="text-muted">
+                Update User details in the form below and then click on <b>Submit</b> button
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <form asp-action="changeDetails" method="post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                            </div>
+                            <input type="hidden" asp-for="UserCode" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FullNames" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="FullNames" class="form-control" />
+                                <span asp-validation-for="FullNames" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserRole" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <select asp-for="UserRole" class="form-control" asp-items="@roles"></select>
+                                <span asp-validation-for="UserRole" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BranchCode" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <select asp-for="BranchCode" class="form-control" asp-items="@branches"></select>
+                                <span asp-validation-for="BranchCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Submit</button>
+                                <a asp-action="users" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

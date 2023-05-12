@@ -1,0 +1,356 @@
+﻿
+@{
+    ViewData["Title"] = "Mairie";
+}
+
+<h2 class="header-title">Make Mairie Payment</h2>
+<div id="mywizard">
+    <h3>Query Tax</h3>
+    <section data-mode="async" data-url="@Url.Action("QueryTax")"></section>
+    <h3>Make Payment</h3>
+    <section>
+        <div id="paymentContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+    <h3>Confirm</h3>
+    <section>
+        <div id="confirmContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+    <h3>Finish</h3>
+    <section>
+        <div id="finishContent">
+            <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Please wait........</strong></h3>
+        </div>
+    </section>
+</div>
+
+@section css{
+    <link href="~/lib/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" />
+}
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/lib/jquery.steps/build/jquery.steps.min.js"></script>
+
+    <script>
+
+        var settings = {
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            transitionEffectSpeed: 400,
+            /* Events */
+            onContentLoaded: function (event, currentIndex) {
+                if (currentIndex == 0) {
+                    //--- Manage types
+                    $('#myTaxType').on("change", function () {
+                        var type = $(this).val();
+                        loadTaxTypes(type);
+                    });
+                    $('#myTaxType').change();
+
+                    $('#myTypeCode').on("change", function () {
+                        var type = $(this).val();
+                        loadTypeFields(type);
+                    });                    
+                }
+            },
+            onStepChanging: function (event, currentIndex, newIndex) {
+                if ($('.frm-validate').length) {
+                    $('.frm-validate').validate();
+                    if ($('.frm-validate').valid() == false) {
+                        console.log('Validation failed!');
+                        return false;
+                    }
+                    console.log('Validation passed.');
+                }
+                return changingStep(event, currentIndex, newIndex);
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                stepChanged(event, currentIndex, priorIndex);
+            },
+            onFinishing: function (event, currentIndex) {
+                return true;
+            },
+            onFinished: function (event, currentIndex) {
+                location.reload();
+            },
+            labels: {
+                finish: "Finish <i class='fa fa-check'></i>",
+                next: "Next <i class='fa fa-arrow-right'></i>",
+                previous: "<i class='fa fa-arrow-left'></i> Previous",
+                loading: "Loading ..."
+            },
+            loadingTemplate: '<h3><i class="fa fa-spin fa-spinner"></i> <strong>#text#</strong></h3>'
+        };
+
+        $("#mywizard").steps(settings);
+
+        function changingStep(event, currentIndex, newIndex) {
+            console.log(currentIndex + ", " + newIndex);
+            var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
+            if (currentIndex == 0 && newIndex == 1) {
+                var step = $("#tax_step").val();
+
+                if (step === "0") {
+                    var myForm = $('#frmQuey');
+
+                    if (myForm.valid()) {
+                        var frmData = myForm.serialize();
+                        $("#taxDetsContent").html(progress);
+                        $.ajax({
+                            type: myForm.attr('method'),
+                            url: myForm.attr('action'),
+                            data: frmData
+                        })
+                            .done(function (resp) {
+                                $("#taxDetsContent").html(resp);
+                            });
+                    }
+                    return false;
+                } else {
+
+                    if ($("#twende").val() === "1") {
+                        //----- Post form
+                        var myForm = $('#taxForm');
+                        var frmData = myForm.serialize();
+                        $.ajax({
+                            type: myForm.attr('method'),
+                            url: myForm.attr('action'),
+                            data: frmData
+                        })
+                            .done(function (resp) {
+                                $("#paymentContent").html(resp);
+                                listenPayModeChange();
+                                resetValidation($('#payForm'));
+                            });
+
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+
+            if (currentIndex == 1 && newIndex == 2) {
+                //--- Payment screen
+                if ($("#twende").val() === "1") {
+                    //----- Post form
+                    var myForm = $('#payForm');
+                    var frmData = myForm.serialize();
+                    $.ajax({
+                        type: myForm.attr('method'),
+                        url: myForm.attr('action'),
+                        data: frmData
+                    })
+                        .done(function (resp) {
+                            $("#confirmContent").html(resp);
+                        });
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (currentIndex == 2 && newIndex == 3) {
+                //--- Confirmation screen
+                if ($("#twende").val() === "1") {
+                    //----- Post form
+                    var myForm = $('#confirmForm');
+                    var frmData = myForm.serialize();
+                    $.ajax({
+                        type: myForm.attr('method'),
+                        url: myForm.attr('action'),
+                        data: frmData
+                    })
+                        .done(function (resp) {
+                            $("#finishContent").html(resp);
+                            listenPaymentStatus();
+                        });
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (currentIndex == 3) {
+                //--- Never go back the process was a success
+                if ($("#twende").val() === "1") {
+                    return false;
+                }
+            }
+            if (currentIndex == 1 && newIndex == 0) {
+                return false;
+            }
+            return true;
+        }
+
+        function stepChanged(event, currentIndex, newIndex) {
+
+
+        }
+
+        function listenPayModeChange() {
+            $("#pay_mode").on("change", function () {
+                var mode = $(this).val();
+                console.log('Pay Mode: ' + mode);
+                $("#account_no").hide();
+                $("#cheque_no").hide();
+                $("#sort_code").hide();
+
+                if (mode === "1") {
+                    $("#account_no").show();
+                } else if (mode === "2") {
+                    $("#account_no").show();
+                    $("#cheque_no").show();
+                } else if (mode === "3") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                } else if (mode === "4") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                }
+
+                setCharge(mode);
+
+            });
+            $("#pay_mode").change();
+        }
+
+        function setCharge(mode) {
+            var url = "@Url.Action("GetPayMode")";
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: { payMode: mode}
+            })
+                .done(function (resp) {
+                    $("#chargeVal").val(resp);
+                });
+
+        }
+
+        function listenPaymentStatus() {
+            $("#btnRefreshStat").click(function (e) {
+                e.preventDefault();
+                $('#payStatView').html('<h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Loading..............</strong></h3>');
+                var url = $(this).attr('href');
+                $.get(url, function (data) {
+                    $('#payStatView').html(data);
+                });
+            });
+        }
+
+        function loadBanks() {
+            $("#banks").empty();
+
+            var url = "@Url.Action("getbanks")";
+            $.getJSON(url, function (data) {
+                $.each(data, function (i, item) {
+                    $("#banks").append('<option value="' + item.value + '">' + item.text + '</option>');
+                });
+
+            })
+        }
+
+        $(document).on('click', ".opendetails", function () {
+            var Name = $(this).data("name");
+            var RefNo = $(this).data("refno");
+            var Address = $(this).data("address");
+            var Descr = $(this).data("descr");
+            var Period = $(this).data("period");
+            var Amt = $(this).data("amt");
+            var AmtSrc = $(this).data("amtsrc");
+            var Paid = $(this).data("paid");
+            var Late = $(this).data("late");
+            var NoteType = $(this).data("notetype");
+            var NoteNo = $(this).data("noteno");
+            var Note = $(this).data("note");
+            $('.modal-body #refno').val(RefNo);
+            $('.modal-body #name').val(Name);
+            $('.modal-body #address').val(Address);
+            $('.modal-body #descr').val(Descr);
+            $('.modal-body #period').val(Period);
+            $('.modal-body #amt').val(Amt);
+            $('.modal-body #amtsrc').val(AmtSrc);
+            $('.modal-body #paid').val(Paid);
+            $('.modal-body #late').val(Late);
+            $('.modal-body #notetype').val(NoteType);
+            $('.modal-body #noteno').val(NoteNo);
+             $('.modal-body #note').val(Note);
+        });
+
+        function func(x) {
+            var name = document.getElementById("name").value;
+            var refno = document.getElementById("refno").value;
+            var address = document.getElementById("address").value;
+            var descr = document.getElementById("descr").value;
+            var period = document.getElementById("period").value;
+            var amt = document.getElementById("amt").value;
+            var amtsrc = document.getElementById("amtsrc").value;
+            var paid = document.getElementById("paid").value;
+            var late = document.getElementById("late").value;
+            var notetype = document.getElementById("notetype").value;
+            var noteno = document.getElementById("noteno").value;
+            var note = document.getElementById("note").value;
+            $.ajax({
+                url: '@Url.Action("CreateMiarieFile")',
+                type: 'POST',
+                dataType: 'application/json',
+                data: { 'TaxNoteType': notetype, 'TaxNoteNo': noteno, 'RefNo': refno, 'TaxPayerName': name, 'Descr': descr, 'AmtSrc': amtsrc, 'Period': period,'Note':note },
+                success: function (data) {
+                   var msg =JSON.parse(data.responseText);
+                    var success = msg.success;
+                    var response = msg.responseText;
+
+                    alert(response);
+                },
+                error: function (data) {
+                    var msg =JSON.parse(data.responseText);
+                    var success = msg.success;
+                    var response = msg.responseText;
+
+                    alert(response);
+                }
+            });
+        }
+
+        function resetValidation (form) {
+            form.removeData('validator');
+            form.removeData('unobtrusiveValidation');
+            $.validator.unobtrusive.parse(form);
+            form.addClass('frm-validate');
+        }
+
+        function loadTaxTypes(type) {
+            console.log("Type change -> ", type);
+
+            $('#myTypeCode').empty();
+            $('#myTypeCode').append(new Option('Loading........'));
+            var url = "@Url.Action("gettaxtypes")/" + type;
+            $.get(url, function (data) {
+                $('#myTypeCode').empty();
+                $.each(data, function () {
+                    $('#myTypeCode').append(new Option(this.name, this.code));
+                });
+                $('#myTypeCode').change();
+            })
+        }
+
+        function loadTypeFields(type) {
+            console.log("Fields -> ", type);
+            $('#typeFields').html('<div class="row"><div class="col-md-offset-5 col-md-7"><p><i class="fa fa-spin fa-spinner"></i> Loading....</p></div></div>');
+            var url = "@Url.Action("gettypefields")/" + type;
+            $.get(url, function (data) {
+                $('#typeFields').html(data);
+
+                resetValidation($('#frmQuey'));
+            })           
+        }
+    </script>
+    }
+

@@ -1,0 +1,109 @@
+﻿
+@model DomesticTaxPayment
+<div id="CustSearch">
+    <p class="text-muted">
+        Enter the CBS Refference
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">Type of Tax</div>
+                <div class="col-md-8 control-label">
+                    <strong>@Model.TaxName</strong>
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.CustomerName))
+            {
+                <div class="form-group">
+                    <div class="col-md-4">Customer Name</div>
+                    <div class="col-md-8">
+                        <strong>@Model.CustomerName</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.DriverName))
+            {
+                <div class="form-group">
+                    <div class="col-md-4">Driver Name</div>
+                    <div class="col-md-8">
+                        <strong>@Model.DriverName</strong>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <div class="col-md-4">Tax Amount</div>
+                <div class="col-md-8">
+                    <span class="label label-inverse font-bold">@Model.TaxAmount.ToString("#,##0.00")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="DomesticSearch" id="payForm" method="post" class="form-horizontal validate-form" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input asp-for="Period" type="hidden" />
+                        <input asp-for="DomesticTaxType" type="hidden" />
+                        <input asp-for="DomesticTaxName" type="hidden" />
+                        <input asp-for="Vehicle" type="hidden" />
+                        <input asp-for="Contracavation" type="hidden" />
+                        <input asp-for="DriverName" type="hidden" />
+                        <input asp-for="Word" type="hidden" />
+                        <input asp-for="Service" type="hidden" />
+                        <input asp-for="LicenceType" type="hidden" />
+                        <input asp-for="CarOnwer" type="hidden" />
+                        <input asp-for="Chasis" type="hidden" />
+                        <input asp-for="Imma" type="hidden" />
+                        <input asp-for="Document" type="hidden" />
+                        <input asp-for="Education" type="hidden" />
+                        <input asp-for="Copies" type="hidden" />
+                        <input asp-for="Infraction" type="hidden" />
+                        <input asp-for="DeclNo" type="hidden" />
+                        <input asp-for="commune" type="hidden" />
+                        <input asp-for="FileCode" type="hidden" />
+                        <input asp-for="tin" type="hidden" />
+                        <input asp-for="TaxAmount" type="hidden" />
+                        <input asp-for="CustomerName" type="hidden" />
+                        <input asp-for="PostToCBS" type="hidden" />
+                        <input type="hidden" asp-for="Delay" />
+                        <input type="hidden" asp-for="adjustment" />
+                        <input type="hidden" asp-for="Product" />
+                        <input type="hidden" asp-for="CNI" />
+                        <input type="hidden" asp-for="CNIIssue" />
+                        <input id="tax_step" type="hidden" value="1" />
+                        <input id="twende" type="hidden" value="1" />
+                    </div>
+                </div>
+
+                <div class="form-group" id="cbsref">
+                    <div class="row">
+                        <label asp-for="CBSref" class="col-md-4"></label>
+                        <div class="col-md-8">
+                            <input asp-for="CBSref" class="form-control" />
+                            <span asp-validation-for="CBSref" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group" id="recfrom">
+                    <div class="row">
+                        <label asp-for="ReceivedFrom" class="col-md-4"></label>
+                        <div class="col-md-8">
+                            <input asp-for="ReceivedFrom" class="form-control" />
+                            <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model FinishModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-check fa-5x"></i><br />
+            <h2 class="text-success">Successful.</h2>
+            <strong>@Model.Message</strong>
+        </div>
+
+        @if (!Model.NeedApproval)
+        {
+            <div class="text-center text-muted">
+                <span>Click on the button below to view transaction receipt</span><br />
+                <a target="_blank" asp-action="tokenreceipt" asp-controller="report" asp-route-code="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"> Print Receipt</i></a>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @if (Model.NeedApproval == true)
+                {
+                <div class="col-md-6">
+                    <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Loading..............</strong></h3>
+                    <button class="btn btn-success" id="paymentStatus" value="@Model.PaymentCode">
+                        <i class="fa fa-refresh" aria-hidden="true">Refresh</i>
+
+                    </button>
+
+                    <input asp-for="ApprovalMessage" id="paymentStatusMessage" readonly="readonly" style="outline: none; border:none; width:400px;" />
+                    @if (Model.AutoPrint==1)
+                    {
+                        <a target="_blank" asp-action="tokenreceipt" asp-controller="report" asp-route-code="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"> Print Receipt</i></a>
+                    }
+                </div>
+                }
+            </div>
+            </div>
+        </div>
+    </div>
+    <input id="twende" type="hidden" value="1" />

@@ -1,0 +1,53 @@
+﻿@model Bills
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-check fa-5x"></i><br />
+            <h2 class="text-success">Successful.</h2>
+            <strong>@Model.Msg</strong>
+        </div>
+
+         <div class="row">
+            <div class="col-md-4">Invoice No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Invoice_no</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Customer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.ClientName</strong>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4">Amount Paid:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Amnt_paid.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+
+        @if (!Model.NeedApproval)
+        {
+            <div class="text-center text-muted ">
+                <span>Click on the button below to view transaction receipt</span><br />
+                <a target="_blank" asp-action="PostPayReceipt" asp-controller="report" asp-route-code="@Model.BillCode" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"></i> Print Receipt</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        @if (Model.NeedApproval == true)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3><i class="fa fa-spin fa-spinner m-r-5"></i> <strong>Loading..............</strong></h3>
+                    <button class="btn btn-success" id="paymentStatus" value="@Model.BillCode">
+                        <i class="fa fa-refresh" aria-hidden="true"></i> Refresh
+                    </button>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<input id="twende" type="hidden" value="1" />

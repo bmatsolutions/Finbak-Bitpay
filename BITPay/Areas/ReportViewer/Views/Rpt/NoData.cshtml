@@ -1,0 +1,15 @@
+﻿@model ReceiptReportModels
+@{
+    ViewData["Title"] = "NoData";
+    Layout = "_LayoutReport";
+}
+<hr />
+<h1 style="color:#ff0000">No Data!</h1>
+<h3 style="color:#ff0000">No data found to display for this report</h3>
+<p style="color:#ff0000">
+    @Model.CustomMessage
+    <br/>
+    Try to print another report or change report filters.
+
+</p>
+

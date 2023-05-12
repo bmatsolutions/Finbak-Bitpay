@@ -1,0 +1,186 @@
+﻿@using System.Security.Claims
+@{
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+        userId = User.Identities.First(u => u.IsAuthenticated && u.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
+    .FindFirst(ClaimTypes.NameIdentifier).Value;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
+
+    <title>@ViewData["Title"] | BITPay</title>
+
+    <link href="~/css/imports.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/css/template.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @RenderSection("css", false)
+</head>
+<body id="theBody" class="widescreen fixed-left">
+    <div id="wrapper" class="">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="#" class="logo">
+                        <img alt="BITPay" src="~/images/applogo.png" class="app-logo" id="appIcon" />
+                        <span>BITPay</span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="">
+                        <div class="pull-left">
+                            <button class="button-menu-mobile open-left waves-effect waves-light">
+                                <i class="fa fa-navicon"></i>
+                            </button>
+                            <span class="clearfix"></span>
+                        </div>
+                        @if (authenticated && currentUserData != null)
+                        {
+                            <ul class="nav navbar-nav hidden-xs">
+                                <li><a href="#" class="waves-effect waves-light">@title</a></li>
+                            </ul>
+                        }
+                        <div class="navbar-header pull-right">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#rightNav">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="rightNav">
+                            <ul class="nav navbar-nav navbar-right pull-right">
+
+                                <li class="hidden-xs">
+                                    <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="glyphicon glyphicon-fullscreen"></i></a>
+                                </li>
+                                @if (authenticated && currentUserData != null)
+                                {
+                                    <li class="dropdown top-menu-item-xs">
+                                        <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">
+                                            <span id="current_user_id" style="display:none;">@userId</span>
+                                            <i class="fa fa-user text-pink"></i>
+                                            <span>@currentUserData.FullNames</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a asp-action="profile" asp-controller="manage"><i class="fa fa-user m-r-10 text-custom"></i> Profile</a></li>
+                                            <li class="divider"></li>
+                                            <li><a asp-action="logout" asp-controller="Account"><i class="fa fa-sign-out m-r-10 text-danger"></i> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                <li class="hidden-xs">
+                                    <a href="#" class="waves-effect waves-light"><i class="fa fa-cogs"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="slimScrollDiv">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <input type="hidden" value="@userRole" id="user_type_defination" />
+                        <ul>
+                            <li class="text-muted menu-title">Navigation Menus</li>
+                            <li>
+                                <a asp-action="Dashboard" asp-controller="Home" class="waves-effect"><i class="fa fa-dashboard"></i> <span> Dashboard </span></a>
+                            </li>
+                            
+                            <li>
+                                <a asp-action="Main" asp-controller="ObrRpt" class="waves-effect"><i class="fa fa-book"></i> <span> Reports</span></a>
+                            </li>
+                            <li>
+                                <a asp-action="logout" asp-controller="account" class="waves-effect"><i class="fa fa-sign-out"></i> <span> Logout</span></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container main-container">
+                    <div id="AlertsContainer">
+                        <partial name="_Alerts" />
+                    </div>
+                    @RenderBody()
+                </div>
+                <!-- End container -->
+            </div>
+            <!-- End content -->
+            <footer class="footer text-right">
+                &copy; @DateTime.Now.Year - Bmat Solutions Ltd. All Rights Reserved.
+            </footer>
+        </div>
+    </div>
+    <script>
+        var resizefunc = [];
+       
+        getDBoardDataUrl = function () {
+            return "@Url.Action("DBoardData", "Data")";
+        }
+    </script>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/template.min.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/template.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

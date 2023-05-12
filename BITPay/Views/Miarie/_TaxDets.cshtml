@@ -1,0 +1,136 @@
+﻿@model QueryResp
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="alert alert-success text-center">
+            <i class="fa fa-check-circle-o fa-4x"></i><br />
+            <strong>Confirm declaration details to proceed to payment</strong>
+        </p>
+        <div class="table-responsive m-t-10">
+
+            @*@(Html.Grid(Model.Content.Note).Build(cols =>
+        {
+            cols.Add(m => m.RefNo).Titled("Reference Numer");
+            cols.Add(m => m.TaxPayerName).Titled("Declarant Name");
+            cols.Add(m => m.TaxPayerAddress).Titled("Declarant Address");
+            cols.Add(m => m.Descr).Titled("Description");
+            cols.Add(m => m.Period).Titled("Period");
+            cols.Add(m => m.Amount).Titled("Amount");
+            cols.Add(m => m.AmtSrc).Titled("Source Amount");
+            cols.Add(m => m.IsPaid).Titled("Paid");
+            cols.Add(m => m.IsLate).Titled("Late");
+            cols.Add().Encoded(false).RenderedAs(m => $"<a data-target=\"#details\" data-toggle=\"modal\" class=\"opendetails\" data-refno="+m.RefNo+" data-name="+m.TaxPayerName+" data-address="+m.TaxPayerAddress+
+            " data-descr="+m.Descr+" data-period="+m.Period+" data-amt="+m.Amount+" data-amtsrc="+m.AmtSrc+" data-paid="+m.IsPaid+" data-late="+m.IsLate+" data-notetype="+Model.Content.TaxNoteType+" " +
+            "data-noteno="+Model.Content.TaxNoteNo+" data-note="+m.NoteType+"><i class='fa fa-cogs'></i> -Select</a>").Css("text-right");
+        }).Pageable()
+                                .Empty("No data to display!")
+                                .Css("table-striped table-hover")
+            )*@
+
+            <table class="table table-striped table-hover table-bordered table-responsive-md" id="tblData">
+                <thead>
+                    <tr>
+                        <td>Reference No</td>
+                        <td>Declarant Name</td>
+                        <td>Declarant Address</td>
+                        <td>Description</td>
+                        <td>Period</td>
+                        <td>Amount</td>
+                        <td>Source Amount</td>
+                        <td>Paid</td>
+                        <td>Late</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Content.TaxNotes)
+                    {
+                    <tr>
+                        <td>@item.RefNo</td>
+                        <td>@item.TaxPayerName</td>
+                        <td>@item.TaxNoteDescr</td>
+                        <td>@item.Period</td>
+                        <td>@item.Amount</td>
+                        <td>@item.IsPaid</td>
+                        <td>@item.IsLate</td>
+                        <td>
+                        <a data-target="#details" 
+                           data-toggle="modal"  
+                           data-refno="@item.RefNo" 
+                           data-name="@item.TaxPayerName" 
+                           data-descr="@item.TaxNoteDescr" 
+                           data-period="@item.Period" 
+                           data-amt="@item.Amount" 
+                           data-paid="@item.IsPaid" 
+                           data-late="@item.IsLate" 
+                            data-note="@item.TaxNoteType"
+                           class="opendetails"><i class="fa fa-cog"></i> Select</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="details" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="details" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title ">Confirm Tax Note Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>RefNo:</label> <input type="text" name="refno" id="refno" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Taxpayer Name:</label> <input type="text" name="name" id="name" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Taxpayer Address:</label> <input type="text" name="address" id="address" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Description:</label> <input type="text" name="descr" id="descr" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Period:</label> <input type="text" name="period" id="period" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Amount:</label> <input type="text" name="amt" id="amt" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Amount Source:</label> <input type="text" name="amtsrc" id="amtsrc" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Already Paid:</label> <input type="text" name="paid" id="paid" value="" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Late Payment:</label> <input type="text" name="late" id="late" value="" readonly />
+                </div>
+                <div class="form-group" hidden>
+                    <label>Note Type:</label> <input type="text" name="note" id="note" value="" readonly />
+                </div>
+                <div class="form-group" hidden>
+                    <input type="text" name="notetype" id="notetype" value="" readonly />
+                    <input type="text" name="noteno" id="noteno" value="" readonly />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" id="save" onclick="func(this);">Save Taxnote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="taxForm" method="post" asp-action="confirmmiariedets">
+    <input id="tax_step" type="hidden" value="1" />
+    <input id="twende" type="hidden" value="1" />
+    @*<input type="hidden" asp-for="Content.TaxNoteType" />
+    <input type="hidden" asp-for="Content.TaxNoteNo" />*@
+
+</form>

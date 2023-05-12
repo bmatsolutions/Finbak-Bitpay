@@ -1,0 +1,261 @@
+﻿@model IncomeTaxDecl
+@{ 
+    var domestictax = ViewData["IncomeTax"] as List<SelectListItem>;
+    var incometaxcat = ViewData["IncomeTaxCatergory"] as List<SelectListItem>;
+    var vehicle = ViewData["Vehicles"] as List<SelectListItem>;
+    var annual = ViewData["AnnualFees"] as List<SelectListItem>;
+    var valorem = ViewData["Valorem"] as List<SelectListItem>;
+     var civil = ViewData["CivilStatus"] as List<SelectListItem>;
+}
+
+<div id="taxDetsContent">
+    <p class="text-muted">
+        Enter the tax declaration details in the form below and click on Next button
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="query" id="searchForm" method="post" class="form-horizontal validate-form" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="float:left;text-align:left; width:150px;height: 38px;max-width: 100%;padding: 7px 12px;" asp-for="DomesticTax" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <select id="domestictax" asp-for="DomesticTax" class="form-control"></select>
+                        <span asp-validation-for="DomesticTax" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="float:left;text-align:left; width:150px;height: 38px;max-width: 100%;padding: 7px 12px;" asp-for="DomesticTaxType" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <select id="domestictaxtype" asp-for="DomesticTaxType" class="form-control"></select>
+                        <span asp-validation-for="DomesticTaxType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="float:left; text-align:left; width:150px;" asp-for="DomesticTaxName" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <select id="domestictaxname" asp-for="DomesticTaxName" onchange="TransactionCodeOthers(this)" class="form-control"></select>
+                        <span asp-validation-for="DomesticTaxName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="vehicle_type">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="VehicleType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="vehicle" asp-for="VehicleType" class="form-control" asp-items="@vehicle"><option value="">--Select--</option></select>
+                        <span asp-validation-for="VehicleType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="contravation_no">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="Contraviction" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Contraviction" class="form-control" />
+                        <span asp-validation-for="Contraviction" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group" id="driver_name">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="DriverName" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="DriverName" class="form-control" />
+                        <span asp-validation-for="DriverName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="wording">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="Wording" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Wording" class="form-control" />
+                        <span asp-validation-for="Wording" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="service">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="Service" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Service" class="form-control" />
+                        <span asp-validation-for="Service" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="licence_type">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="LicenceType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="vehicle" asp-for="LicenceType" class="form-control" asp-items="@annual"><option value="">--Select--</option></select>
+                        <span asp-validation-for="LicenceType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="licences_type">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="LicencesType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="vehicle" asp-for="LicencesType" class="form-control" asp-items="@valorem"><option value="">--Select--</option></select>
+                        <span asp-validation-for="LicencesType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="chasowner">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="CarOwner" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CarOwner" class="form-control" />
+                        <span asp-validation-for="CarOwner" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="manufacture_year">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="ManufactureYear" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="ManufactureYear" class="form-control" />
+                        <span asp-validation-for="ManufactureYear" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="car_chassis">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="CarChassis" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CarChassis" class="form-control" />
+                        <span asp-validation-for="CarChassis" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="brand">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="BrandType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="BrandType" class="form-control" />
+                        <span asp-validation-for="BrandType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="car_imma">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="CarImma" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CarImma" class="form-control" />
+                        <span asp-validation-for="CarImma" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="car_details">
+                    <label style="float:left;text-align:left;width:150px;" asp-for="CarDetails" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CarDetails" class="form-control" />
+                        <span asp-validation-for="CarDetails" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="tin_no">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="tin" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="tin" class="form-control" />
+                        <span asp-validation-for="tin" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="customer">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="CustomName" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CustomName" class="form-control" />
+                        <span asp-validation-for="CustomName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="commune_name">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="commune" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="commune" class="form-control" />
+                        <span asp-validation-for="commune" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="period_no">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="Period" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Period" class="form-control" />
+                        <span asp-validation-for="Period" class="text-danger"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+                <div class="form-group" id="doc_name">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="Document" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Document" class="form-control" />
+                        <span asp-validation-for="Document" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="doc_type">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="EducationDoc" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="EducationDoc" class="form-control" />
+                        <span asp-validation-for="EducationDoc" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="tot_copies">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="TotCopies" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="TotCopies" class="form-control" />
+                        <span asp-validation-for="TotCopies" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="infraction_type">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="Infraction" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Infraction" class="form-control" />
+                        <span asp-validation-for="Infraction" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="product">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="Product" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Product" class="form-control" />
+                        <span asp-validation-for="Product" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="AmountPayable" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="AmountPayable" class="form-control" />
+                        <span asp-validation-for="AmountPayable" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="civil">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="CivilStatus" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="vehicle" asp-for="CivilStatus" class="form-control" asp-items="@civil"><option value="">--Select--</option></select>
+                        <span asp-validation-for="CivilStatus" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="cni">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="CNI" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CNI" class="form-control" />
+                        <span asp-validation-for="CNI" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="cni_issue">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="CNIIssue" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CNIIssue" class="form-control" />
+                        <span asp-validation-for="CNIIssue" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="decl_no">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="DeclNo" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="DeclNo" class="form-control" />
+                        <span asp-validation-for="DeclNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="adjustment">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="AdjustMentType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="adjust" asp-for="AdjustMentType" class="form-control"></select>
+                        <span asp-validation-for="AdjustMentType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="majoration">
+                    <label style="float:left;text-align:left; width:150px;" asp-for="DelayMajoration" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="DelayMajoration" class="form-control" />
+                        <span asp-validation-for="DelayMajoration" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

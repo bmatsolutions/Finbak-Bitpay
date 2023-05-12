@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Finbank-BITPay-master\\DBL\\DBL.csproj": {}
+  },
+  "projects": {
+    "E:\\Finbank-BITPay-master\\DBL\\DBL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Finbank-BITPay-master\\DBL\\DBL.csproj",
+        "projectName": "BITPay.DBL",
+        "projectPath": "E:\\Finbank-BITPay-master\\DBL\\DBL.csproj",
+        "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
+        "outputPath": "E:\\Finbank-BITPay-master\\DBL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\BmatSolution\\LANALA\\LocalNuGet": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Bmat.Tools.Security": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "DotNetCore.NPOI": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "FastReport.OpenSource": {
+              "target": "Package",
+              "version": "[2022.3.4, )"
+            },
+            "FastReport.OpenSource.Export.PdfSimple": {
+              "target": "Package",
+              "version": "[2022.3.4, )"
+            },
+            "FastReport.OpenSource.Web": {
+              "target": "Package",
+              "version": "[2022.3.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[11.0.2, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
+              "target": "Package",
+              "version": "[2.19.70, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

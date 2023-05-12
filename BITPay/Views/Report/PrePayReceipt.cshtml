@@ -1,0 +1,295 @@
+﻿
+
+@model BuyTokenReportModels
+@{
+    Layout = "_LayoutReceipt";
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
+}
+
+<br />
+<table style="width:100%">
+    <tr>
+
+        @if (title == "BCAB S.A")
+        {
+            <td>
+                <div><img class="logo" src="~/images/BCAB.jpg" alt=".." /> </div>
+            </td>
+        }
+
+        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+        <td>
+            <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+        </td>
+    </tr>
+</table>
+<table style="width:100%">
+    <tr>
+        <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+        @*<td>
+                <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+            </td>*@
+    </tr>
+</table>
+<table style="width:100%;font-size:12px">
+    <tr>
+        <td style="text-align:left;">
+            <table style="width:100%;">
+                <tr>
+                    <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.ReceivedCode</td>
+                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong> @Model.NewReadingDate</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    @*<tr>
+            <td style="text-align:left;">
+                <strong> Contribuable nif: </strong> @Model.Nif
+            </td>
+        </tr>*@
+    <tr>
+        <td style="text-align:left;">
+            <strong> Détails du contribuable: </strong> @Model.CustName
+        </td>
+    </tr>
+
+    @*<tr>
+            <td style="text-align:left;">
+                <strong>Délivrée à:</strong> @Model.BranchName
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left;">
+                <strong>Détails de la taxe intérieure:</strong> @Model.TaxDetails
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td><strong>Déposant:</strong>  @Model.ReceivedFrom </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>*@
+</table>
+<table style="width:100%">
+    <tr>
+        <td><div style="text-align:center;"><h5 style="font:bold;">Dètails de Paiement</h5></div></td>
+    </tr>
+</table>
+<table class="table table-striped" style="width:100%;font-size:12px">
+    <tr>
+        <td> <strong>Détails de la taxe intérieure</strong></td>
+        <td> <strong>Détails du déclarant fiscal</strong></td>
+        <td> <strong>Période Fiscale </strong></td>
+        <td> <strong></strong></td>
+    </tr>
+    <tr>
+       <td><strong>Token :@Model.Token3</strong></td>
+        <td>@Model.CustName</td>
+        <td>@Model.NewReadingDate</td>
+        <td></td>
+
+        @*<tr><td></td> <td><strong> Total à encaisser pour les Déclarations </strong></td><td></td> <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
+    <tr>
+        <td><strong>Moyen de paiement</strong></td>
+        <td><strong>Banque Référence </strong></td>
+        <td><strong>Banque </strong></td>
+        <td><strong>Montant payé </strong></td>
+    <tr />
+    <tr>
+
+        <td><strong>Buy Token</strong></td>
+        <td>@Model.ReceivedCode</td>
+        <td>@Model.Amount.ToString("#,##0.00")</td>
+    </tr>
+    @*<tr>
+
+            <td><strong>Moyen de paiement</strong></td>
+            <td><strong> Référence </strong></td>
+            <td><strong>Banque </strong></td>
+            <td><strong>Montant payé </strong></td>
+        <tr />
+        <tr>
+            <td>@Model.PaymentMode</td>
+            <td>@Model.ReferenceNo</td>
+            <td>Finbank SA</td>
+            <td>@Model.Amount.ToString("#,##0.00")</td>
+        </tr>
+        <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
+
+    <tr><td><strong>Payé par:</strong></td><td> @Model.CustName</td> <td> <strong>Remarques:</strong></td><td></td></tr>
+    <tr><td><strong>Date de réception:</strong></td><td> @DateTime.Now.ToString("dd/MM/yyyy")</td><td><strong>Signature du client: </strong></td><td></td></tr>
+    <tr><td><strong>Code de recherche:</strong></td><td>@Model.ReceivedCode (Utilisez ce numéro pour demander l'état de votre bulletin de versement)</td></tr>
+    <tr><td><strong>Finbank SA Reconnait avoir encaisse la somme ci-dessus.</strong></td></tr>
+    <tr>
+        <td><div>Signature et Cachet:  </div></td>
+        <td></td>
+        <td><div style="text-align:right;">................................................................</div></td>
+    </tr>
+</table>
+@*<p class="text-center" style="font-size:9px">
+
+    </p>*@
+
+@*<table style="font-size:8px">
+
+    </table>*@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<table style="width:100%">
+    <tr>
+
+        @if (title == "BCAB S.A")
+        {
+            <td>
+                <div><img class="logo" src="~/images/BCAB.jpg" alt=".." /> </div>
+            </td>
+        }
+
+        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+        <td>
+            <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+        </td>
+    </tr>
+</table>
+<table style="width:100%">
+    <tr>
+        <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+        @*<td>
+                <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+            </td>*@
+    </tr>
+</table>
+<table style="width:100%;font-size:12px">
+    <tr>
+        <td style="text-align:left;">
+            <table style="width:100%;">
+                <tr>
+                    <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.ReceivedCode</td>
+                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong> @Model.NewReadingDate</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    @*<tr>
+            <td style="text-align:left;">
+                <strong> Contribuable nif: </strong> @Model.Nif
+            </td>
+        </tr>*@
+    <tr>
+        <td style="text-align:left;">
+            <strong> Détails du contribuable: </strong> @Model.CustName
+        </td>
+    </tr>
+
+    @*<tr>
+            <td style="text-align:left;">
+                <strong>Délivrée à:</strong> @Model.BranchName
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left;">
+                <strong>Détails de la taxe intérieure:</strong> @Model.TaxDetails
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td><strong>Déposant:</strong>  @Model.ReceivedFrom </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>*@
+</table>
+<table style="width:100%">
+    <tr>
+        <td><div style="text-align:center;"><h5 style="font:bold;">Dètails de Paiement</h5></div></td>
+    </tr>
+</table>
+<table class="table table-striped" style="width:100%;font-size:12px">
+    <tr>
+        <td> <strong>Détails de la taxe intérieure</strong></td>
+        <td> <strong>Détails du déclarant fiscal</strong></td>
+        <td> <strong>Période Fiscale </strong></td>
+        <td> <strong></strong></td>
+    </tr>
+    <tr>
+       <td><strong>Token :@Model.Token3</strong></td>
+        <td>@Model.CustName</td>
+        <td>@Model.NewReadingDate</td>
+        <td></td>
+
+        @*<tr><td></td> <td><strong> Total à encaisser pour les Déclarations </strong></td><td></td> <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
+    <tr>
+        <td><strong>Moyen de paiement</strong></td>
+        <td><strong>Banque Référence </strong></td>
+        <td><strong>Banque </strong></td>
+        <td><strong>Montant payé </strong></td>
+    <tr />
+    <tr>
+
+        <td><strong>Buy Token</strong></td>
+        <td>@Model.ReceivedCode</td>
+        <td>@Model.Amount.ToString("#,##0.00")</td>
+    </tr>
+    @*<tr>
+
+            <td><strong>Moyen de paiement</strong></td>
+            <td><strong> Référence </strong></td>
+            <td><strong>Banque </strong></td>
+            <td><strong>Montant payé </strong></td>
+        <tr />
+        <tr>
+            <td>@Model.PaymentMode</td>
+            <td>@Model.ReferenceNo</td>
+            <td>Finbank SA</td>
+            <td>@Model.Amount.ToString("#,##0.00")</td>
+        </tr>
+        <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
+
+    <tr><td><strong>Payé par:</strong></td><td> @Model.CustName</td> <td> <strong>Remarques:</strong></td><td></td></tr>
+    <tr><td><strong>Date de réception:</strong></td><td> @DateTime.Now.ToString("dd/MM/yyyy")</td><td><strong>Signature du client: </strong></td><td></td></tr>
+    <tr><td><strong>Code de recherche:</strong></td><td>@Model.ReceivedCode (Utilisez ce numéro pour demander l'état de votre bulletin de versement)</td></tr>
+    <tr><td><strong>Finbank SA Reconnait avoir encaisse la somme ci-dessus.</strong></td></tr>
+    <tr>
+        <td><div>Signature et Cachet:  </div></td>
+        <td></td>
+        <td><div style="text-align:right;">................................................................</div></td>
+    </tr>
+</table>
+@*<p class="text-center" style="font-size:9px">
+
+    </p>*@
+
+@*<table style="font-size:8px">
+
+    </table>*@
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+}
+
+

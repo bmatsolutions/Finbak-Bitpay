@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MarieDataFieldModel>
+@foreach (var field in Model)
+{
+    <div class="form-group">
+        <label for="@field.FieldName" class="col-md-5 control-label">
+            @field.FieldTitle @if (field.IsRequired)
+        {<sup class="text-danger">*</sup>}
+        </label>
+        <div class="col-md-7">
+            @if (field.DataType == 0)
+            {
+                <input id="@field.FieldName"
+                       name="@field.FieldName"
+                       type="text"
+                       value=""
+                       class="form-control"
+                       data-val="@(field.IsRequired?"true":"false")"
+                       data-val-required="@(field.IsRequired? field.FieldTitle + " field is required!":"")" />
+            }
+            else if (field.DataType == 1)
+            {
+
+            }
+            else if (field.DataType == 2 || field.DataType == 3)
+            {
+                var items = field.ListItems.Select(x => new SelectListItem { Text = x.ItemName, Value = x.ItemCode }).ToList();
+
+                <select id="@field.FieldName"
+                        name="@field.FieldName"
+                        class="form-control"
+                        asp-items="@items"
+                        data-val="@(field.IsRequired?"true":"false")"
+                        data-val-required="@(field .IsRequired? field.FieldTitle + " field is required!":"")"></select>
+            }
+
+            @if (field.IsRequired)
+            {
+                <span class="text-danger field-validation-valid" data-valmsg-for="@field.FieldName" data-valmsg-replace="true"></span>
+            }
+        </div>
+    </div>
+}

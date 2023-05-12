@@ -1,0 +1,97 @@
+﻿@model UserProfileModel
+@{
+    ViewData["Title"] = "User Profile";
+}
+<h2 class="header-title">User Profile</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <p class="text-muted">Current logged in user details:</p>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">User Name:</div>
+                <div class="col-md-8 control-label">
+                    <strong>@Model.UserName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Full Names:</div>
+                <div class="col-md-8 control-label">
+                    <strong>@Model.FullNames</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">E-Mail:</div>
+                <div class="col-md-8">
+                    <strong>@Model.EMail</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Created On:</div>
+                <div class="col-md-8">
+                    <strong>@Model.CreateDate.ToString("dd-MMM-yyyy")</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">User Status:</div>
+                <div class="col-md-8">
+                    <strong>@Model.UserStatus</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">User Role:</div>
+                <div class="col-md-8">
+                    <strong>@Model.UserStatus</strong>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card-box">
+            <div class="text-muted header-title-sm">Change Password</div>
+            <hr />
+            <form asp-action="ChangePass" method="post" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input type="hidden" asp-for="UserCode" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OldPassword" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="OldPassword" class="form-control" />
+                        <span asp-validation-for="OldPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NewPassword" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="NewPassword" class="form-control" />
+                        <span asp-validation-for="NewPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Change</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+

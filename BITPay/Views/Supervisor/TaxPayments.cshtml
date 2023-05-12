@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TaxPaymentModel>
+@{
+    ViewData["Title"] = "Payments Approval";
+    var types = ViewData["TaxTypes"] as List<SelectListItem>;
+}
+
+<h2 class="header-title">Payments Approval</h2>
+<div class="card-box">
+    <p class="text-muted">List of Tax Payments pending authorization. Click <b>Manage</b> to take action on an item</p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="taxpayments" method="get" class="form-horizontal check-valid m-b-0" role="form" id="frmType">               
+                <div class="form-group m-b-5">
+                    <label for="taxType" class="col-md-4">Select Tax Type:</label>
+                    <div class="col-md-8">
+                        <select id="taxType" name="taxType" class="form-control" asp-items="@types"></select>
+                    </div>
+                </div>                               
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive m-t-10">
+        <table class="table table-striped table-hover table-bordered table-responsive-md" id="tblData">
+            <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>Tax Type</td>
+                    <td>Pay Mode</td>
+                    <td>Dr Account</td>
+                    <td>Cr Account</td>
+                    <td>Maker</td>
+                    <td class="text-right">Amount</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><small>@item.CreateDate</small></td>
+                        <td>@item.TypeName</td>
+                        <td>@item.PayModeName</td>
+                        <td>@item.DrAccount</td>
+                        <td>@item.CrAccount</td>
+                        <td>@item.UserName</td>
+                        <td class="text-right"><strong>@item.Amount.ToString("#,##0.00")</strong></td>
+                        <td><a asp-action="managetax" asp-route-code="@item.PaymentCode" class="text-right"><i class="fa fa-cog"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+    <script>
+        $(function () {
+            $('#tblData').dataTable();
+
+            $("#taxType").on('change', function () {
+                $("#frmType").submit();
+            })
+        });
+    </script>
+}

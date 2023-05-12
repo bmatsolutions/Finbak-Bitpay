@@ -1,0 +1,49 @@
+﻿@model Bank
+@{
+    ViewData["Title"] = "Bank";
+}
+
+<h2 class="header-title">Bank</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <div class="text-muted">
+                Enter Bank details in the form below and then click on <b>Submit</b> button
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <form asp-action="Bank" method="post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                                <input asp-for="BankCode" type="hidden" />
+                                <input asp-for="mode" type="hidden" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BankName" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="BankName" class="form-control" />
+                                <span asp-validation-for="BankName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BankID" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="BankID" class="form-control" />
+                                <span asp-validation-for="BankID" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Submit</button>
+                                <a asp-action="Banks" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

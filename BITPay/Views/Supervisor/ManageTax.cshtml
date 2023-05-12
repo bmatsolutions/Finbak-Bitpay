@@ -1,0 +1,168 @@
+﻿@model TaxPaymentModel
+@{
+    ViewData["Title"] = "Manage Approval";
+}
+<a asp-action="taxpayments"><i class="fa fa-long-arrow-left"></i> Go back</a>
+<h2 class="header-title">Manage Approval Item</h2>
+<div class="row">
+    <div class="col-md-7">
+        <div class="card-box">
+            <div class="text-muted">Tax payment details:</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-3">
+                    Tax Type:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.TypeName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Tax Payer:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.DclntName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Dr Account:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.DrAccount</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Other Details:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.Details</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Created By:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.UserName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Amount:</h4>
+                </div>
+                <div class="col-md-9">
+                    <h4> <span class="label label-inverse font-600"><strong>@Model.Amount.ToString("#,##0.00")</strong></span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Charge Amount:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.ChargeAmount.ToString("#,##0.00")</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Waive Charge:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.NoCharge</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Payment Mode:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.PayModeName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Created On:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.CreateDate</strong>
+                </div>
+            </div>
+            <div id="taxDets">
+
+            </div>
+            <hr />
+            <small>You can Approve or Reject this transaction on the right panel. If you reject you MUST enter a reason.</small>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Manage Actions:</strong></div>
+            <div class="panel-body">
+                <form asp-action="supervise" id="frmApprove">
+                    <input type="hidden" name="Code" value="@Model.PaymentCode" />
+                    <input type="hidden" name="Reason" value="" />
+                    <input type="hidden" name="MyAction" value="1" />
+                    <button type="submit" class="btn btn-success btn-lg " id="btnApprove"><i class="fa fa-check"></i> Approve</button>
+                </form>
+                <hr />
+                <form asp-action="supervise" id="frmReject">
+                    <input type="hidden" name="Code" value="@Model.PaymentCode" />
+                    <input type="hidden" name="MyAction" value="0" />
+                    <textarea name="Reason" class="form-control" placeholder="Enter the reject reason......"></textarea>
+                    <button type="submit" class="btn btn-danger m-t-10" id="btnReject"><i class="fa fa-close"></i> Reject</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/js/dialog.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnApprove').click(function (e) {
+                e.preventDefault()
+                showConfirmMessage('Approve Payment', 'Are you sure you want to APPROVE this payment?', function () {
+                    swal.close();
+                    submitForm($('#frmApprove'));
+                    $(this).prop('disabled', true);
+                })
+            });
+
+            $('#btnReject').click(function (e) {
+                e.preventDefault()
+                showConfirmMessage('Reject Payment', 'Are you sure you want to REJECT this payment?', function () {
+                    swal.close();
+                    submitForm($('#frmReject'));
+                })
+            });
+
+            //$('#frmReject').on('submit',function (e) {
+            //    e.preventDefault()
+            //    showConfirmMessage('Reject Payment', 'Are you sure you want to REJECT this payment?', function () {
+            //        swal.close();
+            //        submitForm($(this));
+            //    })
+            //});
+        })
+
+        function submitForm(frm) {
+            showProgress();
+
+            frm.submit();
+
+            //var url = frm.attr('action');
+            //var formData = frm.serialize();
+            //$.post(url, formData, function (data) {
+            //    location.reload();
+            //})
+        }
+    </script>
+}
+

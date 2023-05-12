@@ -1,0 +1,50 @@
+﻿@model FinishModel
+@{
+    var statModel = new PaymentStatusModel
+    {
+        StatusCode = 0,
+        StatusName = "Pending",
+        Code=Model.Code
+    };
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-check fa-5x"></i><br />
+            <h2 class="text-success">Successful.</h2>
+            <strong>@Model.Message</strong>
+        </div>
+
+        @if (!Model.NeedApproval)
+        {
+            <div class="text-center text-muted">
+                <span>Click on the button below to view transaction receipt</span><br />
+                <a target="_blank"
+                   asp-action="generate"
+                   asp-controller="newreport"
+                   asp-route-reportCode="52"
+                   asp-route-filter1="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"></i> Print Receipt</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @if (Model.NeedApproval == true)
+                {
+                    <div>Payment Status:</div>  
+                    <hr />
+                    <p>
+                        <a asp-action="getpaymentstatus" asp-route-code="@Model.PaymentCode"  asp-route-tcode="@Model.Code" class="btn btn-success btn-sm" id="btnRefreshStat">
+                            <i class="fa fa-refresh" aria-hidden="true"></i> Refresh
+                        </a>
+                    </p>                    
+                    <div id="payStatView" class="m-b-10">
+                        <partial name="_PaymentStat" model="@statModel"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<input id="twende" type="hidden" value="1" />

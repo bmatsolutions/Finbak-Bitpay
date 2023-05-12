@@ -1,0 +1,136 @@
+﻿@model SysUserModel
+@{
+    ViewData["Title"] = "Manage User";
+}
+
+<h2 class="header-title">Manage User</h2>
+<div class="row">
+    <div class="col-md-5">
+        <div class="card-box">
+            <div class="text-muted">System user details:</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    User Name:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.UserName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    Full Names:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.FullNames</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    E-Mail Address:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.Email</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    User Role:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.UserRoleName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    User Status:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.UserStatusName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    Last Login:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.LastLogin</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    User Branch:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.BranchName</strong>
+                </div>
+            </div>
+            <hr />
+            <small>Select an action on the right to manage user</small>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Manage Actions:</strong></div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a asp-action="resetpass" asp-route-code="@Model.UserCode"><i class="fa fa-refresh"></i> Reset Password</a>
+                </li>
+                <li class="list-group-item">
+                    <a asp-action="changeDetails" asp-route-code="@Model.UserCode"><i class="fa fa-pencil-square-o"></i> Change Details</a>
+                  
+                </li>
+                @* <li class="list-group-item">
+            <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i> Change Cash Account</a>
+        </li>*@
+                <li class="list-group-item">
+                    @if (Model.UserStatus != 3)
+                    {
+                        <a asp-action="BlockUser" asp-route-code="@Model.UserCode" onclick="return confirm('Are you sure you wish to Block this user?');"><i class="fa fa-ban text-danger"></i> Block User</a>
+                    }
+                    else
+                    {
+                        <a asp-action="UnBlockUser" asp-route-code="@Model.UserCode" onclick="return confirm('Are you sure you wish to UnBlock this user?');"><i class="fa fa-ban text-danger"></i> UnBlock User</a>
+                    }
+
+                    @*<a href="#" class="text-danger"><i class="fa fa-ban"></i> Block User</a>*@
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">User Cash Account</h4>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Cash Account</strong> is the account where the teller transactions for this user will be posted.<br />
+                    Enter the account 
+                    </p>
+                    <form class="form-horizontal" asp-action="setcashaccount">
+                        <input type="hidden" asp-for="UserCode" />
+                        <div class="form-group">
+                            <label class="control-label col-md-4" asp-for="Cash_Account">Cash Account:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" asp-for="Cash_Account">
+                            </div>
+                        </div>                                                
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+       
+    </div>

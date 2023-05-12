@@ -1,0 +1,41 @@
+﻿@using System.Security.Claims
+@{
+    string userName = "";
+    UserDataModel currentUserData = null;
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userName = currentUserData.UserName;
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/imports.css" rel="stylesheet" />
+    <link href="~/css/report.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="text-align:center;">
+        <img class="logo" src="~/images/logo.jpg" alt=".." />
+    </div>
+    @*<table style="width:100%">
+        <tr>
+            <td>
+                <div class="font-11">Print Date: @DateTime.Now.ToString("dd/MM/yyyy hh:mm tt").ToUpper()</div>
+            </td>
+            <td>
+                <div class="font-11" style="text-align:right;">Printed By: <b>@userName</b></div>
+            </td>
+        </tr>
+    </table>*@
+    @*<img src="~/images/logo.jpg" alt=".." style="display:none;" />*@
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

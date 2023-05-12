@@ -1,0 +1,56 @@
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe.config
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe.manifest
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.application
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\Dapper.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\DocumentFormat.OpenXml.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\ExcelNumberFormat.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\Newtonsoft.Json.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\OBRClient.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\OBRClient.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\Dapper.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\DocumentFormat.OpenXml.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\ExcelNumberFormat.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\bin\Debug\Newtonsoft.Json.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.AssemblyReference.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.Form1.resources
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.ProjectInstaller.resources
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.GenerateResource.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.CoreCompileInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.exe.manifest
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.application
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.exe
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.pdb
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe.config
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe.manifest
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.application
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.exe
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\BITPayService.pdb
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\Dapper.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\DocumentFormat.OpenXml.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\ExcelNumberFormat.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\OBRClient.dll
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\OBRClient.pdb
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.pdb
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\ClosedXML.xml
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\Dapper.xml
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\DocumentFormat.OpenXml.xml
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\ExcelNumberFormat.xml
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.AssemblyReference.cache
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.SuggestedBindingRedirects.cache
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.Form1.resources
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.ProjectInstaller.resources
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.GenerateResource.cache
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.CoreCompileInputs.cache
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.exe.manifest
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.application
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.csproj.CopyComplete
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.exe
+F:\Projects\c#\Finbank-BITPay-master\BITPayService\obj\Debug\BITPayService.pdb

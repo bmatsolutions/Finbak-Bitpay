@@ -1,0 +1,38 @@
+﻿body {
+    font-family: "Nunito","Helvetica Neue",sans-serif;
+}
+.font-11{font-size:11px;}
+.underline-dotted{border-bottom:dashed 0px #000; display:block;}
+.underline {
+    border-bottom: solid 1px #000;
+    display: inline;
+}
+.table-report {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+/*table.table-report th, td {
+    border-bottom: 1px dotted #ddd;
+    text-align:left;
+}*/
+table.report-footer th, table.report-footer td {
+    border-bottom: 1px solid #000000 !important;
+    border-top: 1px solid #000000 !important;
+    font-size: 14px!important;
+}
+table.table-report th.text-right, table.table-report td.text-right {
+    text-align: right !important;
+}
+table.table-report tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+table.table-report th.header {
+    border-bottom: 1px solid #0e0404!important;
+}
+table.table-report th.group-header {
+    border-bottom: 1px dotted #0e0404 !important;
+    border-top: 1px dotted #0e0404 !important;
+    padding: 2px 0;
+}
+img.logo{width:150px;height:50px;}

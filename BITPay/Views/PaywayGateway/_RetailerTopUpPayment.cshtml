@@ -1,0 +1,44 @@
+﻿@model TopUp
+<div id="taxDetsContent">
+    <p class="text-muted">
+        Enter retailer details in the form below and click on Next button
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="retailerpayment" id="searchForm" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerNumber" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="CustomerNumber" class="form-control" />
+                        <span asp-validation-for="CustomerNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactInfo" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="ContactInfo" class="form-control" />
+                        <span asp-validation-for="ContactInfo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Amount" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

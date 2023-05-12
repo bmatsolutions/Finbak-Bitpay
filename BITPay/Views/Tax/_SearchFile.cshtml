@@ -1,0 +1,161 @@
+﻿@model DeclarationQueryData
+@{ 
+    var currency = ViewData["Currency"] as List<SelectListItem>;
+}
+<div id="taxDetsContent">
+    <p class="text-muted">
+        Enter the tax declaration details in the form below and click on Next button
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="query" id="searchForm" method="post" class="form-horizontal validate-form" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaxType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="customtax" asp-for="TaxType" onchange="PayTypeChange(this)" class="form-control"></select>
+                        <span asp-validation-for="TaxType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="other">
+                    <div class="form-group">
+                        <label asp-for="TranCode" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <select id="tranref" asp-for="TranCode" class="form-control"></select>
+                            <span asp-validation-for="TranCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Currencies" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <select id="currency" asp-for="Currencies" class="form-control"></select>
+                            <span asp-validation-for="Currencies" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OfficeCode" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="OfficeCode" class="form-control" />
+                        <span asp-validation-for="OfficeCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" id="decl">
+                    <div class="form-group" id="regyear">
+                        <label asp-for="RegistrationYear" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="RegistrationYear" class="form-control" />
+                            <span asp-validation-for="RegistrationYear" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @*<div class="form-group" id="assno">
+                        <label asp-for="AssessmentSerial" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="AssessmentSerial" class="form-control" />
+                            <span asp-validation-for="AssessmentSerial" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="assser">
+                        <label asp-for="AssessmentNumber" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="AssessmentNumber" class="form-control" />
+                            <span asp-validation-for="AssessmentNumber" class="text-danger"></span>
+                        </div>
+                    </div>*@
+                    <div class="form-group" id="regser">
+                        <label asp-for="RegistrationSerial" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="RegistrationSerial" class="form-control" />
+                            <span asp-validation-for="RegistrationSerial" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="regno">
+                        <label asp-for="RegistrationNumber" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="RegistrationNumber" class="form-control" />
+                            <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="credit">
+                    <div class="form-group" id="accref">
+                        <label asp-for="AccountReference" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="AccountReference" class="form-control" />
+                            <span asp-validation-for="AccountReference" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="refyear">
+                        <label asp-for="ReferenceYear" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="ReferenceYear" class="form-control" />
+                            <span asp-validation-for="ReferenceYear" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="refno">
+                        <label asp-for="ReferenceNumber" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="ReferenceNumber" class="form-control" />
+                            <span asp-validation-for="ReferenceNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="otherdet">
+                    @*<div class="form-group" id="officename">
+            <label asp-for="OfficeName" class="col-md-5 control-label"></label>
+            <div class="col-md-7">
+                <input asp-for="OfficeName" class="form-control" />
+                <span asp-validation-for="OfficeName" class="text-danger"></span>
+            </div>
+        </div>*@
+                    <div class="form-group" id="tranref">
+                        <label asp-for="TranRef" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="TranRef" class="form-control" />
+                            <span asp-validation-for="TranRef" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="compcode">
+                        <label asp-for="CompCode" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="CompCode" class="form-control" />
+                            <span asp-validation-for="CompCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="compcode">
+                        <label asp-for="DeclCode" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="DeclCode" class="form-control" />
+                            <span asp-validation-for="DeclCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="taxpayer">
+                        <label asp-for="TaxPayer" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="TaxPayer" class="form-control" />
+                            <span asp-validation-for="TaxPayer" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="amt">
+                        <label asp-for="Amount" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="Amount" class="form-control" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

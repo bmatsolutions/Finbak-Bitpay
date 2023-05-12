@@ -1,0 +1,51 @@
+﻿
+@model QueryMarie
+@{
+    var taxTypes = new List<SelectListItem>();
+    taxTypes.Add(new SelectListItem { Value = "1", Text = "TAX NOTE" });
+    taxTypes.Add(new SelectListItem { Value = "2", Text = "TAX NOTICE" });
+}
+<div id="taxDetsContent">
+    <p class="text-muted">
+        Enter the miarie declaration details in the form below and click on Next button
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="query" id="frmQuey" method="post" class="form-horizontal check-valid" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaxType" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="myTaxType" asp-for="TaxType" class="form-control" asp-items="@taxTypes"></select>
+                        <span asp-validation-for="TaxType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TypeCode" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <select id="myTypeCode" asp-for="TypeCode" class="form-control"></select>
+                        <span asp-validation-for="TypeCode" class="text-danger"></span>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="RefNo" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="RefNo" class="form-control" />
+                        <span asp-validation-for="RefNo" class="text-danger"></span>
+                    </div>
+                </div>*@
+                <div id="typeFields"> </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

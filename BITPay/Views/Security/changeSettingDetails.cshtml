@@ -1,0 +1,45 @@
+﻿@model vwSystemSett
+@{
+    ViewData["Title"] = "Update System Parameters";
+    
+}
+
+<h2 class="header-title">Update User</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <div class="text-muted">
+                Update User details in the form below and then click on <b>Submit</b> button
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <form asp-action="changeSettingDetails" method="post" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="ItemName" />
+                            <input type="hidden" asp-for="Descr" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ItemValue" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="ItemValue" class="form-control" />
+                                <span asp-validation-for="ItemValue" class="text-danger"></span>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Submit</button>
+                                <a asp-action="systemsettings" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

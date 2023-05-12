@@ -1,0 +1,55 @@
+﻿@model Syssetting
+@{
+    ViewData["Title"] = "Manage User";
+}
+
+<h2 class="header-title">Manage User</h2>
+<div class="row">
+    <div class="col-md-5">
+        <div class="card-box">
+            <div class="text-muted">System user details:</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    Item Name:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.ItemName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    Item Value:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.ItemValue</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    Description:
+                </div>
+                <div class="col-md-8">
+                    <strong>@Model.Descr</strong>
+                </div>
+            </div>
+            
+            <hr />
+            <small>Select an action on the right to manage user</small>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Manage Actions:</strong></div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <a asp-action="changeSettingDetails" asp-route-code="@Model.Id"><i class="fa fa-refresh"></i> Change Details</a>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>
+
+

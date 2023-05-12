@@ -1,0 +1,288 @@
+﻿@model Bills
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+    var banks = ViewData["Bank"] as List<SelectListItem>;
+}
+<h2 class="header-title">PostPayed Payment</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <div class="text-muted">
+                Confirm the bill details then press <b>Submit</b> button
+            </div>
+            <div class="row">
+                
+                    <form asp-action="MakePayment" id="confirmForm" method="post" class="form-horizontal validate-form" role="form">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                                  <input id="twende" type="hidden" value="1" />
+                                   <input type="hidden" asp-for="PayMode" />
+                                   <input type="hidden" asp-for="Msg" />
+                                   <input id="tax_step" type="hidden" value="1" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Invoice_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Invoice_no" class="form-control" readonly/>
+                                <span asp-validation-for="Invoice_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cust_name" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Cust_name" class="form-control" readonly/>
+                                <span asp-validation-for="Cust_name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cust_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Cust_no" class="form-control" readonly/>
+                                <span asp-validation-for="Cust_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Accnt_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Accnt_no" class="form-control" readonly />
+                                <span asp-validation-for="Accnt_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Amnt_paid" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Amnt_paid" class="form-control" readonly/>
+                                <span asp-validation-for="Amnt_paid" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Amnt" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Amnt" class="form-control"  readonly/>
+                                <span asp-validation-for="Amnt" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Activity" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Activity" class="form-control"  readonly/>
+                                <span asp-validation-for="Activity" class="text-danger"></span>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Month" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Month" class="form-control" readonly/>
+                                <span asp-validation-for="Month" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Year" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Year" class="form-control" readonly />
+                                <span asp-validation-for="Year" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="PhoneNo" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="PhoneNo" class="form-control" readonly />
+                                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="PayModeName" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="PayModeName" class="form-control" readonly />
+                                <span asp-validation-for="PayModeName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        @if (Model.PayMode == 1 || Model.PayMode == 2)
+                            {
+                                 <div class="form-group">
+                            <label asp-for="DrAccount" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="DrAccount" class="form-control" readonly />
+                                <span asp-validation-for="DrAccount" class="text-danger"></span>
+                            </div>
+                        </div>
+                            }
+                            @if (Model.PayMode == 2)
+                            {
+                                <div class="form-group">
+                            <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="ChequeNo" class="form-control" readonly />
+                                <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                            }
+                            @if (Model.PayMode == 3)
+                            {
+
+                                <div class="form-group">
+                            <label asp-for="SortCode" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="SortCode" class="form-control" readonly />
+                                <span asp-validation-for="SortCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                            }
+
+                            @if (Model.PayMode == 4)
+                            {
+                                <div class="form-group">
+                            <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="ChequeNo" class="form-control" readonly />
+                                <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                               <div class="form-group">
+                            <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="ChequeNo" class="form-control" readonly />
+                                <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                            }
+                        <div class="form-group">
+                            <label asp-for="ReceivedFrom" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="ReceivedFrom" class="form-control" readonly />
+                                <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Remarks" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <textarea asp-for="Remarks" class="form-control" readonly></textarea>
+                                <span asp-validation-for="Remarks" class="text-danger"></span>
+                            </div>
+                        </div>
+                     </div>
+                    </form>
+              
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@*
+
+
+            @model PrePaidModel
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                            </div>
+                        </div>
+        <div class="form-group">
+            <label asp-for="Cust_name" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Cust_name" class="form-control" readonly/>
+                <span asp-validation-for="Cust_name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cust_no" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Cust_no" class="form-control" readonly/>
+                <span asp-validation-for="Cust_no" class="text-danger"></span>
+            </div>
+        </div>
+            <div class="form-group">
+            <label asp-for="Accnt_no" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Accnt_no" class="form-control" readonly />
+                <span asp-validation-for="Accnt_no" class="text-danger"></span>
+            </div>
+        </div>
+            <div class="form-group">
+            <label asp-for="Amnt" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Amnt" class="form-control"  readonly/>
+                <span asp-validation-for="Amnt" class="text-danger"></span>
+            </div>
+        </div>
+            <div class="form-group">
+            <label asp-for="Activity" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Activity" class="form-control"  readonly/>
+                <span asp-validation-for="Activity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Month" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Month" class="form-control" readonly/>
+                <span asp-validation-for="Month" class="text-danger"></span>
+            </div>
+        </div>
+            <div class="form-group">
+            <label asp-for="Year" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Year" class="form-control" readonly />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+        </div>
+            <div class="form-group">
+            <label asp-for="PhoneNo" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="PhoneNo" class="form-control" />
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+            </div>
+        </div>
+       <div class="form-group" id="cheque_no">
+            <label asp-for="PayModeName" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="PayModeName" class="form-control" />
+                <span asp-validation-for="PayModeName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" id="cheque_no">
+            <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="ChequeNo" class="form-control" />
+                <span asp-validation-for="ChequeNo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" id="sort_code">
+            <label asp-for="SortCode" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <select id="banks" asp-for="SortCode" class="form-control"></select>
+                <span asp-validation-for="SortCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Confirm</button>
+                <a asp-action="Pay" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="confirmForm" method="post" asp-action="MakePayment">
+    <input id="twende" type="hidden" value="1" />
+     <input id="tax_step" type="hidden" value="1" />
+    <input type="hidden" asp-for="Meter_No" />
+    <input type="hidden" asp-for="Accnt_no" />
+    <input type="hidden" asp-for="Amnt" />
+     <input type="hidden" asp-for="PayMode" />
+     <input type="hidden" asp-for="ReceivedFrom" />
+     <input type="hidden" asp-for="Remarks" />
+</form>*@

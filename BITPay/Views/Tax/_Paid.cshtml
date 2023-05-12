@@ -1,0 +1,33 @@
+﻿@model DeclarationQueryResponse
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-warning text-center">
+            <i class="fa fa-warning fa-4x"></i><br />
+            <h3 class="text-warning">Declaration has already been paid!</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Receipt Number</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.ReceiptNumber</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Receipt Serial</div>
+            <div class="col-md-8">
+                <strong>@Model.ReceiptSerial</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Receipt Date</div>
+            <div class="col-md-8">
+                <strong>@Model.ReceiptDate</strong>
+            </div>
+        </div>       
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <span class="text-muted">@Model.ErrorDescription</span>
+            </div>
+        </div>
+    </div>
+</div>

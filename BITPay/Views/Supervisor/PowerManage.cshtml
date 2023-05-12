@@ -1,0 +1,114 @@
+﻿@model PowerPaymentModel
+@{
+    ViewData["Title"] = "Manage Approval";
+}
+
+<h2 class="header-title">Manage Approval Item</h2>
+<div class="row">
+    <div class="col-md-7">
+        <div class="card-box">
+            <div class="text-muted">Power Tokens payment details:</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-3">
+                    Meter Number:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.CustomerNumber</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    PhoneNumber:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.ContactInfo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    User Name:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.UserName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Amount:
+                </div>
+                <div class="col-md-9">
+                    <span class="label label-inverse font-600"><strong>@Model.Amount.ToString("#,##0.00")</strong></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Payment Mode:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.PayModeName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Cheque Number:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.ChequeNo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    DR Account:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.AccountNo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    DR Account Name:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.AccountName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Created On:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.CreateDate</strong>
+                </div>
+            </div>
+            <hr />
+            <small>You can Approve or Reject this transaction on the right panel. If you reject you MUST enter a reason.</small>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Manage Actions:</strong></div>
+            <div class="panel-body">
+                <form asp-action="BuyTokenSupervise">
+                    <input type="hidden" name="Code" value="@Model.PaymentCode" />
+                    <input type="hidden" name="Reason" value="" />
+                    <input type="hidden" name="MyAction" value="1" />
+                    <button type="submit" class="btn btn-success btn-lg rbutton"><i class="fa fa-check"></i> Approve</button>
+                </form>
+                <hr />
+                <form asp-action="BuyTokenSupervise">
+                    <input type="hidden" name="Code" value="@Model.PaymentCode" />
+                    <input type="hidden" name="MyAction" value="0" />
+                    <textarea name="Reason" class="form-control" placeholder="Enter the reject reason......"></textarea>
+                    <button type="submit" class="btn btn-danger m-t-10"><i class="fa fa-close"></i> Reject</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.rbutton').on('click', function () {
+        $(this).prop("disabled", true);
+    });
+</script>

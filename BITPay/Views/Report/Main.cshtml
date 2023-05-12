@@ -1,0 +1,187 @@
+﻿@model IEnumerable<ReportModel>
+@{
+    ViewData["Title"] = "Reports";
+    var users = ViewData["Users"] as List<SelectListItem>;
+    var branches = ViewData["Branches"] as List<SelectListItem>;
+    var rpt = ViewData["Report"] as List<SelectListItem>;
+    var rpts = ViewData["Reports"] as List<SelectListItem>;
+}
+
+<h2 class="header-title">Reports</h2>
+<div class="row">
+    @*<div class="col-md-5">
+            <div class="card-box">
+                <p class="text-muted">Select the report you want to generate:</p>
+                <hr />
+                @foreach (var report in Model)
+                {
+                    <div class="radio">
+                        <label><input type="radio" name="ReportCode" value="@report.ReportCode" required><i class="fa fa-file-pdf-o m-r-5 text-pink"></i> @report.ReportTitle</label>
+                    </div>
+                }
+                <hr />
+            </div>
+        </div>*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Report Filters</strong></div>
+            <div class="panel-body">
+                <form method="post" role="form">
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label"> Report:</label>
+                        <div class="col-md-8">
+                            <div class="input-group drp">
+                                <select name="ReportCode" id="reportcode" class="form-control form-control-sm" asp-items="@rpts">
+                                    <option value="0">----Select----</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label"> Date From:</label>
+                        <div class="col-md-8">
+                            <div class="input-group drp">
+                                <input name="datefrom" id="datefrom" type="text" class="dtp form-control" aria-describedby="drp-icon" placeholder="DD/MM/YYYY" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label"> Date To:</label>
+                        <div class="col-md-8">
+                            <div class="input-group drp">
+                                <input name="dateto" id="dateto" type="text" class="dtp form-control" aria-describedby="drp-icon" placeholder="DD/MM/YYYY" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label">User:</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="user" name="user" asp-items="@users">
+                                <option value="0">----Select----</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label">Branch:</label>
+                        <div class="col-md-8">
+                            <select name="branch" id="branch" class="form-control" asp-items="@branches">
+                                <option value="0">----Select----</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button class="btn btn-default" type="submit" onclick="Pressed(event);"><i class="fa fa-check"></i> Generate</button>
+                        </div>
+                    </div>
+                </form>
+
+                @*<div class="col-md-8">
+                        <div class="radio">
+                            @foreach (var rp in rpt)
+                            {
+                                <label><input type="radio" name="ReportType" value="@rp.Value" required><i class="fa fa-file-pdf-o m-r-5 text-pink"></i> @rp.Text</label>
+                            }
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Report View:</strong></div>
+            <div class="panel-body">
+                <div id="stmnt-data">
+                    <p class="text-center">
+                        <i class="mdi mdi-information mdi-48px text-info"></i><br />
+                        <strong>Select the type of report on the left panel.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section css{
+    <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/mydatatable.min.js"></script>
+    <script type="text/javascript" src="~/lib/Buttons-1.6.1/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="~/lib/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="~/lib/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/lib/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/lib/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/lib/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/lib/Buttons-1.6.1/js/buttons.print.min.js"></script>
+    <script>
+         const pgView = "<p class='text-center'><i class='mdi mdi-loading mdi-48px mdi-spin'></i><br/>Loading......</p>";
+        //$(function () {
+
+        //    var start = moment();
+        //    var end = moment();
+
+        //    function cb(start, end) {
+        //        $('.drp input').val(start.format('D MMM YYYY') + ' - ' + end.format('D MMM YYYY'));
+        //    }
+
+        //    $('.drp').daterangepicker({
+        //        startDate: start,
+        //        endDate: end,
+        //        opens: 'left',
+        //        autoApply: true,
+        //        ranges: {
+        //            'Today': [moment(), moment()],
+        //            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        //            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        //            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        //            'This Month': [moment().startOf('month'), moment().endOf('month')],
+        //            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        //        }
+        //    }, cb);
+
+        //    cb(start, end);
+
+        //});
+
+        $(document).ready(function () {
+           $('.dtp').datepicker({
+                weekStart: 1,
+                daysOfWeekHighlighted: "6,0",
+                autoclose: true,
+                todayHighlight: true,
+                format: 'dd M yyyy'
+            });
+
+        });
+
+        function Pressed(e) {
+            e.preventDefault();
+             e.stopImmediatePropagation();
+            $('#stmnt-data').html(pgView);
+
+            var Report = document.getElementById('reportcode').value
+            var datefrom = document.getElementById('datefrom').value
+            var dateto = document.getElementById('dateto').value
+            var Users = document.getElementById('user').value
+            var Branch = document.getElementById('branch').value
+
+
+
+            var url = "@Url.Action("GenerateReport")";
+
+            var fData = { ReportCode: Report, dateto: dateto, datefrom: datefrom, user: Users, branch: Branch };
+            $.post(url, fData, function (data) {
+                $('#stmnt-data').html(data);
+
+                      
+            });
+
+        }
+    </script>
+}

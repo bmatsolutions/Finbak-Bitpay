@@ -1,0 +1,27 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="card-box">
+    <div class="row">
+        <div class="col-md-2 text-center text-danger">
+            <i class="fa fa-warning fa-5x"></i>
+        </div>
+        <div class="col-md-8 text-danger">
+            <h1 class="text-danger">Sorry! Error Occured!</h1>
+            <p class="text-danger">The request failed due to an error! check log for details</p>
+            @if (Model != null)
+            {
+                @if (Model.ShowRequestId)
+                {
+                    <div class="alert alert-danger">@Model.RequestId</div>
+                }
+            }
+        </div>
+    </div>   
+</div>
+
+
+
+

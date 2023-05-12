@@ -1,0 +1,43 @@
+﻿@using System.Security.Claims
+@{
+    string userName = "";
+    UserDataModel currentUserData = null;
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userName = currentUserData.UserName;
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/imports.css" rel="stylesheet" />
+    <link href="~/css/report.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    @*<table style="width:100%">
+        <tr>
+            <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+            <td>
+                <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+            </td>
+        </tr>
+
+       
+    </table>*@
+            @*<img src="~/images/logo.jpg" alt=".." style="display:none;" />*@
+            <div>
+                @RenderBody()
+            </div>
+            @RenderSection("Scripts", required: false)
+
+      
+</body>
+</html>

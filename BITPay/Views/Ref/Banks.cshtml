@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Bank>
+@{
+    ViewData["Title"] = "Banks";
+}
+
+<h2 class="header-title">Banks</h2>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card-box">
+            <div class="row">
+                <div class="text-muted col-md-10">List of current banks, click <strong>+ Add New</strong> to add a user</div>
+                <div class="col-md-2 text-right"><a href="@Url.Action("Bank")" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a></div>
+            </div>
+            <div class="table-responsive m-t-10">
+                @*@(Html.Grid(Model).Build(cols =>
+            {
+                cols.Add(m => m.BankName).Titled("Bank Name");
+                cols.Add(m => m.BankID).Titled("Bank Code");
+                cols.Add().Encoded(false).RenderedAs(m => $"<a href=\"{Url.Action("Bank", "Ref", new { code = m.BankCode, mode=1 })}\" class=''><i class='fa fa-cogs'></i> Edit</a>").Css("text-right");
+               // cols.Add().Encoded(false).RenderedAs(m => $"<a href=\"#\" class=''><i class='fa fa-cogs'></i> Manage</a>");
+            }).Pageable()
+                                .Empty("No data to display!")
+                                .Css("table-striped table-hover")
+                )*@
+                <table class="table table-striped table-hover table-bordered table-responsive-md" id="tblData">
+                    <thead>
+                        <tr>
+                            <td>Bank Name</td>
+                            <td>Bank Code</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.BankName</td>
+                                <td>@item.BankID</td>
+                                <td><a href="#" class="text-right"><i class="fa fa-cogs"></i> Manage</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+    <script>
+        $(function () {
+            $('#tblData').dataTable();
+        });
+    </script>
+}

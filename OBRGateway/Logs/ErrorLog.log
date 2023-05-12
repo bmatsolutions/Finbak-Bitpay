@@ -1,0 +1,75 @@
+ERROR|30-Jan-2023 12:11:12|Tax.Operation|System.UriFormatException: Invalid URI: The URI is empty.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at System.Net.WebRequest.Create(String requestUriString)
+   at OBRClient.TaxClient.DomesticPost(String url, String userName, String password, String postData) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 1350
+   at OBRClient.TaxClient.ValidateDeclarant(String url, String userName, String pass, ValidateDeclarantRequestData model) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 456
+   at OBRClient.TaxClient.<>c__DisplayClass5_0.<OperationRequest>b__0() in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 72
+INFOR|30-Jan-2023 12:32:36|OBRClient.DomesticPost|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asy="http://www.asycuda.org">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <asy:CheckCompanyNif>
+      <CompanySearchInfo>
+        <companyNif>343242</companyNif>
+      </CompanySearchInfo>
+    </asy:CheckCompanyNif>
+  </soapenv:Body>
+</soapenv:Envelope>
+ERROR|30-Jan-2023 12:33:17|Tax.Operation|System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.100.10.145:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at OBRClient.TaxClient.DomesticPost(String url, String userName, String password, String postData) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 1365
+   at OBRClient.TaxClient.ValidateNIF(String url, String userName, String pass, ValidateNIFRequestData model) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 388
+   at OBRClient.TaxClient.<>c__DisplayClass5_0.<OperationRequest>b__0() in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 68
+INFOR|31-Jan-2023 10:08:52|OBRClient.DomesticPost|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asy="http://www.asycuda.org">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <asy:CheckCompanyNif>
+      <CompanySearchInfo>
+        <companyNif>4000202020</companyNif>
+      </CompanySearchInfo>
+    </asy:CheckCompanyNif>
+  </soapenv:Body>
+</soapenv:Envelope>
+INFOR|31-Jan-2023 10:29:02|OBRClient.DoPost|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asy="http://www.asycuda.org">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <asy:CheckCompanyNif>
+      <CompanySearchInfo>
+        <companyNif>4000202020</companyNif>
+      </CompanySearchInfo>
+    </asy:CheckCompanyNif>
+  </soapenv:Body>
+</soapenv:Envelope>
+INFOR|31-Jan-2023 11:48:24|OBRClient.DoPost|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asy="http://www.asycuda.org">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <asy:CheckCompanyNif>
+      <CompanySearchInfo>
+        <companyNif>4000202020</companyNif>
+      </CompanySearchInfo>
+    </asy:CheckCompanyNif>
+  </soapenv:Body>
+</soapenv:Envelope>
+INFOR|08-Feb-2023 09:16:39|OBRClient.DoPost|<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:asy="http://www.asycuda.org">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <asy:CheckCompanyNif>
+      <CompanySearchInfo>
+        <companyNif>4000202020</companyNif>
+      </CompanySearchInfo>
+    </asy:CheckCompanyNif>
+  </soapenv:Body>
+</soapenv:Envelope>
+ERROR|08-Feb-2023 09:17:57|Tax.Operation|System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.100.10.145:8080
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at OBRClient.TaxClient.DoPost(String url, String userName, String password, String postData) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 1309
+   at OBRClient.TaxClient.ValidateNIF(String url, String userName, String pass, ValidateNIFRequestData model) in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 388
+   at OBRClient.TaxClient.<>c__DisplayClass5_0.<OperationRequest>b__0() in F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\TaxClient.cs:line 68

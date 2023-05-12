@@ -1,0 +1,284 @@
+﻿@using System.Security.Claims
+@{
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+        userId = User.Identities.First(u => u.IsAuthenticated && u.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
+    .FindFirst(ClaimTypes.NameIdentifier).Value;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
+
+    <title>@ViewData["Title"] | BITPay</title>
+
+    <link href="~/css/imports.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/css/template.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @RenderSection("css", false)
+</head>
+<body id="theBody" class="widescreen fixed-left">
+    <div id="wrapper" class="">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="#" class="logo">
+                        <img alt="BITPay" src="~/images/applogo.png" class="app-logo" id="appIcon" />
+                        <span>BITPay</span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="">
+                        <div class="pull-left">
+                            <button class="button-menu-mobile open-left waves-effect waves-light">
+                                <i class="fa fa-navicon"></i>
+                            </button>
+                            <span class="clearfix"></span>
+                        </div>
+                        @if (authenticated && currentUserData != null)
+                        {
+                            <ul class="nav navbar-nav hidden-xs">
+                                <li><a href="#" class="waves-effect waves-light">@title</a></li>
+                            </ul>
+                        }
+                        <div class="navbar-header pull-right">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#rightNav">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="rightNav">
+                            <ul class="nav navbar-nav navbar-right pull-right">
+
+                                <li class="hidden-xs">
+                                    <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="glyphicon glyphicon-fullscreen"></i></a>
+                                </li>
+                                @if (authenticated && currentUserData != null)
+                                {
+                                    <li class="dropdown top-menu-item-xs">
+                                        <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">
+                                            <span id="current_user_id" style="display:none;">@userId</span>
+                                            <i class="fa fa-user text-pink"></i>
+                                            <span>@currentUserData.FullNames</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a asp-action="profile" asp-controller="manage"><i class="fa fa-user m-r-10 text-custom"></i> Profile</a></li>
+                                            <li class="divider"></li>
+                                            <li><a asp-action="logout" asp-controller="Account"><i class="fa fa-sign-out m-r-10 text-danger"></i> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                <li class="hidden-xs">
+                                    <a href="#" class="waves-effect waves-light"><i class="fa fa-cogs"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+                <!--- Divider -->
+                <div id="sidebar-menu">
+                    <input type="hidden" value="@userRole" id="user_type_defination" />
+                    <ul id="myMainMenus">
+                        <li class="text-muted menu-title">Navigation Menus</li>
+                        <li>
+                            <a asp-action="Dashboard" asp-controller="Home" class="waves-effect"><i class="fa fa-dashboard"></i> <span> Dashboard </span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-money"></i> <span> Custom Tax</span><span class="dropdown-arrow fa fa-chevron-right"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="pay" asp-controller="tax"><i class="fa fa-1x fa-money"></i> Make Payment</a></li>
+                                <li><a asp-action="MultiplePayments" asp-controller="tax"><i class="fa fa-1x fa-newspaper-o"></i> Multiple Payments</a></li>
+                                <li><a asp-action="files" asp-controller="tax"><i class="fa fa-1x fa-hacker-news"></i> Files</a></li>
+                                <li><a asp-action="payments" asp-controller="tax"><i class="fa fa-1x fa-address-book-o"></i> Payments</a></li>
+                                <li><a asp-action="ApprovedPayments" asp-controller="tax"><i class="fa fa-1x fa-check-circle-o"></i> Approved Payments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-money"></i> <span> Domestic Tax</span><span class="dropdown-arrow fa fa-chevron-right"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="pay" asp-controller="domestic"><i class="fa fa-1x fa-money"></i> Make Payment</a></li>
+                                <li><a asp-action="files" asp-controller="domestic"><i class="fa fa-1x fa-hacker-news"></i> Files</a></li>
+                                <li><a asp-action="payments" asp-controller="domestic"><i class="fa fa-1x fa-address-book-o"></i> Payments</a></li>
+                                <li><a asp-action="querypayment" asp-controller="domestic"><i class="fa fa-1x fa-search"></i> Query Payment</a></li>
+                                <li><a asp-action="ApprovedPayments" asp-controller="domestic"><i class="fa fa-1x fa-check-circle-o"></i> Approved Payments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-money"></i> <span> Mairie Tax</span><span class="dropdown-arrow fa fa-chevron-right"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="pay" asp-controller="miarie"><i class="fa fa-1x fa-dollar"></i> Make Payment</a></li>
+                                <li><a asp-action="taxquery" asp-controller="miarie"><i class="fa fa-1x fa-search"></i> Query Tax</a></li>
+                                <li><a asp-action="taxpayer" asp-controller="miarie"><i class="fa fa-1x fa-search-plus"></i> Verify Taxpayer</a></li>
+                                <li><a asp-action="approved" asp-controller="miarie"><i class="fa fa-1x fa-check-circle"></i> Complete Payments</a></li>
+                                <li><a asp-action="failed" asp-controller="miarie"><i class="fa fa-1x fa-warning text-danger"></i> Failed Payments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-money"></i> <span> Payway</span><span class="dropdown-arrow fa fa-chevron-right"></span></a>
+                            <ul class="list-unstyled">
+                                @*<li><a asp-action="BuyToken" asp-controller="paywaygateway">Cash Power</a></li>*@
+                                <li><a asp-action="RetailerTopUp" asp-controller="paywaygateway">E-value TopUp</a></li>
+                                <li><a asp-action="tokenpayments" asp-controller="paywaygateway">Cash Power Payments</a></li>
+                                <li><a asp-action="evaluepayments" asp-controller="paywaygateway">E-value Payments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-money"></i> <span> Regideso</span><span class="dropdown-arrow fa fa-chevron-right"></span></a>
+                            <ul class="list-unstyled">
+                                @*<li><a asp-action="BuyToken" asp-controller="paywaygateway">Cash Power</a></li>*@
+                                <li><a asp-action="PayBill" asp-controller="regideso">PayBill</a></li>
+                                <li><a asp-action="PrePay" asp-controller="RegidesoPrePay">Buy Token</a></li>
+                                 <li><a asp-action="PayBillList" asp-controller="RegidesoPrePay">PayBill List</a></li>
+                                <li><a asp-action="PrePayList" asp-controller="Regideso">Buy Token List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-check-square-o"></i><span> Supervisor</span><span class="dropdown-arrow fa fa-chevron-right"></span> </a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="failedtransactions" asp-controller="supervisor"><span>Failed Custom Tax Transactions</span></a></li>
+                                <li><a asp-action="taxpayments" asp-controller="supervisor"><span>Tax Payments</span></a></li>
+                                @*<li><a asp-action="list" asp-controller="supervisor"><span>Custom Tax Transactions</span><span data-bind="text: approval" class="label label-pink pull-right">0</span></a></li>*@
+                                <li><a asp-action="DomesticTaxFiles" asp-controller="Supervisor"><span>OBR Domestic Tax</span><span data-bind="text: domesticapproval" class="label label-pink pull-right">0</span></a></li>
+                                <li><a asp-action="powerlist" asp-controller="supervisor"><span>Cash Power Transactions</span><span data-bind="text: tokenapproval" class="label label-pink pull-right">0</span></a></li>
+                                <li><a asp-action="retailerlist" asp-controller="supervisor"><span>E-value Topup Transactions</span><span data-bind="text: topupapproval" class="label label-pink pull-right">0</span></a></li>
+                                 <li><a asp-action="RegidesoPostPay" asp-controller="Supervisor"><span>Regideso PostPay </span><span data-bind="text: domesticapproval" class="label label-pink pull-right">0</span></a></li>
+                                  <li><a asp-action="RegidesoPrePay" asp-controller="Supervisor"><span>Regideso PrePay</span><span data-bind="text: domesticapproval" class="label label-pink pull-right">0</span></a></li>
+                                <li><a asp-action="admins" asp-controller="supervisor"><span> Administration</span></a></li>
+                                <li><a asp-action="params" asp-controller="supervisor"><span> System Params</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-database"></i><span> References</span><span class="dropdown-arrow fa fa-chevron-right"></span> </a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="branches" asp-controller="ref"><span> Branches</span></a></li>
+                                @*<li><a href="#"><span> Customer Accounts</span></a></li>
+                <li><a asp-action="paymentmodes" asp-controller="ref"><span> Payment Modes</span></a></li>
+                <li><a asp-action="Banks" asp-controller="ref"><span> Banks</span></a></li>*@
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-key"></i><span> Security</span><span class="dropdown-arrow fa fa-chevron-right"></span> </a>
+                            <ul class="list-unstyled">
+                                <li><a asp-action="users" asp-controller="security"><span> System Users</span></a></li>
+                                <li><a asp-action="systemsettings" asp-controller="security"><span>System Parameters</span></a></li>
+                                <li><a asp-action="audits" asp-controller="security"><span> Audit Log</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-action="main" asp-controller="report" class="waves-effect"><i class="fa fa-book"></i> <span> Reports</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="main" asp-controller="newreport" class="waves-effect"><i class="fa fa-file-pdf-o"></i> <span><span class="label label-pink pull-right">New</span> Reports</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="logout" asp-controller="account" class="waves-effect"><i class="fa fa-sign-out"></i> <span> Logout</span></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container main-container">
+                    <div id="AlertsContainer">
+                        <partial name="_Alerts" />
+                    </div>
+                    @RenderBody()
+                </div>
+                <!-- End container -->
+            </div>
+            <!-- End content -->
+            <footer class="footer text-right">
+                &copy; @DateTime.Now.Year - @title. All Rights Reserved.
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/js/site.min.js"></script>
+    <script src="~/js/template.min.js" asp-append-version="true"></script>
+    <script src="~/lib/knockout/dist/knockout.js"></script>
+
+    <script type="text/javascript">
+         var resizefunc = [];
+
+        getNotifDataUrl = function () {
+            return "@Url.Action("DBoardData", "Data")";
+        }
+
+        var notifModel = {
+            approval: ko.observable(0),
+            topupapproval: ko.observable(0),
+            tokenapproval: ko.observable(0),
+            domesticapproval: ko.observable(0),
+            mairieapproval: ko.observable(0),
+            alltopups: ko.observable(0),
+            alltokenpurchase: ko.observable(0),
+            loadData: function () {
+                var self = this;
+                $.ajax({
+                    type: "GET",
+                    url: getNotifDataUrl(),
+                }).done(function (data) {
+                    console.log(data);                  
+                    self.approval(data.approval);
+                    self.tokenapproval(data.tokenapproval);
+                    self.topupapproval(data.topupapproval);
+                    self.domesticapproval(data.domesticapproval);
+                    self.mairieapproval(data.mairieapproval);
+                    self.alltopups(data.alltopups);
+                    self.alltokenpurchase(data.alltokenpurchase);
+                }).error(function (ex) {
+                    //alert("Error");
+                });
+            }
+        };
+
+        $(document).ready(function () {
+            notifModel.loadData();
+        });
+        
+        ko.applyBindings(notifModel, document.getElementById('myMainMenus'));
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

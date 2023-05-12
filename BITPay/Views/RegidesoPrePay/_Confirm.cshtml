@@ -1,0 +1,56 @@
+﻿@model PrePaidModel
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-info-circle fa-4x"></i><br />
+            <h3>Confirm Token Details below</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Meter No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Meter_No</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Amount</div>
+            <div class="col-md-8 control-label">
+                <strong class="badge badge-inverse">@Model.Amnt.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-4">Payment Mode:</div>
+            <div class="col-md-8">
+                <strong>@Model.PayModeName</strong>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4">Received From:</div>
+            <div class="col-md-8">
+                <strong>@Model.ReceivedFrom</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Remarks:</div>
+            <div class="col-md-8">
+                <strong>@Model.Remarks</strong>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+
+<form id="confirmForm" method="post" asp-action="MakePayment">
+    <input id="twende" type="hidden" value="1" />
+     <input id="tax_step" type="hidden" value="1" />
+    <input type="hidden" asp-for="Meter_No" />
+    <input type="hidden" asp-for="Accnt_no" />
+    <input type="hidden" asp-for="Amnt" />
+     <input type="hidden" asp-for="PayMode" />
+     <input type="hidden" asp-for="BillCode" />
+     <input type="hidden" asp-for="ReceivedFrom" />
+     <input type="hidden" asp-for="Remarks" />
+</form>

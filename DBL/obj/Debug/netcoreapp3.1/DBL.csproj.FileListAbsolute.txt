@@ -1,0 +1,28 @@
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\NOTICE.TXT
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.deps.json
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfo.cs
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\NOTICE.TXT
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.deps.json
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.pdb
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\Bmat.Tools.DbConnection.dll
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\System.Data.OracleClient.dll
+F:\Projects\c#\Finbank-BITPay-master\DBL\bin\Debug\netcoreapp3.1\Bmat.Tools.DbConnection.pdb
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfo.cs
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\Projects\c#\Finbank-BITPay-master\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb

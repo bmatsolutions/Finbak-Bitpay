@@ -1,0 +1,77 @@
+﻿@model RegidesoModel
+<h2 class="header-title">Query Bills</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Search for Bill To Pay
+            </div>
+            <div class="panel-body">
+                <small class="text-muted">
+                    Enter the account Number in the form below and click on Get button
+                </small>
+                <form asp-action="QueryBills" id="frmQuey" method="get" class="form-horizontal validate-form" role="form">
+                     <div class="form-group">
+                         <label asp-for="Accnt_no" class="col-md-5 control-label"></label>
+                        <div class="col-md-7">
+                            <input id="acc" asp-for="Accnt_no" class="form-control" />
+                            <span asp-validation-for="Accnt_no" class="text-danger"></span>
+                         </div>
+                     </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-7">
+                            (<span class="text-danger">*</span>) Mandatory
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-7">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> Get</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Search results:
+            </div>
+            <div class="panel-body">
+                <div id="queryResult">
+                    <p class="text-center">
+                        <i class="fa fa-book fa-3x"></i><br />
+                        Query results will be displayed here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#frmQuey').on('submit', function (e) {
+            console.log("good1")
+            e.preventDefault();
+            $('#queryResult').html('<p class="text-center"><i class="fa fa-spin fa-spinner fa-3x"></i><br/>Querying.........</p>');
+            var frm = $(this);
+            var url = frm.attr("action");
+            var formData = frm.serialize();
+            $.get(url, formData, function (data) {
+                console.log("good")
+                $('#queryResult').html(data);
+                 $("#myprodtbl").DataTable({
+                                pageLength: pgs,
+                            });
+            })
+        })
+    });
+</script>
+}

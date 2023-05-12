@@ -1,0 +1,313 @@
+﻿
+@model DomesticTaxPayment
+@{
+    ViewData["Title"] = "DomesticTaxManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="header-title">Manage Approval Item</h2>
+<div class="row">
+    <div class="col-md-7">
+        <div class="card-box">
+            <div class="text-muted">Tax payment details:</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-3">Type of Tax</div>
+                <div class="col-md-9 control-label">
+                    <strong>@Model.TaxName</strong>
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.DeclNo))
+            {
+                <div class="row">
+                    <div class="col-md-3">Declaration Number</div>
+                    <div class="col-md-9 control-label">
+                        <strong>@Model.DeclNo</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.tin))
+            {
+                <div class="row">
+                    <div class="col-md-3">Nif</div>
+                    <div class="col-md-9 control-label">
+                        <strong>@Model.tin</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Period))
+            {
+                <div class="row">
+                    <div class="col-md-3">Tax Period (MM/YYYY)</div>
+                    <div class="col-md-9 control-label">
+                        <strong>@Model.Period</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.DriverName))
+            {
+                <div class="row">
+                    <div class="col-md-3">Driver Name</div>
+                    <div class="col-md-9">
+                        <strong>@Model.DriverName</strong>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-3">Customer Name</div>
+                    <div class="col-md-9">
+                        <strong>@Model.CustomerName</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Contracavation))
+            {
+                <div class="row">
+                    <div class="col-md-3">Contraviction Number</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Contracavation</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Service))
+            {
+                <div class="row">
+                    <div class="col-md-3">Service Name</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Service</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Chasis))
+            {
+                <div class="row">
+                    <div class="col-md-3">Car Chasis</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Chasis</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.CommuneName))
+            {
+                <div class="row">
+                    <div class="col-md-3">Commune Name</div>
+                    <div class="col-md-9">
+                        <strong>@Model.CommuneName</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Copies))
+            {
+                <div class="row">
+                    <div class="col-md-3">Number of Copies</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Copies</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Education))
+            {
+                <div class="row">
+                    <div class="col-md-3">Education Document</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Education</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Document))
+            {
+                <div class="row">
+                    <div class="col-md-3">Document Name/Lost Item</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Document</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Imma))
+            {
+                <div class="row">
+                    <div class="col-md-3">Car Immatriculation Number</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Imma</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Infraction))
+            {
+                <div class="row">
+                    <div class="col-md-3">Infraction</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Infraction</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.CarOnwer))
+            {
+                <div class="row">
+                    <div class="col-md-3">Car Owner Name</div>
+                    <div class="col-md-9">
+                        <strong>@Model.CarOnwer</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.LicenceType))
+            {
+                <div class="row">
+                    <div class="col-md-3">Licence Type</div>
+                    <div class="col-md-9">
+                        <strong>@Model.LicenceType</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Word))
+            {
+                <div class="row">
+                    <div class="col-md-3">Wording of Right</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Word</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Product))
+            {
+                <div class="row">
+                    <div class="col-md-3">Product Type/Quantity</div>
+                    <div class="col-md-9">
+                        <strong>@Model.Product</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.CNI))
+            {
+                <div class="row">
+                    <div class="col-md-3">CNI Number</div>
+                    <div class="col-md-9">
+                        <strong>@Model.CNI</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.CNIIssue))
+            {
+                <div class="row">
+                    <div class="col-md-3">Place and Date of Issue of CNI</div>
+                    <div class="col-md-9">
+                        <strong>@Model.CNIIssue</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.ManufactureYear))
+            {
+                <div class="row">
+                    <div class="col-md-3">Year of Manufacture</div>
+                    <div class="col-md-9">
+                        <strong>@Model.ManufactureYear</strong>
+                    </div>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.BrandType))
+            {
+                <div class="row">
+                    <div class="col-md-3">Brand and Type</div>
+                    <div class="col-md-9">
+                        <strong>@Model.BrandType</strong>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-3">
+                    Domestic Tax Amount:
+                </div>
+                <div class="col-md-9">
+                    <span class="label label-inverse font-600"><strong>@Model.TaxAmount.ToString("#,##0.00")</strong></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Amount Payable:
+                </div>
+                <div class="col-md-9">
+                    <span class="label label-inverse font-600"><strong>@Model.Amount.ToString("#,##0.00")</strong></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Receipt NO.:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.ReceiptNo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Debit Account:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.Dr_Account</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Credit Account:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.Cr_Account</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Pay Mode:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.Mode</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Maker:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.UserName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Remarks:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.Remarks</strong>
+                </div>
+            </div>
+
+            <hr />
+            <small>You can Approve or Reject this transaction on the right panel. If you reject you MUST enter a reason.</small>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Manage Actions:</strong></div>
+            <div class="panel-body">
+                <form asp-action="SuperviseDomesticTax">
+                    <input type="hidden" name="Code" value="@Model.FileCode" />
+                    <input type="hidden" name="Reason" value="" />
+                    <input type="hidden" name="MyAction" value="1" />
+                    <button type="submit" class="btn btn-success btn-lg rbutton"><i class="fa fa-check"></i> Approve</button>
+                </form>
+                <hr />
+                <form asp-action="SuperviseDomesticTax">
+                    <input type="hidden" name="Code" value="@Model.FileCode" />
+                    <input type="hidden" name="MyAction" value="0" />
+                    <textarea name="Reason" class="form-control" placeholder="Enter the reject reason......"></textarea>
+                    <button type="submit" class="btn btn-danger m-t-10"><i class="fa fa-close"></i> Reject</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.rbutton').on('click', function () {
+        $(this).prop("disabled", true);
+    });
+</script>

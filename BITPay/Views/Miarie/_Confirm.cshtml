@@ -1,0 +1,132 @@
+﻿@model TaxPaymentModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-info-circle fa-4x"></i><br />
+            <h3>Confirm the tax payment details</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Taxpayer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxPayerName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Reference No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxRef</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Total Amount</div>
+            <div class="col-md-8 control-label">
+                <strong class="badge badge-inverse">@Model.ExpectedAmount.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><h4>Amount Paid:</h4></div>
+            <div class="col-md-8">
+                <h4>@Model.Amount.ToString("#,##0.00")</h4>
+                <small>Balance: @((Model.ExpectedAmount- Model.Amount).ToString("#,##0.00"))</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><h4>Received From:</h4></div>
+            <div class="col-md-8">
+                <h4>@Model.ReceivedFrom</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Payment Mode:</div>
+            <div class="col-md-8">
+                <strong>@Model.PayModeName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Cr. Account:</div>
+            <div class="col-md-8">
+                <strong>@Model.CrAccountName</strong>
+            </div>
+        </div>
+        @if (Model.PayMode == 1 || Model.PayMode == 2)
+        {
+            <div class="row">
+                <div class="col-md-4">Dr. Account No:</div>
+                <div class="col-md-8">
+                    <strong>@Model.AccountNo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Dr. Account Name:</div>
+                <div class="col-md-8">
+                    <strong>@Model.CustAccountName</strong>
+                </div>
+            </div>
+        }
+        @if (Model.PayMode == 2)
+        {
+            <div class="row">
+                <div class="col-md-4">Cheque No:</div>
+                <div class="col-md-8">
+                    <strong>@Model.ChequeNo</strong>
+                </div>
+            </div>
+        }
+        @if (Model.PayMode == 3)
+        {
+            
+            <div class="row">
+                <div class="col-md-4">Sort Code:</div>
+                <div class="col-md-8">
+                    <strong>@Model.SortCode</strong>
+                </div>
+            </div>
+        }
+
+        @if (Model.PayMode == 4)
+        {
+            <div class="row">
+                <div class="col-md-4">Cheque No:</div>
+                <div class="col-md-8">
+                    <strong>@Model.ChequeNo</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Sort Code:</div>
+                <div class="col-md-8">
+                    <strong>@Model.SortCode</strong>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-4">Waive Charge:</div>
+            <div class="col-md-8">
+                <strong>@Model.NoCharge</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<form id="confirmForm" method="post" asp-action="confirmpayment">
+    <input id="twende" type="hidden" value="1" />
+    <input type="hidden" asp-for="FileCode" />
+    <input type="hidden" asp-for="NoCharge" />
+    <input type="hidden" asp-for="PayMode" />
+    <input type="hidden" asp-for="PrintReceipt" />
+    <input type="hidden" asp-for="Remarks" />
+    <input type="hidden" asp-for="AccountNo" />
+    <input type="hidden" asp-for="Amount" />
+    <input type="hidden" asp-for="ChequeNo" />
+    <input type="hidden" asp-for="SortCode" />
+    <input type="hidden" asp-for="ReceivedFrom" />
+    <input type="hidden" asp-for="Mode" />
+    <input type="hidden" asp-for="TaxRef" />
+    <input type="hidden" asp-for="ItemType" />
+    <input type="hidden" asp-for="ExpectedAmount" />
+    <input type="hidden" asp-for="TaxPayerName" />
+    <input asp-for="TaxPeriod" type="hidden" />
+    <input asp-for="Details" type="hidden" />
+    <input asp-for="PostToCBS" type="hidden" />
+</form>

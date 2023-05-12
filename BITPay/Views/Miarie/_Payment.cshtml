@@ -1,0 +1,136 @@
+﻿@model TaxPaymentModel
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+    var banks = ViewData["Bank"] as List<SelectListItem>;
+}
+
+<p class="text-muted">
+    Enter the payment details in the form below and click on Finish button
+</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-4">Taxpayer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxPayerName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Reference No:</div>
+            <div class="col-md-8">
+                <strong>@Model.TaxRef</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Description:</div>
+            <div class="col-md-8">
+                <strong>@Model.Details</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Tax Amount:</div>
+            <div class="col-md-8">
+                <strong class="badge badge-inverse font-bold">@Model.ExpectedAmount.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Charge Amount:</div>
+            <div class="col-md-8">
+                <strong>@Model.ChargeAmount.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="makepayment" id="payForm" method="post" class="form-horizontal check-valid" role="form">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <input asp-for="FileCode" type="hidden" />
+                    <input asp-for="TaxRef" type="hidden" />
+                    <input asp-for="ItemType" type="hidden" />
+                    <input asp-for="TaxPayerName" type="hidden" />
+                    <input asp-for="ExpectedAmount" type="hidden" />
+                    <input asp-for="ChargeAmount" type="hidden" />
+                    <input asp-for="ReferenceNo" type="hidden" />
+                    <input asp-for="TaxPeriod" type="hidden" />
+                    <input asp-for="Details" type="hidden" />
+                    <input asp-for="NoCharge" type="hidden" />
+                    <input asp-for="PostToCBS" type="hidden" />
+                    <input id="twende" type="hidden" value="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayMode" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <select id="pay_mode" asp-for="PayMode" class="form-control" asp-items="@payModes"></select>
+                    <span asp-validation-for="PayMode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="account_no">
+                <label asp-for="AccountNo" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="AccountNo" class="form-control" />
+                    <span asp-validation-for="AccountNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="cheque_no">
+                <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="ChequeNo" class="form-control" />
+                    <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="sort_code">
+                <label asp-for="SortCode" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <select id="banks" asp-for="SortCode" class="form-control"></select>
+                    <span asp-validation-for="SortCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    @if (Model.PayPartial)
+                    {
+                        <input asp-for="Amount" class="form-control" />
+                    }
+                    else
+                    {
+                        <input asp-for="Amount" class="form-control" readonly />
+                    }
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceivedFrom" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="ReceivedFrom" class="form-control" />
+                    <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <textarea asp-for="Remarks" class="form-control"></textarea>
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" asp-for="PrintReceipt" />
+                        <label class="form-check-label" asp-for="PrintReceipt"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    (<span class="text-danger">*</span>) Mandatory
+                </div>
+            </div>
+            <a asp-action="pay" class="text-danger"><i class="fa fa-times"></i> Cancel</a>
+        </form>
+    </div>
+</div>

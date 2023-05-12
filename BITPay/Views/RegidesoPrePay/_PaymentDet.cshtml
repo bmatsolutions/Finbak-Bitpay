@@ -1,0 +1,160 @@
+﻿@model PrePaidModel
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+      var banks = ViewData["Bank"] as List<SelectListItem>;
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success text-center">
+            <i class="fa fa-info-circle fa-4x"></i><br />
+            <h3>Confirm Token Details below</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Meter No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Meter_No</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Customer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Cust_Name</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+      <div class="col-md-6">
+           <div class="form-group row">
+        </div>
+         <div class="form-group row">
+        </div>
+           <div class="form-group">
+                <label class="col-md-5 control-label">Select Type</label>
+                <div class="col-md-7">
+                    <select name='categories' id="selectType" class="form-control"  >
+                      <option value="0">Select Amount or Unit Option</option>
+                      <option value="1">By Amount</option>
+                      <option value="2">By Units</option>
+                    </select>
+                </div>
+           </div>
+
+       @* <div class="form-group" id="unitAmount">
+            <label asp-for="AmountToken" class="col-md-5 control-label"></label>
+            <div class="col-md-7">
+                <input id="amount" asp-for="AmountToken" class="form-control" />
+                <span asp-validation-for="AmountToken" class="text-danger"></span>
+                 <button class="btn btn-primary" id="get_token" onclick="calculateToken();">Get Token </button>
+            </div>
+        </div>*@
+        
+          <div class="form-group row">
+        </div>
+        <div class="form-group row">
+        </div>
+       
+          <div class="form-group row" id="unitAmount">
+            <label asp-for="AmountToken" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="AmountToken" id="amount" class="form-control" />
+                <span asp-validation-for="AmountToken" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <input id="calculateToken" onclick="calculateToken();" type="button" value="Calculate Token" class="form-control" />
+                <div class="text-right"><small><i class="mdi mdi-asterisk text-warning mr-2"></i>Get Details</small></div>
+            </div>
+        </div>
+         <div class="form-group row" id="Token">
+            <label asp-for="Token" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Token" id="token" class="form-control" />
+                <span asp-validation-for="Token" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <input id="calculateAmount" type="button" onclick="calculateAmount();" value="Calculate Amount" class="form-control" />
+                <div class="text-right"><small><i class="mdi mdi-asterisk text-warning mr-2"></i>Get Details</small></div>
+            </div>
+        </div>
+
+       
+    </div>
+    <div class="col-md-6">
+        <form asp-action="ConfirmPayment" id="taxForm" method="post" class="form-horizontal check-valid" role="form">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <input id="twende" type="hidden" value="1" />
+                     <input id="tax_step" type="hidden" value="1" />
+                    <input id="meterno" type="hidden" asp-for="Meter_No" />
+                </div>
+            </div>
+             
+
+             <div class="form-group" id="amntdiv">
+                    <label asp-for="Amnt" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Amnt" id="amnt" class="form-control" />
+                        <span asp-validation-for="Amnt" class="text-danger"></span>
+                    </div>
+             </div>
+              <div class="form-group" id="tkndiv">
+                    <label asp-for="units" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="units" id="tkn" class="form-control" />
+                        <span asp-validation-for="units" class="text-danger"></span>
+                    </div>
+             </div>
+             <div class="form-group">
+                <label asp-for="PayMode" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <select id="pay_mode" asp-for="PayMode" class="form-control"  asp-items="@payModes"></select>
+                    <span asp-validation-for="PayMode" class="text-danger"></span>
+                </div>
+            </div>
+             <div class="form-group" id="account_no">
+                <label asp-for="DrAccount" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <input asp-for="DrAccount" class="form-control" />
+                    <span asp-validation-for="DrAccount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="cheque_no">
+                <label asp-for="ChequeNo" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <input asp-for="ChequeNo" class="form-control" />
+                    <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="sort_code">
+                <label asp-for="SortCode" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <select id="banks" asp-for="SortCode" class="form-control"></select>
+                    <span asp-validation-for="SortCode" class="text-danger"></span>
+                </div>
+            </div>
+             <div class="form-group">
+                <label asp-for="ReceivedFrom" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <input asp-for="ReceivedFrom" class="form-control" />
+                    <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="col-md-5 control-label"></label>
+                <div class="col-md-7">
+                    <textarea asp-for="Remarks" class="form-control"></textarea>
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    (<span class="text-danger">*</span>) Mandatory
+                </div>
+            </div>
+            <a asp-action="pay" class="text-danger"><i class="fa fa-times"></i> Cancel</a>
+        </form>
+    </div>
+
+   
+</div>

@@ -1,0 +1,18 @@
+﻿@model PaymentStatusModel
+@{ 
+    string myClass = (Model.StatusCode==0?"warning": Model.StatusCode == 1 ? "success":"danger");
+    string iconClass = (Model.StatusCode == 0 ? "hourglass" : Model.StatusCode == 1 ? "check-circle" : "exclamation-triangle");
+}
+<div class="alert alert-@myClass" role="alert">
+    <h4 class="alert-heading"><i class="fa fa-@iconClass"></i> @Model.StatusName.ToUpper()</h4>
+    <p>This is the current status of this payment, click on the refresh button to refresh the status.</p>
+    @if (Model.StatusCode == 1)
+    {
+        <a target="_blank"
+           asp-action="generate"
+           asp-controller="newreport"
+           asp-route-reportCode="52"
+           asp-route-filter1="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"></i> Print Receipt</a>
+    }
+</div>
+

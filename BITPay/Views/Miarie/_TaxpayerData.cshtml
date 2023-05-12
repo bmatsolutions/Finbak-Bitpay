@@ -1,0 +1,31 @@
+﻿@model MairieTaxpayerModel
+<p class="alert alert-success">
+    <i class="fa fa-check-circle fa-2x m-r-5"></i>
+    <strong>Tax query was successful.</strong>
+</p>
+<div class="row">
+    <div class="col-md-4">Taxpayer Name:</div>
+    <div class="col-md-8 control-label">
+        <strong>@Model.Name</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">Reg. Number(NIC):</div>
+    <div class="col-md-8 control-label">
+        <strong>@Model.RegNo</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">Phone No:</div>
+    <div class="col-md-8 control-label">
+        <strong>@Model.PhoneNo</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">E-Mail:</div>
+    <div class="col-md-8 control-label">
+        <strong>@Model.Email</strong>
+    </div>
+</div>
+
+<hr />

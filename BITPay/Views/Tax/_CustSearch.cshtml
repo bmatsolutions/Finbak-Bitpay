@@ -1,0 +1,99 @@
+﻿@model TaxPaymentModel
+<div id="CustSearch">
+    <p class="text-muted">
+        Enter the CBS Refference
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">Declarant Name</div>
+                <div class="col-md-8 control-label">
+                    <strong>@Model.DclntName</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Tax Amount</div>
+                <div class="col-md-8">
+                    <span class="label label-inverse font-bold">@Model.ExpectedAmount.ToString("#,##0.00")</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="CustSearch" id="payForm" method="post" class="form-horizontal validate-form" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="1" />
+                        <input id="twende" type="hidden" value="1" />
+                        <input asp-for="FileCode" type="hidden" />
+                        <input asp-for="DclntName" type="hidden" />
+                        <input asp-for="CompanyName" type="hidden" />
+                        <input asp-for="AccountHolder" type="hidden" />
+                        <input asp-for="ExpectedAmount" type="hidden" />
+                        <input asp-for="ChargeAmount" type="hidden" />
+                        <input asp-for="TransactionCode" type="hidden" />
+                        <input asp-for="TransactionRef" type="hidden" />
+                        <input asp-for="TaxPayerName" type="hidden" />
+                    </div>
+                </div>
+
+                <div class="form-group" id="cbsref">
+                    <div class="row">
+                        <label asp-for="CBSRef" class="col-md-4"></label>
+                        <div class="col-md-8">
+                            <input asp-for="CBSRef" class="form-control" />
+                            <span asp-validation-for="CBSRef" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group" id="recfrom">
+                    <div class="row">
+                        <label asp-for="ReceivedFrom" class="col-md-4"></label>
+                        <div class="col-md-8">
+                            <input asp-for="ReceivedFrom" class="form-control" />
+                            <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+     $(document).ready(function () {
+
+         $("#radio1").prop("checked", true);
+
+         var paytype = document.getElementById('paytype');
+         if (document.getElementById('radio1').checked) {
+             paytype.value = document.getElementById('radio1').value;
+              $("#decl").show();
+              $("#credit").hide();
+         }
+          $("input[id='radio1']").click(function () {
+              paytype.value = document.getElementById('radio1').value;
+              $("#decl").show();
+              $("#credit").hide();
+        });
+
+        $("input[id='radio2']").click(function () {
+            paytype.value = document.getElementById('radio2').value;
+              $("#decl").hide();
+              $("#credit").show();
+        });
+
+
+    })
+</script>

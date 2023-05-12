@@ -1,0 +1,24 @@
+﻿@{
+    var alerts = new List<Alert>();
+    var jsonData = TempData.ContainsKey(Alert.TempDataKey) ? (string)TempData[Alert.TempDataKey] : "";
+    if (!string.IsNullOrEmpty(jsonData))
+    {
+        alerts = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Alert>>(jsonData);
+    }
+
+    foreach (var alert in alerts)
+    {
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+        <div class="alert alert-@alert.AlertStyle @dismissableClass">
+            @if (alert.Dismissable)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    &times;
+                </button>
+            }
+            <i class="@alert.IconClass"></i>
+            @Html.Raw(alert.Message)
+        </div>
+    }
+}
+

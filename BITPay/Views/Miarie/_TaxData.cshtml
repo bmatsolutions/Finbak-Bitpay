@@ -1,0 +1,55 @@
+﻿@model MairieTaxNoteModel
+<p class="alert alert-success">
+    <i class="fa fa-check-circle fa-2x m-r-5"></i>
+    <strong>Tax query was successful.</strong>
+</p>
+        <div class="row">
+            <div class="col-md-4">Reference Number:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.RefNo</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Taxpayer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxPayerName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Taxpayer No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Nic</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Amount:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Amount</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Tax Amount:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxAmount</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Description:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxNoteDescr</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Title:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Title</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Period:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Period</strong>
+            </div>
+        </div>
+
+<hr />

@@ -1,0 +1,32 @@
+﻿@using System.Security.Claims
+@{
+    string userName = "";
+    UserDataModel currentUserData = null;
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userName = currentUserData.UserName;
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/imports.css" rel="stylesheet" />
+    <link href="~/css/report.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+            @*<img src="~/images/logo.jpg" alt=".." style="display:none;" />*@
+            <div>
+                @RenderBody()
+            </div>
+            @RenderSection("Scripts", required: false)
+
+      
+</body>
+</html>

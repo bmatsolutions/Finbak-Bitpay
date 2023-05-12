@@ -1,0 +1,67 @@
+﻿@model DeclarationQueryResponse
+
+<div class="row">
+    <div class="col-md-6">
+        <p class="alert alert-success text-center">
+            <i class="fa fa-check-circle-o fa-4x"></i><br />
+            <strong>Confirm credit slip details to proceed to payment</strong>
+        </p>
+        <div class="row">
+            <div class="col-md-4">Account Holder</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.AccountHolder</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Company Name</div>
+            <div class="col-md-8">
+                <strong>@Model.CompanyName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Office Name</div>
+            <div class="col-md-8">
+                <strong>@Model.OfficeName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Office Code</div>
+            <div class="col-md-8">
+                <strong>@Model.OfficeCode</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><h4>Amount</h4></div>
+            <div class="col-md-8">
+                <h4><span class="label label-inverse font-bold">@Model.AmountToBePaid.ToString("#,##0.00")</span></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <span class="text-muted">@Model.ErrorDescription</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="taxForm" method="post" asp-action="confirmdets">
+    <input id="tax_step" type="hidden" value="1" />
+    <input id="twende" type="hidden" value="1" />
+    <input type="hidden" asp-for="PayType" />
+    <input type="hidden" asp-for="OfficeCode" />
+    <input type="hidden" asp-for="OfficeName" />
+    <input type="hidden" asp-for="AccountHolder" />
+    <input type="hidden" asp-for="AssessmentYear" />
+    <input type="hidden" asp-for="AssessmentSerial" />
+    <input type="hidden" asp-for="AssessmentNumber" />
+    <input type="hidden" asp-for="RegistrationNumber" />
+    <input type="hidden" asp-for="CompanyName" />
+    <input type="hidden" asp-for="DeclarantCode" />
+    <input type="hidden" asp-for="AmountToBePaid" />
+    <input type="hidden" asp-for="DeclarantName" />
+    <input type="hidden" asp-for="CompanyCode" />
+    <input type="hidden" asp-for="RegistrationSerial" />
+    <input type="hidden" asp-for="ReferenceNumber" />
+    <input type="hidden" asp-for="AccountReference" />
+</form>

@@ -1,0 +1,79 @@
+﻿@model MairieTaxNoteModel
+
+<p class="alert alert-success">
+    <i class="fa fa-check-circle fa-2x m-r-5"></i>
+    <strong>Confirm declaration details to proceed to payment</strong>
+</p>
+<div class="row">
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-4">Reference Number:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.RefNo</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Taxpayer Name:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxPayerName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Taxpayer No:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Nic</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Tax Amount:</div>
+            <div class="col-md-8 control-label">
+                <strong class="badge badge-inverse">@Model.TaxAmount.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Due Amount:</div>
+            <div class="col-md-8 control-label">
+                <strong class="badge badge-purple">@Model.Amount.ToString("#,##0.00")</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Description:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.TaxNoteDescr</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Note Type:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.NoteTypeName</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Title:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Title</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Period:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Period</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="taxForm" method="post" asp-action="confirm">
+    <input id="tax_step" type="hidden" value="1" />
+    <input id="twende" type="hidden" value="1" />
+    <input type="hidden" asp-for="TaxNoteType" />
+    <input type="hidden" asp-for="RefNo" />
+    <input type="hidden" asp-for="TaxPayerName" />
+    <input type="hidden" asp-for="Period" />
+    <input type="hidden" asp-for="TaxNoteDescr" />
+    <input type="hidden" asp-for="Title" />
+    <input type="hidden" asp-for="Amount" />
+    <input type="hidden" asp-for="NoteTypeName" />
+</form>
+<hr />
+<div class="text-muted">Click on <b>Next</b> button to proceed or click <a asp-action="pay"><i class="fa fa-link"></i> me</a> to query again</div>

@@ -1,0 +1,93 @@
+﻿@model PrePaidModel
+@{
+    var payModes = Model.PaymentModes as List<SelectListItem>;
+      var banks = ViewData["Bank"] as List<SelectListItem>;
+}
+<div id="taxDetsContent">
+    <p class="text-muted">
+        Enter the miarie declaration details in the form below and click on Next button
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="query" id="frmQuey" method="get" class="form-horizontal check-valid" role="form">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <input id="tax_step" type="hidden" value="0" />
+                         <input id="twende" type="hidden" value="1" />
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label asp-for="Meter_No" class="col-md-5 control-label"></label>
+                    <div class="col-md-7">
+                        <input asp-for="Meter_No" class="form-control" />
+                        <span asp-validation-for="Meter_No" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="typeFields"> </div>
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-7">
+                        (<span class="text-danger">*</span>) Mandatory
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  @*                      @section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+<script type="text/javascript">
+$(function () {
+                $("#pay_mode").change(function () {
+                    var value = $(this).val();
+                    @Model.MyProperty = value;
+                });
+         });
+    $(document).ready(function () {
+        listenPayModeChange();
+        function listenPayModeChange() {
+            $("#pay_mode").on("change", function () {
+                var mode = $(this).val();
+                console.log('Pay Mode: ' + mode);
+                $("#account_no").hide();
+                $("#cheque_no").hide();
+                $("#sort_code").hide();
+
+                if (mode === "1") {
+                    $("#account_no").show();
+                } else if (mode === "2") {
+                    $("#account_no").show();
+                    $("#cheque_no").show();
+                } else if (mode === "3") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                } else if (mode === "4") {
+                    $("#cheque_no").show();
+                    $("#sort_code").show();
+                    loadBanks();
+                }
+
+                setCharge(mode);
+
+            });
+            $("#pay_mode").change();
+        }
+         function loadBanks() {
+            $("#banks").empty();
+
+            var url = "@Url.Action("getbanks")";
+            $.getJSON(url, function (data) {
+                $.each(data, function (i, item) {
+                    $("#banks").append('<option value="' + item.value + '">' + item.text + '</option>');
+                });
+
+            })
+          }
+    });
+</script>
+}*@

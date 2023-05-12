@@ -1,0 +1,114 @@
+﻿@model ReportDataModel
+@{
+    Layout = "_LayoutReport";
+    var reportData = Model.DataList as IEnumerable<GeneralReportData>;
+    var totals = reportData.Sum(x => x.Amount);
+
+    //---- Get groups
+    var groups = (from data in reportData
+                  group data by data.ModeCode into grp
+                  select new ReportGroupData
+                  {
+                      paymentmode = grp.FirstOrDefault().PaymentMode,
+                      GroupCode = grp.FirstOrDefault().ModeCode,
+                      GroupAmount = grp.Sum(x => x.Amount)
+
+                  });
+}
+
+    <div class="table-responsive">
+
+        <div class="text-center">@Model.Title</div>
+        <div style="font-size:12px;">Dates: @Model.DateRange</div>
+        <hr />
+
+        <table class="table table-striped table-bordered table-responsive-sm nowrap" id="Data" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="header">DECLARANT NAME</th>
+                    <th class="header">DECLARANT CODE</th>
+                    <th class="header">PAY DATE</th>
+                    <th class="header">TXN REF</th>
+                    <th class="header">DR ACCOUNT</th>
+                    <th class="header">MODE</th>
+                    <th class="header text-right">AMOUNT</th>
+                    <th class="header text-right">CheckerId</th>
+                    <th class="header text-right">Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var g in groups)
+        {
+                @*<tr>
+                <th colspan="5">@g.paymentmode</th>
+            </tr>*@
+                @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+            {
+                <tr>
+                    <td>@rec.DeclarantName</td>
+                    <td>@rec.DeclarantNo</td>
+                    <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
+                    <td>@rec.RefNo</td>
+                    <td>@rec.DR_Account</td>
+                    <td>@rec.PaymentMode</td>
+                    <td>@rec.Amount.ToString("#,##0.00")</td>
+                    <td>@rec.Checker_Id</td>
+                    <td>@rec.Status</td>
+                </tr>
+            }
+                @*<tr>
+                <th class="group-header" colspan="5">Group Totals:</th>
+                <th class="group-header text-right">@g.GroupAmount.ToString("#,##0.00")</th>
+            </tr>*@
+        }
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>General Totals:</th>
+                    <th class="text-right">@totals.ToString("#,##0.00")</th>
+                </tr>
+            </tfoot>
+            </tbody>
+        </table>
+        @*<table class="table-report report-footer">
+            <tr>
+                <th>General Totals:</th>
+                <th class="text-right">@totals.ToString("#,##0.00")</th>
+            </tr>
+        </table>*@
+    </div>
+
+    <script>
+    $(document).ready(function () {
+        var d = new Date();
+        var n = d.toString();
+        $('#Data').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    messageTop: 'Multiple Custom Tax Report',
+                    messageBottom: 'Print Date   :  ' + n,
+                    title: 'Finbank SA SP.',
+                    footer: true
+                },
+                {
+                    extend: 'pdf',
+                    messageTop: 'Multiple Custom Tax Report',
+                    messageBottom: 'Print Date   :  ' + n ,
+                    title: 'Finbank SA SP.',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    footer: true
+                },
+            ]
+        });
+    });
+    </script>

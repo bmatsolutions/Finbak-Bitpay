@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ReportModel>
+@{
+    ViewData["Title"] = "Query Domestic Payment";
+}
+
+<h2 class="header-title">Query Domestic Payment</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Domestic Payment</strong></div>
+            <div class="panel-body">
+                <form method="post" role="form">
+                    <div class="form-group row">
+                        <label class="col-md-4 control-label"> Reference Number:</label>
+                        <div class="col-md-8">
+                            <div class="input-group drp">
+                                <input name="refno" id="refno" type="text" class="form-control" aria-describedby="drp-icon">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button class="btn btn-default" type="submit" onclick="Pressed(event);"><i class="fa fa-check"></i> Generate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Payment Status:</strong></div>
+            <div class="panel-body">
+                <div id="stmnt-data">
+                    <p class="text-center">
+                        <i class="mdi mdi-information mdi-48px text-info"></i><br />
+                        <strong>Enter domestic tax payment reference number on the left panel.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+    <script>
+         const pgView = "<p class='text-center'><i class='mdi mdi-loading mdi-48px mdi-spin'></i><br/>Loading......</p>";
+       
+        function Pressed(e) {
+            e.preventDefault();
+             e.stopImmediatePropagation();
+            $('#stmnt-data').html(pgView);
+
+            var reference = document.getElementById('refno').value
+
+
+
+            var url = "@Url.Action("QueryPayment")";
+
+            var fData = { RefNo: reference};
+            $.post(url, fData, function (data) {
+                $('#stmnt-data').html(data);
+                console.log(data);
+                       $("#Data").DataTable();
+            });
+
+        }
+    </script>
+}

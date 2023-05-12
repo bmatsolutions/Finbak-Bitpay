@@ -1,0 +1,17 @@
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\bin\Debug\OBRClient.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\bin\Debug\OBRClient.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\bin\Debug\Newtonsoft.Json.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\bin\Debug\Newtonsoft.Json.xml
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.CoreCompileInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\2023\Finbank-BITPay-master (4)\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.AssemblyReference.cache
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\bin\Debug\OBRClient.dll
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\bin\Debug\OBRClient.pdb
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.AssemblyReference.cache
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.CoreCompileInputs.cache
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.CopyComplete
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.dll
+F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.pdb

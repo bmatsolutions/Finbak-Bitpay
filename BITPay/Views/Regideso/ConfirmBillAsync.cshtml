@@ -1,0 +1,130 @@
+﻿@model Bills
+<h2 class="header-title">PostPayed Payment</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <div class="text-muted">
+                Confirm the bill details then press <b>Submit</b> button
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <form asp-action="ConfirmBillAsync" method="post" id="CnfrmForm" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Invoice_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Invoice_no" class="form-control" />
+                                <span asp-validation-for="Invoice_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cust_name" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Cust_name" class="form-control" />
+                                <span asp-validation-for="Cust_name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cust_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Cust_no" class="form-control" />
+                                <span asp-validation-for="Cust_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Accnt_no" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Accnt_no" class="form-control" />
+                                <span asp-validation-for="Accnt_no" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Amnt_paid" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Amnt_paid" class="form-control" />
+                                <span asp-validation-for="Amnt_paid" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Amnt" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Amnt" class="form-control" />
+                                <span asp-validation-for="Amnt" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Activity" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Activity" class="form-control" />
+                                <span asp-validation-for="Activity" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Month" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Month" class="form-control" />
+                                <span asp-validation-for="Month" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="Year" class="col-md-4 control-label"></label>
+                            <div class="col-md-8">
+                                <input asp-for="Year" class="form-control" />
+                                <span asp-validation-for="Year" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> Submit</button>
+                                <a asp-action="Pay" class="btn btn-danger"><i class="fa fa-close"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+     <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Search results:
+            </div>
+            <div class="panel-body">
+                <div id="queryResult">
+                    <p class="text-center">
+                        <i class="fa fa-book fa-3x"></i><br />
+                        Submit results will be displayed here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+     @section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#CnfrmForm').on('submit', function (e) {
+            console.log("good1")
+            e.preventDefault();
+            $('#queryResult').html('<p class="text-center"><i class="fa fa-spin fa-spinner fa-3x"></i><br/>Querying.........</p>');
+            var frm = $(this);
+            var url = frm.attr("action");
+            var formData = frm.serialize();
+            $.get(url, formData, function (data) {
+                console.log("good")
+                $('#queryResult').html(data);
+            })
+        })
+    });
+</script>
+}
