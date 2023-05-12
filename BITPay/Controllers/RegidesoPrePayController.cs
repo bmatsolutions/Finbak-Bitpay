@@ -59,12 +59,12 @@ namespace BITPay.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> PayBillList()
+        public async Task<IActionResult> PayBillList(int stat = 1)
         {
             var model = new List<PostPayReportModels>();
             try
             {
-                var data = await bl.GetPayBillListPayments();
+                var data = await bl.GetPayBillListPayments(stat);
                 return View(data);
 
             }

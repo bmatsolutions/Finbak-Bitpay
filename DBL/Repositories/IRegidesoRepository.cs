@@ -26,7 +26,7 @@ namespace BITPay.DBL.Repositories
         Task<BaseEntity> UpdatePostPaymentStatusAsync(int paymentCode, int status, string message);
         Task<BaseEntity> UpdatePrePaymentStatusAsync(int paymentCode, int status, string message);
         IEnumerable<BuyTokenReportModels> GetPrePayList();
-        IEnumerable<PostPayReportModels> GetPayBillListPayments();
-        IEnumerable<BuyTokenReportModels> GetPrePayListPayments();
+        IEnumerable<PostPayReportModels> GetPayBillListPayments(int stat);
+        IEnumerable<BuyTokenReportModels> GetPrePayListPayments(int stat);
     }
 }

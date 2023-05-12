@@ -55,7 +55,7 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@MeterNo", bill.Meter_No);
                 parameters.Add("@AccountNo", bill.Accnt_no);
                 parameters.Add("@Amount", bill.Amnt);
-                parameters.Add("@PayAmount", bill.PayAmount);
+                parameters.Add("@PayAmount", bill.Amnt);
                 parameters.Add("@Consumption", bill.Consumption);
                 parameters.Add("@AdvanceCredit", bill.AdvanceCredit);
                 parameters.Add("@Royalty", bill.Royalty);
@@ -207,13 +207,18 @@ namespace BITPay.DBL.Repositories
                 return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
-        public IEnumerable<BuyTokenReportModels> GetPrePayListPayments()
+        public IEnumerable<BuyTokenReportModels> GetPrePayListPayments(int stat)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
 
-                return connection.Query<BuyTokenReportModels>(GetAllStatement("vw_RGPrePayReceipts")).ToList();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Id", stat);
+
+                string sql = FindStatement("vw_RGPrePayReceipts", "Stat");
+
+                return connection.Query<BuyTokenReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
         public async Task<GenericModel> ValidatePostBillPaymentAsync(Bills payment)
@@ -250,12 +255,18 @@ namespace BITPay.DBL.Repositories
                 return await connection.QueryFirstOrDefaultAsync<GenericModel>("sp_ValidateBillPayment", parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public IEnumerable<PostPayReportModels> GetPayBillListPayments()
+        public IEnumerable<PostPayReportModels> GetPayBillListPayments(int stat)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<PostPayReportModels>(GetAllStatement("vw_RGPostPayReceipts")).ToList();
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Id", stat);
+
+                string sql = FindStatement("vw_RGPostPayReceipts", "Stat");
+
+                return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
         public async Task<BuyTokenPostModel> MakePrePaymentAsync(PrePaidModel payment)

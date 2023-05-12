@@ -106,12 +106,12 @@
                     $("#taxDetsContent").html(progress); 
                         $.ajax({
                             type: 'Post',
-                            url: ur,
+                            url: myForm.attr('action'),
                             data: dt
                         })
                     .done(function (resp) {
-                         listenPayModeChange();
                         $("#paymentContent").html(resp);
+                                listenPayModeChange();
                          });
                        return true;
                     }else{
@@ -136,9 +136,9 @@
                         data: frmData
                     })
                         .done(function (resp) {
-                           listenPayModeChange();
+                           
                             $("#confirmContent").html(resp);
-
+                            listenPayModeChange();
                         });
 
                     return true;
@@ -252,7 +252,6 @@
 
         $(document).on('click', ".opendetails", function () {
           
-            var amnt_paid =  $(this).attr('data-amnt_paid');
             var amnt = $(this).attr('data-amnt');
             var accnt_no = $(this).attr('data-accnt_no');
             var cust_no = $(this).attr('data-cust_no');
@@ -261,7 +260,6 @@
             var invoice_no = $(this).attr('data-invoice_no');
             var cust_name = $(this).attr('data-cust_name');
             var activity = $(this).attr('data-activity');
-            $('.modal-body #amnt_paid').val(amnt_paid);
             $('.modal-body #amnt').val(amnt);
             $('.modal-body #accnt_no').val(accnt_no);
             $('.modal-body #cust_no').val(cust_no);
@@ -307,7 +305,6 @@
         //}
         function func(x) {
              var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
-            var amnt_paid = document.getElementById("amnt_paid").value;
             var amnt = document.getElementById("amnt").value;
             var accnt_no = document.getElementById("accnt_no").value;
             var cust_no = document.getElementById("cust_no").value;
@@ -316,7 +313,7 @@
             var invoice_no = document.getElementById("invoice_no").value;
             var cust_name = document.getElementById("cust_name").value;
             var activity = document.getElementById("activity").value;
-             dt =  { 'amnt_paid': amnt_paid, 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity }
+             dt =  {'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity }
              $('#details').modal('hide');
               $("#frmQuey").show();
               //$("#mywizard").steps(settings);

@@ -52,14 +52,14 @@ namespace BITPay.Controllers
         }
         #region regideso
         [HttpGet]
-        public async Task<IActionResult> RegidesoPostPay(int stat = 0)
+        public async Task<IActionResult> RegidesoPostPay(int stat = 3)
         {
             var data = await bl.GetPayBillApprovalList(stat);
             Audit.AuditAction(_appSett, GetUserBrowser(), "Get Domestic Tax Approval List", 2, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());
             return View(data);
         }
         [HttpGet]
-        public async Task<IActionResult> RegidesoPrePay(int stat = 0)
+        public async Task<IActionResult> RegidesoPrePay(int stat = 3)
         {
             var data = await bl.GetPrePayApprovalList(stat);
             Audit.AuditAction(_appSett, GetUserBrowser(), "Get Domestic Tax Approval List", 2, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());

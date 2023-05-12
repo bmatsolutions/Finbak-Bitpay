@@ -48,12 +48,12 @@ namespace BITPay.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> PrePayList()
+        public async Task<IActionResult> PrePayList(int stat= 2)
         {
             var model = new List<BuyTokenReportModels>();
             try
             {
-                var data = await bl.GetPrePayListPayments();
+                var data = await bl.GetPrePayListPayments(stat);
                 return View(data);
 
             }
