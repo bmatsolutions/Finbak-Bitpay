@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Work\\Finbank Bitpay 2023\\BITPay\\BITPay.csproj": {}
+    "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Work\\Finbank Bitpay 2023\\BITPay\\BITPay.csproj": {
+    "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Work\\Finbank Bitpay 2023\\BITPay\\BITPay.csproj",
+        "projectUniqueName": "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj",
         "projectName": "BITPay",
-        "projectPath": "D:\\Projects\\Work\\Finbank Bitpay 2023\\BITPay\\BITPay.csproj",
-        "packagesPath": "C:\\Users\\25471\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Work\\Finbank Bitpay 2023\\BITPay\\obj\\",
+        "projectPath": "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj",
+        "packagesPath": "C:\\Users\\Bmat\\.nuget\\packages\\",
+        "outputPath": "D:\\patrick\\Bitpay\\BITPay\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\25471\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +25,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\Bmat Tools\\CoreTools\\BmatSecurity\\bin\\Debug": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\Bmat Tools\\CoreTools\\DbConnection\\bin\\Debug": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\FlexServiceUploadCore\\FlexServiceUploadCore\\FlexServiceUploadCore\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\DBL.csproj": {
-                "projectPath": "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\DBL.csproj"
+              "D:\\patrick\\Bitpay\\DBL\\DBL.csproj": {
+                "projectPath": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj"
               }
             }
           }
@@ -98,7 +98,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -110,21 +111,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\DBL.csproj": {
+    "D:\\patrick\\Bitpay\\DBL\\DBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\DBL.csproj",
+        "projectUniqueName": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj",
         "projectName": "BITPay.DBL",
-        "projectPath": "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\DBL.csproj",
-        "packagesPath": "C:\\Users\\25471\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Work\\Finbank Bitpay 2023\\DBL\\obj\\",
+        "projectPath": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj",
+        "packagesPath": "C:\\Users\\Bmat\\.nuget\\packages\\",
+        "outputPath": "D:\\patrick\\Bitpay\\DBL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\25471\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -132,9 +136,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\Bmat Tools\\CoreTools\\BmatSecurity\\bin\\Debug": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\Bmat Tools\\CoreTools\\DbConnection\\bin\\Debug": {},
-          "D:\\Projects\\Work\\Tools\\Bmat Tools\\FlexServiceUploadCore\\FlexServiceUploadCore\\FlexServiceUploadCore\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -192,7 +193,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -201,7 +203,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
