@@ -24,17 +24,7 @@
 <table style="width:100%">
     <tr>
 
-        @if (title == "BCAB S.A")
-        {
-            <td>
-                <div><img class="logo" src="~/images/BCAB.jpg" alt=".." /> </div>
-            </td>
-        }
-
         <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
-        <td>
-            <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
-        </td>
     </tr>
 </table>
 <table style="width:100%">
@@ -116,7 +106,7 @@
 
         <td><strong>Buy Token</strong></td>
         <td>@Model.ReceivedCode</td>
-        <td>@Model.Amount.ToString("#,##0.00")</td>
+        <td>@Model.PayAmount.ToString("#,##0.00")</td>
     </tr>
     @*<tr>
 
@@ -161,17 +151,8 @@
 <table style="width:100%">
     <tr>
 
-        @if (title == "BCAB S.A")
-        {
-            <td>
-                <div><img class="logo" src="~/images/BCAB.jpg" alt=".." /> </div>
-            </td>
-        }
 
         <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
-        <td>
-            <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
-        </td>
     </tr>
 </table>
 <table style="width:100%">
@@ -253,7 +234,7 @@
 
         <td><strong>Buy Token</strong></td>
         <td>@Model.ReceivedCode</td>
-        <td>@Model.Amount.ToString("#,##0.00")</td>
+        <td>@Model.PayAmount.ToString("#,##0.00")</td>
     </tr>
     @*<tr>
 

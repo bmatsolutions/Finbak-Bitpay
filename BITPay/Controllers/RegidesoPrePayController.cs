@@ -172,11 +172,11 @@ namespace BITPay.Controllers
                 if (queryResult.RespStatus == 0)
                 {
                     model.Token3 = queryResult.Data1;
-                    model.units = queryResult.Data22;
+                    model.Meter_No = model.Meter_No;
+                    model.units = model.units;
                     model.NeedApproval = queryResult.Data21;
                     model.Msg = queryResult.RespMessage;
                     model.BillCode = queryResult.Data20;
-                    model.units = queryResult.Data19;
                     return PartialView("_Finish", model);
                 }
                 else

@@ -54,6 +54,12 @@
         </div>
     </div>
 </div>
+
+
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+    <script src="~/js/mydatatable.min.js"></script>
+
+      
 <script type="text/javascript">
     $(document).ready(function () {
         $('#frmQuey1').on('submit', function (e) {
@@ -66,8 +72,25 @@
             $.get(url, formData, function (data) {
                 
                 $('#queryResult').html(data);
+                $("#myprodtbl").DataTable();
+                $("#myprodtbl tbody tr").on('click', function (event) {
+                    $("#myprodtbl tbody tr").removeClass('row_selected');
+                    $(this).addClass('row_selected');
+                });
                   $("#frmQuey").hide();
             })
         })
+        $('#myprodtbl tbody').on('click', 'tr', function () {
+            var id = this.id;
+            var index = $.inArray(id, selected);
+
+            if (index === -1) {
+                selected.push(id);
+            } else {
+                selected.splice(index, 1);
+            }
+
+            $(this).toggleClass('selected');
+        });
     });
 </script>

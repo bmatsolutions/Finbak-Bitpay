@@ -12,7 +12,6 @@
   
 
   <ItemGroup>
-    <PackageReference Include="Bmat.Tools.Security" Version="1.0.0" />
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.3" />
     <PackageReference Include="FastReport.OpenSource" Version="2022.3.4" />
@@ -26,6 +25,9 @@
   <ItemGroup>
     <Reference Include="Bmat.Tools.DbConnection">
       <HintPath>..\..\..\..\C# Projects\Bmat.Tools.DbConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="Bmat.Tools.Security">
+      <HintPath>..\..\CoreTools\BmatSecurity\bin\Debug\netcoreapp2.0\Bmat.Tools.Security.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.OracleClient">
       <HintPath>..\..\..\..\BMAT\System.Data.OracleClient.dll</HintPath>

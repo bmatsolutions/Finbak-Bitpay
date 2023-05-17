@@ -351,7 +351,7 @@ namespace BITPay.DBL.Gateways
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new { accnt_No = model.Accnt_no,meter_no = model.Meter_No,amnt = model.Amnt };
+                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount };
                 var result = await MakeRequestAsync(url, 902, queryData);
                 if (result.RespStatus == 0)
                 {

@@ -154,10 +154,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Bmat.Tools.Security": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Dapper": {
               "target": "Package",
               "version": "[1.50.5, )"

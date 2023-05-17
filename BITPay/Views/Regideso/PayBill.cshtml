@@ -29,15 +29,17 @@
 
 @section css{
     <link href="~/lib/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" />
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
 }
 @section Scripts{
     @await Html.PartialAsync("_ValidationScriptsPartial")
     <script src="~/lib/jquery.steps/build/jquery.steps.min.js"></script>
+    <script src="~/js/mydatatable.min.js"></script>
 
     <script>
         var ur =  '/regideso/BillConfirm';
          var dt = {};
-       
+        $('#myprodtbl').dataTable();
 
         var settings = {
             headerTag: "h3",
@@ -251,7 +253,8 @@
         }
 
         $(document).on('click', ".opendetails", function () {
-          
+            $("#products tbody tr").removeClass('row_selected');
+            $(this).addClass('row_selected');
             var amnt = $(this).attr('data-amnt');
             var accnt_no = $(this).attr('data-accnt_no');
             var cust_no = $(this).attr('data-cust_no');

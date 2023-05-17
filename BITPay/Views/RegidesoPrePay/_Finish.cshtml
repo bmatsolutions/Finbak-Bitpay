@@ -15,18 +15,23 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-4">Amount:</div>
+            <div class="col-md-8 control-label">
+                <strong>@Model.Amnt</strong>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">Token:</div>
             <div class="col-md-8 control-label">
                 <strong>@Model.Token3</strong>
             </div>
         </div>
-         <div class="row">
+        <div class="row">
             <div class="col-md-4">Units:</div>
             <div class="col-md-8 control-label">
                 <strong>@Model.units</strong>
             </div>
         </div>
-
         @if (!Model.NeedApproval)
         {
             <div class="text-center text-muted ">

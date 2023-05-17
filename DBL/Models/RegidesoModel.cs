@@ -48,8 +48,8 @@ namespace BITPay.DBL.Models
         [JsonProperty("paid_amount")]
         public decimal Amnt_paid { get; set; }
         [JsonProperty("amount")]
-         public decimal units { get; set; }
-         public decimal Amount { get; set; }
+        public decimal Amount { get; set; }
+        public decimal units { get; set; }
         [JsonProperty("invoice_amnt")]
         public decimal invoice_amnt { get; set; } 
         [JsonProperty("deduction_amnt")]
@@ -99,10 +99,12 @@ namespace BITPay.DBL.Models
         public string txnId { get; set; }
         public bool Success { get; set; }
         public int Maker { get; set; }
+        [Required]
         public string ReceivedFrom { get; set; }
         public bool NeedApproval { get; set; }
         public string CBSRef { get; set; }
         public string UserName { get; set; }
+        [Required]
         public string Remarks { get; set; }
         public string DRAccount { get; set; }
         public string Extra1 { get; set; }
@@ -140,7 +142,9 @@ namespace BITPay.DBL.Models
         public decimal units { get; set; }
         public string Msg { get; set; }
         public string Data { get; set; }
+        [Required]
         public string ReceivedFrom { get; set; }
+        [Required]
         public string Remarks { get; set; }
         [JsonProperty("success")]
         public bool Success { get; set; }
@@ -211,6 +215,8 @@ namespace BITPay.DBL.Models
         public string Meter_No { get; set; }
         [JsonProperty("amnt")]
         public decimal Amount { get; set; }
+        [JsonProperty("amnttopay")]
+        public decimal AmountToPay { get; set; }
         [Display(Name = "units")]
         public string units { get; set; }
         [JsonProperty("cust_name")]

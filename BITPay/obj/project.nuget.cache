@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "R2oG9XXzeaNquOxoGz3Kou7yxwymY1v4slIrWvu7FdWA7BdwnD1ZS7uSzZgS2USl22MXjuSDghn74LH18KzjLA==",
-  "success": false,
+  "dgSpecHash": "jAqxcwJ8bm+9ZHzsgWIKkVPcStGEZQWPr3clu1hMuco1xjUIGiUCbZOZ14MSTUGn6MUon6qpFJDcCKtKDzODMA==",
+  "success": true,
   "projectFilePath": "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bmat\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
@@ -204,15 +204,5 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Bmat\\.nuget\\packages\\uaparser\\3.1.40\\uaparser.3.1.40.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package Bmat.Tools.Security. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org",
-      "libraryId": "Bmat.Tools.Security",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

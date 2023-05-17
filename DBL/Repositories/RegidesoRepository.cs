@@ -40,7 +40,7 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@ChequeNo", bill.ChequeNo);
                 parameters.Add("@ReceivedFrom", bill.ReceivedFrom);
                 parameters.Add("@Remarks", bill.Remarks);
-                parameters.Add("@DRAccount", bill.Accnt_no);
+                parameters.Add("@DRAccount", bill.DrAccount);
                 parameters.Add("@DeductionAmount", bill.Amnt);
                 parameters.Add("@InvoiceAmount", bill.Amnt_paid);
                 return await connection.QueryFirstOrDefaultAsync<GenericModel>("sp_AddPostPayTrns", parameters, commandType: CommandType.StoredProcedure);
@@ -55,8 +55,8 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@MeterNo", bill.Meter_No);
                 parameters.Add("@AccountNo", bill.Accnt_no);
-                parameters.Add("@Amount", bill.Amnt);
-                parameters.Add("@PayAmount", bill.Amnt);
+                parameters.Add("@Amount", bill.Amount);
+                parameters.Add("@PayAmount", bill.Amount);
                 parameters.Add("@Consumption", bill.Consumption);
                 parameters.Add("@AdvanceCredit", bill.AdvanceCredit);
                 parameters.Add("@Royalty", bill.Royalty);
@@ -81,6 +81,8 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@PayMode", bill.PayMode);
                 parameters.Add("@ReceivedFrom", bill.ReceivedFrom);
                 parameters.Add("@Remarks", bill.Remarks);
+                parameters.Add("@DRAccount", bill.DrAccount);
+
                 return await connection.QueryFirstOrDefaultAsync<GenericModel>("sp_AddRGPrePaidTrns", parameters, commandType: CommandType.StoredProcedure);
             }
         }
@@ -175,12 +177,12 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Id", stat);
 
-                string sql = FindStatement("vw_RGPrePayReceipts", "Stat");
+                string sql = FindStatement("vw_RGPrePayApprovalList", "Stat");
 
                 return connection.Query<BuyTokenReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
-        public Bills GetPostPay(int paymentCode)
+        public PostPayReportModels GetPostPay(int paymentCode)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -189,9 +191,9 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Id", paymentCode);
 
-                string sql = FindStatement("vw_RGPostPayReceipts", "BillCode");
+                string sql = FindStatement("vw_RGPostPayApprovalList","BillCode");
 
-                return connection.Query<Bills>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
+                return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
             }
         }
         public IEnumerable<PostPayReportModels>  GetPostPayApprovalList(int stat)
@@ -203,7 +205,7 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Id", stat);
 
-                string sql = FindStatement("vw_RGPostPayReceipts", "Stat");
+                string sql = FindStatement("vw_RGPostPayApprovalList", "Stat");
 
                 return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
@@ -312,7 +314,7 @@ namespace BITPay.DBL.Repositories
                 return await connection.QueryFirstOrDefaultAsync<BuyTokenPostModel>("sp_RGPostPayment", parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public async Task<BuyTokenPostModel> MakeApprovalPostPaymentAsync(Bills payment)
+        public async Task<BuyTokenPostModel> MakeApprovalPostPaymentAsync(PostPayReportModels payment)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -328,12 +330,12 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@Extra2", payment.SortCode);
                 parameters.Add("@Extra3", payment.Extra1);
                 parameters.Add("@Extra4", payment.Extra2);
-                parameters.Add("@Dr_Account", payment.Accnt_no);
+                parameters.Add("@Dr_Account", payment.DRAccount);
 
                 return await connection.QueryFirstOrDefaultAsync<BuyTokenPostModel>("sp_RGPostPayment", parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public async Task<BaseEntity> UpdatePostPaymentStatusAsync(int paymentCode, int status, string message)
+        public async Task<BaseEntity> UpdatePostPaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -342,12 +344,16 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BillCode", paymentCode);
                 parameters.Add("@Stat", status);
-                parameters.Add("@Msg", message);
+                parameters.Add("@CBSStat", CbsStat);
+                parameters.Add("@Level", level);
+                parameters.Add("@cbsref", Cbsref);
+                parameters.Add("@CBSMsg", Cbsmessage);
+                parameters.Add("@RgMsg", Rgmessage);
 
                 return await connection.QueryFirstOrDefaultAsync<BaseEntity>("sp_UpdatePostPayStatus", parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public async Task<BaseEntity> UpdatePrePaymentStatusAsync(int paymentCode, int status, string message)
+        public async Task<BaseEntity> UpdatePrePaymentStatusAsync(int level,int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -356,7 +362,11 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BillCode", paymentCode);
                 parameters.Add("@Stat", status);
-                parameters.Add("@Msg", message);
+                parameters.Add("@Level", level);
+                parameters.Add("@CBSStat", CbsStat);
+                parameters.Add("@cbsref", Cbsref);
+                parameters.Add("@CBSMsg", Cbsmessage);
+                parameters.Add("@RgMsg", Rgmessage);
 
                 return await connection.QueryFirstOrDefaultAsync<BaseEntity>("sp_UpdatePrePayStatus", parameters, commandType: CommandType.StoredProcedure);
             }

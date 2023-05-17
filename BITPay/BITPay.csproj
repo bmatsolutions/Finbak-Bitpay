@@ -77,6 +77,9 @@
     <Reference Include="Bmat.Tools.DbManager">
       <HintPath>bin\Debug\netcoreapp3.1\Bmat.Tools.DbManager.dll</HintPath>
     </Reference>
+    <Reference Include="Bmat.Tools.Security">
+      <HintPath>..\..\CoreTools\BmatSecurity\bin\Debug\netcoreapp2.0\Bmat.Tools.Security.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

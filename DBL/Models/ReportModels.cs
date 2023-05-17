@@ -106,6 +106,22 @@ namespace BITPay.DBL.Models
         public string UserName { get; set; }
         public string PayMode { get; set; }
         public string DRAccount { get; set; }
+        public string PayModeName { get; set; }
+        public string Remarks { get; set; }
+        public string ReceivedFrom { get; set; }
+        public string SortCode { get; set; }
+        public int BankCode { get; set; }
+        public string ChequeNo { get; set; }
+        public string txnId { get; set; }
+        public bool Success { get; set; }
+        public int Maker { get; set; }
+        public int RespStat { get; set; }
+        public string RespMessage { get; set; }
+        public bool NeedApproval { get; set; }
+        public string CBSRef { get; set; }
+        public string Extra1 { get; set; }
+        public string Extra2 { get; set; }
+        public string Extra3 { get; set; }
     }
 
     public class DomesticReportModels : BaseReportModels
