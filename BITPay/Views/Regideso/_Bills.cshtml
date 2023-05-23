@@ -40,6 +40,7 @@
                            data-invoice_no="@item.Invoice_no" 
                             data-cust_name="@item.Cust_name"
                             data-activity="@item.Activity"
+                       onclick="submitForm(this)"
                            class="opendetails"><i class="fa fa-cog"></i> Select</a>
                
                </td>
@@ -47,155 +48,13 @@
             }
         </tbody>
     </table>
-   
-<div id="details" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="details" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title ">Confirm Payment Details</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Amount:</label> <input type="text" name="amnt" id="amnt" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Account Number:</label> <input type="text" name="accnt_no" id="accnt_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Customer Number:</label> <input type="text" name="cust_no" id="cust_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Year:</label> <input type="text" name="year" id="year" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Month:</label> <input type="text" name="month" id="month" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Invoice Number:</label> <input type="text" name="invoice_no" id="invoice_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Customer name:</label> <input type="text" name="cust_name" id="cust_name" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Activity:</label> <input  type="text" name="activity" id="activity" value="" readonly />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                   <button class="btn btn-primary" id="save" onclick="func(this);">Save Payment</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <form id="frmQuey" method="post" asp-action="BillConfirm">
     <input id="tax_step" type="hidden" value="0" />
     <input id="twende" type="hidden" value="1" />
 </form>
 
 
-
-@*
-@model IEnumerable<Bills>
-    <table class="table table-sm table-bordered table-striped" id="myprodtbl" style="width:100%;">
-        <thead>
-            <tr>
-                <td>Account No</td>
-                <td>Customer Name</td>
-                <td>Customer No</td>
-                <td>Amount</td>
-                <td>Month</td>
-                <td>Year</td>
-                <td>Invoice No</td>
-                <td>Activity</td>
-                <td></td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>@item.Accnt_no</td>
-                <td>@item.Cust_name</td>
-                <td>@item.Cust_no</td>
-                <td>@item.Amnt</td>
-                <td>@item.Month</td>
-                <td>@item.Year</td>
-                <td>@item.Invoice_no</td>
-                <td>@item.Activity</td>
-                    <td>
-
-                     <a data-target="#details" 
-                           data-toggle="modal"  
-                           data-amnt_paid="@item.Amnt_paid" 
-                           data-amnt="@item.Amnt" 
-                           data-accnt_no="@item.Accnt_no" 
-                           data-cust_no="@item.Cust_no" 
-                           data-year="@item.Year" 
-                           data-month="@item.Month" 
-                           data-invoice_no="@item.Invoice_no" 
-                            data-cust_name="@item.Cust_name"
-                            data-activity="@item.Activity"
-                           class="opendetails"><i class="fa fa-cog"></i> Select</a>
-               
-               </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-<div id="details" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="details" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title ">Confirm Tax Note Details</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Amount Paid:</label> <input type="text" name="amnt_paid" id="amnt_paid" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Amount:</label> <input type="text" name="amnt" id="amnt" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Account Number:</label> <input type="text" name="accnt_no" id="accnt_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Customer Number:</label> <input type="text" name="cust_no" id="cust_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Year:</label> <input type="text" name="year" id="year" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Month:</label> <input type="text" name="month" id="month" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Invoice Number:</label> <input type="text" name="invoice_no" id="invoice_no" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Customer name:</label> <input type="text" name="cust_name" id="cust_name" value="" readonly />
-                </div>
-                <div class="form-group">
-                    <label>Activity:</label> <input  type="text" name="activity" id="activity" value="" readonly />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" id="save" onclick="func(this);">Save Taxnote</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<form id="frmQuey" method="post" asp-action="BillConfirm">
-    <input id="tax_step" type="hidden" value="0" />
-    <input id="twende" type="hidden" value="1" />
-    @*<input type="hidden" asp-for="Content.TaxNoteType" />
-    <input type="hidden" asp-for="Content.TaxNoteNo" />
-</form>*@
 
 
 

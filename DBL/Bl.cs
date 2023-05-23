@@ -4036,6 +4036,7 @@ namespace BITPay.DBL
                 return makePaymentResponse;
             }
             payment.Maker = userCode;
+            payment.txnId = payment.BillCode.ToString();
             var result = await db.RegidesoRepository.MakeApprovalPostPaymentAsync(payment);
             db.Reset();
 
@@ -4114,12 +4115,12 @@ namespace BITPay.DBL
                         }
                         else
                         {
-                            //--- Posting successfully
+                            //--- Posting failed
                             await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4,"", "", "",resp.Msg);
-                            //--- Posting successfully
+                            //--- Posting failed
                             postRespMessage = postResp.Message;
-                            makePaymentResponse.RespStatus = 0;
-                            makePaymentResponse.RespMessage = "Transaction posting was successful.";
+                            makePaymentResponse.RespStatus = 1;
+                            makePaymentResponse.RespMessage = "Transaction posting failed due to an error.";
                             statMessage = postResp.Message;
 
                         }
@@ -5092,9 +5093,7 @@ namespace BITPay.DBL
             {
                 HttpClient httpClient;
                 Exception ex;
-                string TxnTyp = postData.MainTxnType;
-                if (string.IsNullOrEmpty(TxnTyp))
-                {
+                string TxnTyp = "";
                     if (postData.PaymentMode.ToString() == "0") //cash
                     {
                         TxnTyp = "501";
@@ -5111,7 +5110,7 @@ namespace BITPay.DBL
                     {
                         TxnTyp = "504";
                     }
-                }
+                
 
                 //----- Post main transaction
                 CBSPostModel postModel = new CBSPostModel
@@ -5125,7 +5124,7 @@ namespace BITPay.DBL
                     Officer = postData.CBSOfficer,
                     RefNo = postData.MainRefNo,
                     TransactorName = postData.TransactorName,
-                    TxnCode = postData.MainTxnCode,
+                    TxnCode = TxnTyp,
                     TxnType = TxnTyp,// postData.MainTxnType,
                     Txndata = postData.ChargeAmount.ToString(),
                     ChequeNo = postData.ChequeNo ?? "",
@@ -5780,6 +5779,7 @@ namespace BITPay.DBL
                 return new CreateFileResultModel { Message = "Report generation failed due to an error!" };
             }
         }
+
         #endregion
 
     }

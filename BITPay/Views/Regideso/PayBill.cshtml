@@ -252,7 +252,7 @@
             })
         }
 
-        $(document).on('click', ".opendetails", function () {
+        $(document).on('click', ".opendetails", function (e) {
             $("#products tbody tr").removeClass('row_selected');
             $(this).addClass('row_selected');
             var amnt = $(this).attr('data-amnt');
@@ -271,7 +271,65 @@
             $('.modal-body #invoice_no').val(invoice_no);
             $('.modal-body #cust_name').val(cust_name);
             $('.modal-body #activity').val(activity);
+            dt = { 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no, 'cust_name': cust_name, 'activity': activity }
+           
+            $.ajax({
+                url: '@Url.Action("BillConfirm")',
+                type: 'POST',
+                dataType: 'application/json',
+                data:dt,
+                success: function (data) {
+                    console.log(data)
+                   
+                   // alert(response);
+                },
+                error: function (data) {
+                    console.log('err')
+                    submitForm1();
+                    //var msg = JSON.parse(data.responseText);
+                    //var success = msg.success;
+                    //var response = msg.responseText;
+                    
+                    //alert(response);
+                }
+            });
+           
+            //e.preventdefault();
+            //$("#frmQuey").submit();
+            //    $("#frmQuey").trigger('submit');
         });
+        function submitForm1(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+            console.log('good11')
+            var form = document.getElementById('frmQuey');
+            // Submit the form
+            form.submit();
+        }
+        //$(document).on('click', ".opendetails", function (e) {
+        //    $("#products tbody tr").removeClass('row_selected');
+        //    $(this).addClass('row_selected');
+        //    var amnt = $(this).attr('data-amnt');
+        //    var accnt_no = $(this).attr('data-accnt_no');
+        //    var cust_no = $(this).attr('data-cust_no');
+        //    var year = $(this).attr('data-year');
+        //    var month = $(this).attr('data-month');
+        //    var invoice_no = $(this).attr('data-invoice_no');
+        //    var cust_name = $(this).attr('data-cust_name');
+        //    var activity = $(this).attr('data-activity');
+        //    $('.modal-body #amnt').val(amnt);
+        //    $('.modal-body #accnt_no').val(accnt_no);
+        //    $('.modal-body #cust_no').val(cust_no);
+        //    $('.modal-body #year').val(year);
+        //    $('.modal-body #month').val(month);
+        //    $('.modal-body #invoice_no').val(invoice_no);
+        //    $('.modal-body #cust_name').val(cust_name);
+        //    $('.modal-body #activity').val(activity);
+        //    dt = { 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no, 'cust_name': cust_name, 'activity': activity }
+        //    console.log('new1',dt)
+        //    //e.preventdefault();
+        //    //$("#frmQuey").submit();
+        //    //    $("#frmQuey").trigger('submit');
+        //});
 
         //function func(x) {
            
@@ -306,21 +364,24 @@
         //        }
         //    });
         //}
-        function func(x) {
-             var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
-            var amnt = document.getElementById("amnt").value;
-            var accnt_no = document.getElementById("accnt_no").value;
-            var cust_no = document.getElementById("cust_no").value;
-            var year = document.getElementById("year").value;
-            var month = document.getElementById("month").value;
-            var invoice_no = document.getElementById("invoice_no").value;
-            var cust_name = document.getElementById("cust_name").value;
-            var activity = document.getElementById("activity").value;
-             dt =  {'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity }
-             $('#details').modal('hide');
-              $("#frmQuey").show();
-              //$("#mywizard").steps(settings);
-        }
+        //function func(x) {
+        //     var progress = '<h3><i class="fa fa-spin fa-spinner"></i> <strong>Please wait........</strong></h3>';
+        //    var amnt = document.getElementById("amnt").value;
+        //    var accnt_no = document.getElementById("accnt_no").value;
+        //    var cust_no = document.getElementById("cust_no").value;
+        //    var year = document.getElementById("year").value;
+        //    var month = document.getElementById("month").value;
+        //    var invoice_no = document.getElementById("invoice_no").value;
+        //    var cust_name = document.getElementById("cust_name").value;
+        //    var activity = document.getElementById("activity").value;
+        //     dt =  {'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no,'cust_name':cust_name,'activity':activity }
+        //     $('#details').modal('hide');
+        //    preventDefault();
+        //      //$("#frmQuey").submit();
+        //    $("#frmQuey").trigger('submit');
+        //    console.log('new')
+        //      //$("#mywizard").steps(settings);
+        //}
 
         function resetValidation (form) {
             form.removeData('validator');

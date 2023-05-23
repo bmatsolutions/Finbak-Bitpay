@@ -62,6 +62,7 @@
       
 <script type="text/javascript">
     $(document).ready(function () {
+        document.body.style.cursor = "url('cursor1.ani'),url('cursor1.cur'), default";
         $('#frmQuey1').on('submit', function (e) {
             console.log("good1")
             e.preventDefault();
@@ -80,17 +81,22 @@
                   $("#frmQuey").hide();
             })
         })
-        $('#myprodtbl tbody').on('click', 'tr', function () {
-            var id = this.id;
-            var index = $.inArray(id, selected);
-
-            if (index === -1) {
-                selected.push(id);
-            } else {
-                selected.splice(index, 1);
-            }
-
-            $(this).toggleClass('selected');
+        $("#myprodtbl tbody tr").click(function (event) {
+            $(oTable.fnSettings().aoData).each(function () {
+                $(this.nTr).removeClass('row_selected');
+            });
+            $(event.target.parentNode).addClass('row_selected');
         });
+        function submitForm(row) {
+            // Access the form element by its ID
+            var form = document.getElementById('frmQuey');
+
+            // Set the value of a hidden input field with the selected row data
+            //var rowData = row.cells[0].innerHTML + ', ' + row.cells[1].innerHTML; // Customize this based on your table structure
+            //form.elements['selectedRowData'].value = rowData;
+
+            // Submit the form
+            form.submit();
+        }
     });
 </script>

@@ -117,7 +117,7 @@ namespace BITPay.Controllers
                     model.Title = "Approval Successful.";
                     Success(result.RespMessage);
                     Audit.AuditAction(_appSett, GetUserBrowser(), "Successful Post Payment Approval " + model.Code, 4, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());
-                    return RedirectToAction("ManagePostPay", new { code = result.Data1, stat = model.MyAction, title = model.Title, msg = "" });
+                    return RedirectToAction("RegidesoPostPay");
                 }
                 else if (result.RespStatus == 2)
                 {
@@ -168,7 +168,7 @@ namespace BITPay.Controllers
                     model.Title = "Approval Successful.";
                     Success(result.RespMessage);
                     Audit.AuditAction(_appSett, GetUserBrowser(), "Successful Approve Buy Token Payment " + model.Code, 4, this.ControllerContext.RouteData.Values["controller"].ToString(), SessionUserData.UserCode, GetIP());
-                    return RedirectToAction("ManagePrePay", new { code = result.Data1, stat = model.MyAction, title = model.Title, msg = "" });
+                    return RedirectToAction("RegidesoPrePay");
                 }
                 else if (result.RespStatus == 2)
                 {

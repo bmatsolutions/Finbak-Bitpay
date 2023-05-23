@@ -401,3 +401,69 @@ INFOR|17-May-2023 17:55:14|Bl.PostToFlex:Data |{"accountnocr":"10032609203","acc
 INFOR|17-May-2023 17:55:26|Bl.PostToFlex >> |{"BankRef":"2313701061099000","Successful":true,"Response":"PM-SAVE-002Transaction Processed and Authorized .","Balance":999999990.0,"Cbsref2":"2313701061099000","AddText":null}
 INFOR|17-May-2023 18:50:25|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1112 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1112","txncode":"534","Txntype":"13","officer":"PesaFlash","flag":"0","Amount":546.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
 INFOR|17-May-2023 18:50:26|Bl.PostToFlex >> |{"BankRef":"2313701064400000","Successful":true,"Response":"PM-SAVE-002Transaction Processed and Authorized .","Balance":999999990.0,"Cbsref2":"2313701064400000","AddText":null}
+ERROR|19-May-2023 08:57:49|FinBridgeGateway.MakeRequestAsync()|System.Net.WebException: The operation has timed out.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in D:\patrick\Bitpay\DBL\HttpClient.cs:line 101
+ERROR|19-May-2023 08:58:34|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in D:\patrick\Bitpay\DBL\HttpClient.cs:line 101
+INFOR|19-May-2023 09:11:01|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1104 Bill Paid:119742.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1104","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":119742.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 09:16:08|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1105 Bill Paid:119742.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1105","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":119742.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 09:18:44|Bl.PostToFlex >> |
+INFOR|19-May-2023 09:28:09|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1106 Bill Paid:119742.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1106","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":119742.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 09:29:10|Bl.PostToFlex >> |{"BankRef":"100BCFT231020002","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":3360743.0,"Cbsref2":"100BCFT231020002","AddText":null}
+ERROR|19-May-2023 09:40:49|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in D:\patrick\Bitpay\DBL\HttpClient.cs:line 101
+INFOR|19-May-2023 09:49:15|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1107 Bill Paid:119742.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1107","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":119742.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 09:49:41|Bl.PostToFlex >> |{"BankRef":"100BCFT231020003","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":3241001.0,"Cbsref2":"100BCFT231020003","AddText":null}
+INFOR|19-May-2023 09:55:49|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1101 Bill Paid:59125.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1101","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":59125.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 09:56:21|Bl.PostToFlex >> |{"BankRef":"100BCFT231020004","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":3181876.0,"Cbsref2":"100BCFT231020004","AddText":null}
+INFOR|19-May-2023 10:06:11|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1108 Bill Paid:119742.00 Declarant: MAJAMBERE      ,ANTOINE","currencycode":"BIF","docreference":"FNB1108","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":119742.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|19-May-2023 10:06:31|Bl.PostToFlex >> |{"BankRef":"100BCFT231020005","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":3062134.0,"Cbsref2":"100BCFT231020005","AddText":null}
+ERROR|19-May-2023 15:44:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\miarietax.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in D:\patrick\Bitpay\DBL\Bl.cs:line 5645
