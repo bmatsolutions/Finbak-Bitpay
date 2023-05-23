@@ -3357,3 +3357,5 @@ D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.csproj.CopyComplete
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.dll
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.pdb
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.genruntimeconfig.cache
+D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGBuyToken.cshtml.g.cs
+D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGPayBill.cshtml.g.cs

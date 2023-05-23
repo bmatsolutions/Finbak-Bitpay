@@ -272,39 +272,34 @@
             $('.modal-body #cust_name').val(cust_name);
             $('.modal-body #activity').val(activity);
             dt = { 'amnt': amnt, 'accnt_no': accnt_no, 'cust_no': cust_no, 'year': year, 'month': month, 'invoice_no': invoice_no, 'cust_name': cust_name, 'activity': activity }
-           
+            console.log('giiddww')
             $.ajax({
                 url: '@Url.Action("BillConfirm")',
-                type: 'POST',
-                dataType: 'application/json',
-                data:dt,
-                success: function (data) {
-                    console.log(data)
-                   
-                   // alert(response);
-                },
-                error: function (data) {
-                    console.log('err')
-                    submitForm1();
-                    //var msg = JSON.parse(data.responseText);
-                    //var success = msg.success;
-                    //var response = msg.responseText;
-                    
-                    //alert(response);
-                }
+                type: 'Post',
+                data:dt
+            })
+            .done(function (resp) {
+                console.log('res')
+                    $('#mywizard').steps("next", 1);
+                    //var stepsWizard = $("#mywizard").steps({
+                    //    forceMoveForward: true,
+                      //  enablePagination: false,
+                     //   saveState: true
+                   // });
+                   // console.log('res1')
+                    //stepsWizard.steps("next"); // this will send us on next step :-)
+                   // $("#mywizard-t-1").get(0).click();
+                    // $("#mywizard-t-2").trigger("click");
+                $("#paymentContent").html(resp);
             });
            
             //e.preventdefault();
             //$("#frmQuey").submit();
             //    $("#frmQuey").trigger('submit');
+            //$("#wizard-t-1").get(0).click();
+            // $("#steps-uid-0-t-1").trigger("click");
         });
-        function submitForm1(event) {
-            event.preventDefault(); // Prevents the default form submission behavior
-            console.log('good11')
-            var form = document.getElementById('frmQuey');
-            // Submit the form
-            form.submit();
-        }
+        
         //$(document).on('click', ".opendetails", function (e) {
         //    $("#products tbody tr").removeClass('row_selected');
         //    $(this).addClass('row_selected');

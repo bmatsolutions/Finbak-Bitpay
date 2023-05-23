@@ -122,8 +122,8 @@ namespace BITPay.Controllers
                 model.Cust_name= cust_name;
                 model.Activity = activity;
                 model.PaymentModes = list;
-                return PartialView("_PaymentDet", model);
                 
+                return PartialView("_PaymentDet", model);
             }
             catch (Exception ex)
             {
