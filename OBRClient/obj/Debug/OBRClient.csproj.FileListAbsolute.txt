@@ -15,3 +15,12 @@ F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.CoreCo
 F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.csproj.CopyComplete
 F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.dll
 F:\Projects\c#\Finbank-BITPay-master\OBRClient\obj\Debug\OBRClient.pdb
+D:\patrick\Bitpay\OBRClient\bin\Debug\OBRClient.dll
+D:\patrick\Bitpay\OBRClient\bin\Debug\OBRClient.pdb
+D:\patrick\Bitpay\OBRClient\bin\Debug\Newtonsoft.Json.dll
+D:\patrick\Bitpay\OBRClient\bin\Debug\Newtonsoft.Json.xml
+D:\patrick\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.AssemblyReference.cache
+D:\patrick\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CoreCompileInputs.cache
+D:\patrick\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CopyComplete
+D:\patrick\Bitpay\OBRClient\obj\Debug\OBRClient.dll
+D:\patrick\Bitpay\OBRClient\obj\Debug\OBRClient.pdb

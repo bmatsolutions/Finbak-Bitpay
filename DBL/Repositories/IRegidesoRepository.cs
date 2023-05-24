@@ -14,9 +14,9 @@ namespace BITPay.DBL.Repositories
         Task<GenericModel> UpdatePrePayment(PrePaidModel bill);
         BuyTokenReportModels GetPrePayReceipt(int paymentCode);
         PrePaidModel GetPrePay(int paymentCode);
-        IEnumerable<BuyTokenReportModels> GetPrePayApprovalList(int stat);
+        IEnumerable<BuyTokenReportModels> GetPrePayApprovalList(int stat,int code);
         PostPayReportModels GetPostPay(int paymentCode);
-        IEnumerable<PostPayReportModels> GetPostPayApprovalList(int stat);
+        IEnumerable<PostPayReportModels> GetPostPayApprovalList(int stat,int code);
         PostPayReportModels GetPostPayReceipt(string paymentCode);
         Task<GenericModel> ValidatePostBillPaymentAsync(Bills payment);
         Task<GenericModel> ValidateBillPaymentAsync(PrePaidModel payment);

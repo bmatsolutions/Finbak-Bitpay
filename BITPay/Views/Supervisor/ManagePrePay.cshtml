@@ -1,11 +1,10 @@
-﻿
-@model PrePaidModel
+﻿@model PrePaidModel
 @{
     ViewData["Title"] = "DomesticTaxManage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="header-title">Manage Approval Item</h2>
+<h2 class="header-title">Approve Transaction</h2>
 <a asp-action="RegidesoPrePay"><i class="fa fa-long-arrow-left"></i> Go back</a>
 <div class="row">
     <div class="col-md-7">
@@ -32,6 +31,31 @@
                 </div>
                 <div class="col-md-9">
                     <strong>@Model.PayModeName</strong>
+                </div>
+            </div>
+            <div class="row" id="account_no">
+                <div class="col-md-3">
+                    Account No.:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.DrAccount</strong>
+                </div>
+            </div>
+
+            <div class="row" id="cheque_no">
+                <div class="col-md-3">
+                    Cheque No.:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.ChequeNo</strong>
+                </div>
+            </div>
+            <div class="row" id="sort_code">
+                <div class="col-md-3">
+                    Sort Code.:
+                </div>
+                <div class="col-md-9">
+                    <strong>@Model.SortCode</strong>
                 </div>
             </div>
             <div class="row">
@@ -77,8 +101,34 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $('.rbutton').on('click', function () {
-        $(this).prop("disabled", true);
-    });
-</script>
+
+@section css{
+    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/mydatatable.min.js"></script>
+    <script type="text/javascript">
+        $('.rbutton').on('click', function () {
+            $(this).prop("disabled", true);
+        });
+        $(document).ready(function () {
+            var mode = @Model.PayMode;
+            $("#account_no").hide();
+            $("#cheque_no").hide();
+            $("#sort_code").hide();
+            if (mode = 1) {
+                $("#account_no").show();
+            } else if (mode = 2) {
+                $("#account_no").show();
+                $("#cheque_no").show();
+            } else if (mode = 3) {
+                $("#cheque_no").show();
+                $("#sort_code").show();
+            } else if (mode = 4) {
+                $("#cheque_no").show();
+                $("#sort_code").show();
+            }
+        });
+
+    </script>
+}

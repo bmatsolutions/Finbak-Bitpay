@@ -4269,18 +4269,18 @@ namespace BITPay.DBL
                 return db.RegidesoRepository.GetPayBillListPayments(stat);
             });
         }
-        public async Task<IEnumerable<PostPayReportModels>> GetPayBillApprovalList(int stat)
+        public async Task<IEnumerable<PostPayReportModels>> GetPayBillApprovalList(int stat,int code)
         {
             return await Task.Run(() =>
             {
-                return db.RegidesoRepository.GetPostPayApprovalList(stat);
+                return db.RegidesoRepository.GetPostPayApprovalList(stat,code);
             });
         }
-        public async Task<IEnumerable<BuyTokenReportModels>> GetPrePayApprovalList(int stat)
+        public async Task<IEnumerable<BuyTokenReportModels>> GetPrePayApprovalList(int stat, int code)
         {
             return await Task.Run(() =>
             {
-                return db.RegidesoRepository.GetPrePayApprovalList(stat);
+                return db.RegidesoRepository.GetPrePayApprovalList(stat,code);
             });
         }
         public async Task<IEnumerable<BuyTokenReportModels>> GetPrePayList(int stat)
@@ -4435,6 +4435,7 @@ namespace BITPay.DBL
                     await db.RegidesoRepository.UpdatePrePaymentStatusAsync(0,result.PaymentCode, 0, "", "Payment created awaiting approval.","","");
                     makePaymentResponse.RespStatus = 0;
                     makePaymentResponse.RespMessage = "Payment created awaiting approval.";
+                    result.RespMessage = makePaymentResponse.RespMessage;
                     makePaymentResponse.Data1 = Payment.BillCode.ToString();
                     makePaymentResponse.Data3 = "1";
                     makePaymentResponse.Data2 = prepaid.Meter_No;

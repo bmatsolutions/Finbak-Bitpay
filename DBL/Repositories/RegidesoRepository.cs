@@ -168,18 +168,17 @@ namespace BITPay.DBL.Repositories
                 return connection.Query<PrePaidModel>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
             }
         }
-        public IEnumerable<BuyTokenReportModels>  GetPrePayApprovalList(int stat)
+        public IEnumerable<BuyTokenReportModels>  GetPrePayApprovalList(int stat,int code)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
 
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Id", stat);
+                parameters.Add("@Stat", stat);
+                parameters.Add("@Code", code);
+                return connection.Query<BuyTokenReportModels>("sp_GetPrePayApprovalList", parameters, commandType: CommandType.StoredProcedure).ToList();
 
-                string sql = FindStatement("vw_RGPrePayApprovalList", "Stat");
-
-                return connection.Query<BuyTokenReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
         public PostPayReportModels GetPostPay(int paymentCode)
@@ -196,18 +195,17 @@ namespace BITPay.DBL.Repositories
                 return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
             }
         }
-        public IEnumerable<PostPayReportModels>  GetPostPayApprovalList(int stat)
+        public IEnumerable<PostPayReportModels>  GetPostPayApprovalList(int stat, int code)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
 
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Id", stat);
+                parameters.Add("@Stat", stat);
+                parameters.Add("@Code", code);
+                return connection.Query<PostPayReportModels>("sp_GetPostPayApprovalList", parameters, commandType: CommandType.StoredProcedure).ToList();
 
-                string sql = FindStatement("vw_RGPostPayApprovalList", "Stat");
-
-                return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).ToList();
             }
         }
         public IEnumerable<BuyTokenReportModels> GetPrePayListPayments(int stat)

@@ -467,3 +467,5 @@ ERROR|19-May-2023 15:44:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundExcep
    at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
    at FastReport.Report.Load(String fileName)
    at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in D:\patrick\Bitpay\DBL\Bl.cs:line 5645
+INFOR|24-May-2023 12:12:18|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1115 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1115","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":546.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|24-May-2023 12:12:20|Bl.PostToFlex >> |{"BankRef":"100BCTC231020013","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020013","AddText":null}

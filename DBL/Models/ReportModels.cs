@@ -83,7 +83,7 @@ namespace BITPay.DBL.Models
         public string PayModeName { get; set; }
         public string ReceivedFrom { get; set; }
         public int PayMode { get; set; }
-
+        public string BranchName { get; set; }
     }
     public class PostPayReportModels : BaseReportModels
     {
@@ -122,6 +122,8 @@ namespace BITPay.DBL.Models
         public string Extra1 { get; set; }
         public string Extra2 { get; set; }
         public string Extra3 { get; set; }
+        public string BranchName { get; set; }
+
     }
 
     public class DomesticReportModels : BaseReportModels
