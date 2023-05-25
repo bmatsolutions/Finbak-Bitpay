@@ -84,6 +84,7 @@ namespace BITPay.DBL.Models
         public string ReceivedFrom { get; set; }
         public int PayMode { get; set; }
         public string BranchName { get; set; }
+        public string CBSRef { get; set; }
     }
     public class PostPayReportModels : BaseReportModels
     {

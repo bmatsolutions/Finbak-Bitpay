@@ -293,7 +293,8 @@
             })
             .done(function (resp) {
                  console.log(resp);
-                 $("#tkndiv").hide();
+                    $("#tkndiv").show();
+                    $("#tkn").val(token);
                 $("#amnt").val(resp.amnt);
                            
             });

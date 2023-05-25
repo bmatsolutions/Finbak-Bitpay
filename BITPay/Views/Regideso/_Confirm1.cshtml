@@ -124,8 +124,15 @@
                             }
                             @if (Model.PayMode == 3)
                             {
+                            <div class="form-group">
+                                <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <input asp-for="ChequeNo" class="form-control" readonly />
+                                    <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                                </div>
+                            </div>
 
-                                <div class="form-group">
+                          <div class="form-group">
                             <label asp-for="SortCode" class="col-md-4 control-label"></label>
                             <div class="col-md-8">
                                 <input asp-for="SortCode" class="form-control" readonly />
@@ -143,13 +150,13 @@
                                 <span asp-validation-for="ChequeNo" class="text-danger"></span>
                             </div>
                         </div>
-                               <div class="form-group">
-                            <label asp-for="ChequeNo" class="col-md-4 control-label"></label>
-                            <div class="col-md-8">
-                                <input asp-for="ChequeNo" class="form-control" readonly />
-                                <span asp-validation-for="ChequeNo" class="text-danger"></span>
+                            <div class="form-group">
+                                <label asp-for="SortCode" class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <input asp-for="SortCode" class="form-control" readonly />
+                                    <span asp-validation-for="SortCode" class="text-danger"></span>
+                                </div>
                             </div>
-                        </div>
                             }
                         <div class="form-group">
                             <label asp-for="ReceivedFrom" class="col-md-4 control-label"></label>

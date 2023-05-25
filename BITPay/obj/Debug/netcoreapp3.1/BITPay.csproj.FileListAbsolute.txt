@@ -2678,6 +2678,8 @@ D:\Projects\Work\Finbank Bitpay 2023\BITPay\obj\Debug\netcoreapp3.1\BITPay.cspro
 D:\Projects\Work\Finbank Bitpay 2023\BITPay\obj\Debug\netcoreapp3.1\BITPay.dll
 D:\Projects\Work\Finbank Bitpay 2023\BITPay\obj\Debug\netcoreapp3.1\BITPay.pdb
 D:\Projects\Work\Finbank Bitpay 2023\BITPay\obj\Debug\netcoreapp3.1\BITPay.genruntimeconfig.cache
+D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGBuyToken.cshtml.g.cs
+D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGPayBill.cshtml.g.cs
 D:\patrick\Bitpay\BITPay\bin\Debug\netcoreapp3.1\NOTICE.TXT
 D:\patrick\Bitpay\BITPay\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\patrick\Bitpay\BITPay\bin\Debug\netcoreapp3.1\appsettings.json
@@ -3357,5 +3359,3 @@ D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.csproj.CopyComplete
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.dll
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.pdb
 D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\BITPay.genruntimeconfig.cache
-D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGBuyToken.cshtml.g.cs
-D:\patrick\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Views\Report\RGPayBill.cshtml.g.cs

@@ -121,6 +121,7 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@SortCode", bill.SortCode);
                 parameters.Add("@ChequeNo", bill.ChequeNo);
                 parameters.Add("@PayMode", bill.PayMode);
+                parameters.Add("@Msg", bill.Msg);
                 parameters.Add("@ReceivedFrom", bill.ReceivedFrom);
                 parameters.Add("@Remarks", bill.Remarks);
                 return await connection.QueryFirstOrDefaultAsync<GenericModel>("sp_UpdateRGPrePaidTrns", parameters, commandType: CommandType.StoredProcedure);
