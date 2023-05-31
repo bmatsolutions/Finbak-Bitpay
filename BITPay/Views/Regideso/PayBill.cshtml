@@ -114,6 +114,7 @@
                     .done(function (resp) {
                         $("#paymentContent").html(resp);
                                 listenPayModeChange();
+                                    resetValidation();
                          });
                        return true;
                     }else{
@@ -202,12 +203,8 @@
                     $("#cheque_no").show();
                 } else if (mode === "3") {
                     $("#cheque_no").show();
-                    $("#sort_code").show();
-                    loadBanks();
                 } else if (mode === "4") {
                     $("#cheque_no").show();
-                    $("#sort_code").show();
-                    loadBanks();
                 }
 
                 setCharge(mode);

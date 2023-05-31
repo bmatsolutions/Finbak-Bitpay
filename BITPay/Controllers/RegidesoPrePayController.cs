@@ -59,20 +59,86 @@ namespace BITPay.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> PayBillList(int stat = 1)
+        public async Task<IActionResult> PayBillList(int stat = 1, string assesNo = "", string dateRange = "")
         {
             var model = new List<PostPayReportModels>();
             try
             {
-                var data = await bl.GetPayBillListPayments(stat);
+                var data = await bl.GetPayBillListPaymentsAsync(stat, SessionUserData.UserCode, assesNo, dateRange);
                 return View(data);
 
             }
             catch (Exception ex)
             {
-                LogUtil.Error(logFile, "Regideso.PrePayList", ex);
+                LogUtil.Error(logFile, "Regideso.PayBillList", ex);
             }
             return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> FailedBuyToken(int type = 2,int stat = 4, string assesNo = "", string dateRange = "")
+        {
+            var model = new List<PostPayReportModels>();
+            try
+            {
+                int code = SessionUserData.UserCode;
+                var data = await bl.GetPrePayApprovalList(type,stat,code,assesNo,dateRange);
+                return View(data);
+
+            }
+            catch (Exception ex)
+            {
+                LogUtil.Error(logFile, "Regideso.FailedPayBill", ex);
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "checker")]
+        public async Task<IActionResult> ManagePrePay(int code = 0)
+        {
+            var item = await bl.GetPrePay(code);
+            if (item == null)
+            {
+                Danger("Unable to retrieve the record!");
+                return RedirectToAction("RegidesoPrePay");
+            }
+            return View(item);
+        }
+
+
+
+        [HttpPost]
+        [Authorize(Roles = "checker")]
+        public async Task<IActionResult> ResendPayBill(SuperviseModel model)
+        {
+            try
+            {
+
+                var result = await bl.ResendBuyTokenAsync(model.Code, model.MyAction, model.Reason, SessionUserData.UserCode);
+
+                if (result.RespStatus == 1)
+                {
+                    Danger(result.RespMessage);
+                    return RedirectToAction("FailedBuyToken");
+                }
+                else if (result.RespStatus == 0)
+                {
+                    model.Title = "Resend Payment Successful.";
+                    Success(result.RespMessage); 
+                }
+
+                else
+                {
+                    LogUtil.Error(logFile, "ResendPayBill.Regideso", result.RespMessage);
+                    Danger("Request failed due to a database error!");
+                }
+            }
+            catch (Exception ex)
+            {
+                LogUtil.Error(logFile, "ResendPayBill.Regideso", ex);
+                Danger("Request failed due to an error!");
+            }
+            return RedirectToAction("FailedBuyToken");
         }
 
         [HttpGet]
@@ -118,6 +184,11 @@ namespace BITPay.Controllers
                 if (string.IsNullOrEmpty(model.ReceivedFrom))
                 {
                     errorModel.ErrorMessage = "Received from cannot be blank!";
+                    return PartialView("_QueryError", errorModel);
+                }
+                if (string.IsNullOrEmpty(model.Remarks))
+                {
+                    errorModel.ErrorMessage = "Remarks cannot be blank!";
                     return PartialView("_QueryError", errorModel);
                 }
                 var lists = await bl.GetListModel(DBL.Enums.ListModelType.PaymentModes);

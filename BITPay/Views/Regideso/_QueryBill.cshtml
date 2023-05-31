@@ -1,7 +1,7 @@
 ﻿@model RegidesoModel
 <div id="taxDetsContent">
     <p class="text-muted">
-        Enter the miarie declaration details in the form below and click on Next button
+        Enter the Bill details in the form below and click on Next button
     </p>
     <div class="col">
         <div class="col-md-6">
@@ -55,10 +55,13 @@
     </div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
 
-    <link href="~/css/mydatatable.min.css" rel="stylesheet" />
-    <script src="~/js/mydatatable.min.js"></script>
-
+<!-- jQuery library file -->
+<scr
+<!-- Datatable plugin JS library file -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+</script>
       
 <script type="text/javascript">
     $(document).ready(function () {
@@ -74,29 +77,29 @@
                 
                 $('#queryResult').html(data);
                 $("#myprodtbl").DataTable();
-                $("#myprodtbl tbody tr").on('click', function (event) {
-                    $("#myprodtbl tbody tr").removeClass('row_selected');
-                    $(this).addClass('row_selected');
-                });
+                //$("#myprodtbl tbody tr").on('click', function (event) {
+                //    $("#myprodtbl tbody tr").removeClass('row_selected');
+                //    $(this).addClass('row_selected');
+                //});
                   $("#frmQuey").hide();
             })
         })
-        $("#myprodtbl tbody tr").click(function (event) {
-            $(oTable.fnSettings().aoData).each(function () {
-                $(this.nTr).removeClass('row_selected');
-            });
-            $(event.target.parentNode).addClass('row_selected');
-        });
-        function submitForm(row) {
-            // Access the form element by its ID
-            var form = document.getElementById('frmQuey');
+        //$("#myprodtbl tbody tr").click(function (event) {
+        //    $(oTable.fnSettings().aoData).each(function () {
+        //        $(this.nTr).removeClass('row_selected');
+        //    });
+        //    $(event.target.parentNode).addClass('row_selected');
+        //});
+        //function submitForm(row) {
+        //    // Access the form element by its ID
+        //    var form = document.getElementById('frmQuey');
 
-            // Set the value of a hidden input field with the selected row data
-            //var rowData = row.cells[0].innerHTML + ', ' + row.cells[1].innerHTML; // Customize this based on your table structure
-            //form.elements['selectedRowData'].value = rowData;
+        //    // Set the value of a hidden input field with the selected row data
+        //    //var rowData = row.cells[0].innerHTML + ', ' + row.cells[1].innerHTML; // Customize this based on your table structure
+        //    //form.elements['selectedRowData'].value = rowData;
 
-            // Submit the form
-            form.submit();
-        }
+        //    // Submit the form
+        //    form.submit();
+        //}
     });
 </script>

@@ -7,6 +7,30 @@
 
 <h3 class="header-title">Post Payments</h3>
 <div class="card-box">
+    <p class="text-muted">You can filter the records to view by selecting the below options</p>
+    <form method="PayBillList">
+        <div class="row">
+            <div class="col-md-4">
+                <div>Date Range:</div>
+                <div class="input-group drp">
+                    <input name="dateRange" type="text" class="form-control" aria-describedby="drp-icon">
+                    <span class="input-group-addon" id="drp-icon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            @*<div class="col-md-3">
+            <div>File Status:</div>
+            <select name="fileStatus" class="form-control" asp-items="@fileStatus"></select>
+            </div>*@
+            <div class="col-md-3">
+                <div>Invoice No:</div>
+                <input name="assesNo" type="text" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <div>.</div>
+                <button class="btn btn-default"><i class="fa fa-search"></i> Get</button>
+            </div>
+        </div>
+    </form>
     <div class="table-responsive m-t-10">
         <table class="table table-striped table-hover table-bordered table-responsive-md" id="tblData">
             <thead>
@@ -15,6 +39,7 @@
                     <td>Payer Name</td>
                     <td>Phone Number</td>
                     <td>Amount</td>
+                    <td>CreateDate</td>
                     <td>Maker</td>
                     <td></td>
                 </tr>
@@ -27,6 +52,7 @@
                     <td>@item.ClientName</td>
                     <td>@item.PhoneNo</td>
                     <td>@item.Amount.ToString("#,##0.00")</td>
+                        <td>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
                     <td>@item.UserName</td>
                     <td><a asp-action="PostPayReceipt" asp-controller="report" asp-route-code="@item.InvoiceNo" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
                 </tr>

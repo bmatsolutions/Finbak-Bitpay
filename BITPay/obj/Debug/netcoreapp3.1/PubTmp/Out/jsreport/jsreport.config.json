@@ -1,3 +1,12 @@
-﻿{
-  "discover": true
+﻿
+{
+  "discover": true,
+  "options": {
+    "preview": true,
+    "pageSize": {
+      "width": "210mm",
+      "height": "297mm"
+    },
+    "fitToPage": true
+  }
 }

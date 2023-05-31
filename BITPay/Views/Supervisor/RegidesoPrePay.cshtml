@@ -14,6 +14,7 @@
                     <td>PrimeFixed</td>
                     <td>PayMode</td>
                     <td>Received From</td>
+                    <td>CreateDate</td>
                     <td>Maker</td>
                     <td></td>
                 </tr>
@@ -27,6 +28,7 @@
                     <td>@item.PrimeFixed</td>
                     <td>@item.PayModeName</td>
                     <td>@item.ReceivedFrom</td>
+                        <td>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
                     <td>@item.UserName</td>
                     <td><a asp-action="ManagePrePay" asp-route-code="@item.BillCode" class="text-right"><i class="fa fa-print"></i> Approve</a></td>
                 </tr>

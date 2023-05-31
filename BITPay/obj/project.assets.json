@@ -9586,23 +9586,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bmat\\.nuget\\packages\\": {},
+    "C:\\Users\\Amoh\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj",
+      "projectUniqueName": "E:\\Patrick Work\\Bitpay\\Bitpay\\BITPay\\BITPay.csproj",
       "projectName": "BITPay",
-      "projectPath": "D:\\patrick\\Bitpay\\BITPay\\BITPay.csproj",
-      "packagesPath": "C:\\Users\\Bmat\\.nuget\\packages\\",
-      "outputPath": "D:\\patrick\\Bitpay\\BITPay\\obj\\",
+      "projectPath": "E:\\Patrick Work\\Bitpay\\Bitpay\\BITPay\\BITPay.csproj",
+      "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
+      "outputPath": "E:\\Patrick Work\\Bitpay\\Bitpay\\BITPay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9610,14 +9610,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "E:\\BmatSolution\\localNuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\patrick\\Bitpay\\DBL\\DBL.csproj": {
-              "projectPath": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj"
+            "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {
+              "projectPath": "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj"
             }
           }
         }
@@ -9688,6 +9690,16 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.32, 3.1.32]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9696,7 +9708,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

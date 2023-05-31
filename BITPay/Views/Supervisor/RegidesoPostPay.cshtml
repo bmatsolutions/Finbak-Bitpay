@@ -16,6 +16,7 @@
                     <td>Phone Number</td>
                     <td>Amount</td>
                     <td>Paid Amount</td>
+                    <td>CreateDate</td>
                     <td>Maker</td>
                     <td></td>
                 </tr>
@@ -29,6 +30,7 @@
                     <td>@item.PhoneNo</td>
                     <td>@item.Amount.ToString("#,##0.00")</td>
                     <td>@item.PaidAmount.ToString("#,##0.00")</td>
+                        <td>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
                     <td>@item.UserName</td>
                     <td><a asp-action="ManagePostPay"  asp-route-code="@item.BillCode" class="text-right"><i class="fa fa-print"></i> Approve</a></td>
                 </tr>

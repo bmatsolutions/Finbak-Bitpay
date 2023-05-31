@@ -67,3 +67,18 @@ D:\patrick\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
 D:\patrick\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
 D:\patrick\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
 D:\patrick\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\NOTICE.TXT
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.deps.json
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.dll
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.pdb
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\Bmat.Tools.DbConnection.dll
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\Bmat.Tools.Security.dll
+E:\Patrick Work\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfo.cs
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
+E:\Patrick Work\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb

@@ -85,11 +85,14 @@ namespace BITPay.DBL.Models
         public int PayMode { get; set; }
         public string BranchName { get; set; }
         public string CBSRef { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string Remarks { get; set; }
     }
     public class PostPayReportModels : BaseReportModels
     {
         public string InvoiceNo { get; set; }
         public string PhoneNo { get; set; }
+        public DateTime CreateDate { get; set; }
         public string AmountWords { get; set; }
         public decimal Amount { get; set; }
         public decimal AmountPaid { get; set; }

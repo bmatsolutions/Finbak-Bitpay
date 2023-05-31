@@ -23,12 +23,6 @@
 <br />
 <table style="width:100%">
     <tr>
-
-        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
-    </tr>
-</table>
-<table style="width:100%">
-    <tr>
         <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
         @*<td>
                 <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
@@ -41,41 +35,16 @@
             <table style="width:100%;">
                 <tr>
                     <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.InvoiceNo</td>
-                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong> </td>
+                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong>@Model.CreateDate.ToString("dd/MM/yyyy hh:mm tt") </td>
                 </tr>
             </table>
         </td>
     </tr>
-    @*<tr>
-            <td style="text-align:left;">
-                <strong> Contribuable nif: </strong> @Model.Nif
-            </td>
-        </tr>*@
     <tr>
         <td style="text-align:left;">
-            <strong> Détails du contribuable: </strong> @Model.ClientName
+                <strong> Détails du contribuable: </strong>
         </td>
     </tr>
-
-    @*<tr>
-            <td style="text-align:left;">
-                <strong>Délivrée à:</strong> @Model.BranchName
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:left;">
-                <strong>Détails de la taxe intérieure:</strong> @Model.TaxDetails
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table style="width:100%;">
-                    <tr>
-                        <td><strong>Déposant:</strong>  @Model.ReceivedFrom </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>*@
 </table>
 <table style="width:100%">
     <tr>
@@ -124,7 +93,7 @@
         </tr>
         <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
 
-    <tr><td><strong>Payé par:</strong></td><td> @Model.ClientName</td> <td> <strong>Remarques:</strong></td><td></td></tr>
+    <tr><td><strong>Payé par:</strong></td><td> @Model.ReceivedFrom</td> <td> <strong>Remarques:</strong></td><td>@Model.Remarks</td></tr>
     <tr><td><strong>Date de réception:</strong></td><td> @DateTime.Now.ToString("dd/MM/yyyy")</td><td><strong>Signature du client: </strong></td><td></td></tr>
     <tr><td><strong>Code de recherche:</strong></td><td>@Model.InvoiceNo (Utilisez ce numéro pour demander l'état de votre bulletin de versement)</td></tr>
     <tr><td><strong>Finbank SA Reconnait avoir encaisse la somme ci-dessus.</strong></td></tr>
@@ -144,11 +113,6 @@
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <table style="width:100%">
     <tr>
         <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
@@ -163,7 +127,7 @@
             <table style="width:100%;">
                 <tr>
                     <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.InvoiceNo</td>
-                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong> </td>
+                    <td style="text-align: center;"><strong>Date D'Enregistrement du paiement:</strong>@Model.CreateDate.ToString("dd/MM/yyyy hh:mm tt") </td>
                 </tr>
             </table>
         </td>
@@ -246,7 +210,7 @@
         </tr>
         <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
 
-    <tr><td><strong>Payé par:</strong></td><td> @Model.ClientName</td> <td> <strong>Remarques:</strong></td><td></td></tr>
+    <tr><td><strong>Payé par:</strong></td><td> @Model.ReceivedFrom</td> <td> <strong>Remarques:</strong></td><td>@Model.Remarks</td></tr>
     <tr><td><strong>Date de réception:</strong></td><td> @DateTime.Now.ToString("dd/MM/yyyy")</td><td><strong>Signature du client: </strong></td><td></td></tr>
     <tr><td><strong>Code de recherche:</strong></td><td>@Model.InvoiceNo (Utilisez ce numéro pour demander l'état de votre bulletin de versement)</td></tr>
     <tr><td><strong>Finbank SA Reconnait avoir encaisse la somme ci-dessus.</strong></td></tr>

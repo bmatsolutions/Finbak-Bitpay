@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\patrick\\Bitpay\\DBL\\DBL.csproj": {}
+    "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {}
   },
   "projects": {
-    "D:\\patrick\\Bitpay\\DBL\\DBL.csproj": {
+    "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj",
+        "projectUniqueName": "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj",
         "projectName": "BITPay.DBL",
-        "projectPath": "D:\\patrick\\Bitpay\\DBL\\DBL.csproj",
-        "packagesPath": "C:\\Users\\Bmat\\.nuget\\packages\\",
-        "outputPath": "D:\\patrick\\Bitpay\\DBL\\obj\\",
+        "projectPath": "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\DBL.csproj",
+        "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
+        "outputPath": "E:\\Patrick Work\\Bitpay\\Bitpay\\DBL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Bmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\BmatSolution\\localNuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,12 +84,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

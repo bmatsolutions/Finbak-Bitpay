@@ -83,3 +83,32 @@ D:\patrick\Bitpay\BITPayService\obj\Debug\BITPayService.application
 D:\patrick\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CopyComplete
 D:\patrick\Bitpay\BITPayService\obj\Debug\BITPayService.exe
 D:\patrick\Bitpay\BITPayService\obj\Debug\BITPayService.pdb
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\BITPayService.exe.config
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\BITPayService.exe.manifest
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\BITPayService.application
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\BITPayService.exe
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\BITPayService.pdb
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\ClosedXML.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\Dapper.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\DocumentFormat.OpenXml.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\ExcelNumberFormat.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\Newtonsoft.Json.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\OBRClient.dll
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\OBRClient.pdb
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\ClosedXML.pdb
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\ClosedXML.xml
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\Dapper.xml
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\DocumentFormat.OpenXml.xml
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\ExcelNumberFormat.xml
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\bin\Debug\Newtonsoft.Json.xml
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.AssemblyReference.cache
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.SuggestedBindingRedirects.cache
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.Form1.resources
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.ProjectInstaller.resources
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.GenerateResource.cache
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CoreCompileInputs.cache
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.exe.manifest
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.application
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CopyComplete
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.exe
+E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.pdb

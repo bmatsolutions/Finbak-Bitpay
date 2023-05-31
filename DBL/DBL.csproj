@@ -24,10 +24,10 @@
 
   <ItemGroup>
     <Reference Include="Bmat.Tools.DbConnection">
-      <HintPath>..\..\..\..\C# Projects\Bmat.Tools.DbConnection.dll</HintPath>
+      <HintPath>..\..\..\..\BmatSolution\BitPay_finbank\BITPay\bin\Debug\netcoreapp3.1\Bmat.Tools.DbConnection.dll</HintPath>
     </Reference>
     <Reference Include="Bmat.Tools.Security">
-      <HintPath>..\..\CoreTools\BmatSecurity\bin\Debug\netcoreapp2.0\Bmat.Tools.Security.dll</HintPath>
+      <HintPath>..\..\..\..\BmatSolution\BitPay_finbank\BITPay\bin\Debug\netcoreapp3.1\Bmat.Tools.Security.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.OracleClient">
       <HintPath>..\..\..\..\BMAT\System.Data.OracleClient.dll</HintPath>
