@@ -33,6 +33,8 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@Amount", bill.Amnt);
                 parameters.Add("@AmountPaid", bill.Amnt_paid);
                 parameters.Add("@ClientName", bill.Cust_name);
+                parameters.Add("@ClientNo", bill.Cust_no);
+                parameters.Add("@AccNo", bill.Accnt_no);
                 parameters.Add("@PayMode", bill.PayMode);
                 parameters.Add("@Stat", bill.stat);
                 parameters.Add("@Maker", bill.Maker);
@@ -196,7 +198,7 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Id", paymentCode);
 
-                string sql = FindStatement("vw_RGPostPayApprovalList","BillCode");
+                string sql = FindStatement("vw_RGPostPayReceipts", "BillCode");
 
                 return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
             }

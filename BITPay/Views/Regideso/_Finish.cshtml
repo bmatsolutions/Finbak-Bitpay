@@ -31,7 +31,10 @@
         {
             <div class="text-center text-muted ">
                 <span>Click on the button below to view transaction receipt</span><br />
-                <a target="_blank" asp-action="PostPayReceipt" asp-controller="report" asp-route-code="@Model.Invoice_no" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"></i> Print Receipt</a>
+               <a asp-action="generate"
+               asp-controller="newreport"
+               asp-route-reportCode="53"
+               asp-route-filter1="@Model.Invoice_no"><i class="fa fa-print"></i>Print Receipt</a>
             </div>
         }
     </div>

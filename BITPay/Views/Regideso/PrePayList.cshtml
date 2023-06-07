@@ -56,7 +56,12 @@
                     <td>@item.PayModeName</td>
                         <td>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
                     <td>@item.UserName</td>
-                    <td><a asp-action="PrePayReceipt" asp-controller="report" asp-route-code="@item.BillCode" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
+                    <td>
+                            <a asp-action="generate"
+                           asp-controller="newreport"
+                           asp-route-reportCode="54"
+                           asp-route-filter1="@item.BillCode"><i class="fa fa-print"></i> Receipt</a>
+                    </td>
                 </tr>
                 }
             </tbody>

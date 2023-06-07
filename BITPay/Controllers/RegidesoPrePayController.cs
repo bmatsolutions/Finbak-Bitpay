@@ -100,7 +100,7 @@ namespace BITPay.Controllers
             if (item == null)
             {
                 Danger("Unable to retrieve the record!");
-                return RedirectToAction("RegidesoPrePay");
+                return RedirectToAction("FailedBuyToken");
             }
             return View(item);
         }
@@ -109,7 +109,7 @@ namespace BITPay.Controllers
 
         [HttpPost]
         [Authorize(Roles = "checker")]
-        public async Task<IActionResult> ResendPayBill(SuperviseModel model)
+        public async Task<IActionResult> ResendPrePay(SuperviseModel model)
         {
             try
             {

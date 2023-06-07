@@ -88,7 +88,7 @@ namespace BITPay.Controllers
             if (item == null)
             {
                 Danger("Unable to retrieve the record!");
-                return RedirectToAction("RegidesoPostPay");
+                return RedirectToAction("FailedPayBill");
             }
             return View(item);
         }

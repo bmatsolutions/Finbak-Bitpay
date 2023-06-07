@@ -22,7 +22,13 @@
 <table style="width:100%">
     <tr>
 
-        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+        <td>
+            <div><img class="logo" src="~/images/logo.jpg" alt=".." /> </div>
+        </td>
+        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT REGIDESO</h4></div></td>
+        <td>
+            <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
+        </td>
     </tr>
 </table>
 <table style="width:100%;font-size:12px">
@@ -44,33 +50,35 @@
 </table>
 <table style="width:100%">
     <tr>
-        <td><div style="text-align:center;"><h5 style="font:bold;">Dètails de Paiement</h5></div></td>
+        <td><div style="text-align:center;"><h5 style="font:bold;">Dètails De la Transaction</h5></div></td>
+        <tr>
+          <td> <strong>Référence Banque :   @Model.CBSRef </strong></td>
+          <td> <strong>Code de recherche:   @Model.ReceivedCode</strong></td>
+        </tr>
+      <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.ReceivedCode</td>
+    </tr>
+    <tr>
+        <td> <strong>Référence Banque :   @Model.CBSRef </strong></td>
+        <td></td>
     </tr>
 </table>
 <table class="table table-striped" style="width:100%;font-size:12px">
     <tr>
-        <td> <strong></strong></td>
-        <td> <strong>Name</strong></td>
-        <td> <strong>Units</strong></td>
-        <td> <strong>Token </strong></td>
-        <td> <strong></strong></td>
+        <td> <strong>Référence Banque :   @Model.CBSRef </strong></td>
+        <td></td>
+        <td></td>
+        <td><strong>Numèro  D'Enregistrement de paiement:</strong> @Model.ReceivedCode</td>
     </tr>
     <tr>
-       <td><strong>Name </strong></td>
-        <td>@Model.CustName</td>
-        <td>@Model.Consumption</td>
-        <td>@Model.Token3</td>
-        <td></td>
-
-        @*<tr><td></td> <td><strong> Total à encaisser pour les Déclarations </strong></td><td></td> <td> @Model.Amount.ToString("#,##0.00")</td></tr>*@
+        <td> <strong>Code de recherche:   @Model.ReceivedCode</strong></td>
+    </tr>
     <tr>
-        <td><strong>Moyen de paiement</strong></td>
-        <td><strong>Banque Référence </strong></td>
-        <td><strong>Banque </strong></td>
-        <td><strong>Montant payé </strong></td>
+        <td><strong>Moyen de paiement:  Buy Token</strong></td>
+        <td></td>
+        <td></td>
+        <td style="text-align: center;"><strong>Date:</strong> @Model.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
     <tr />
     <tr>
-
         <td><strong>Buy Token</strong></td>
         <td>@Model.CBSRef</td>
         <td>@Model.BranchName</td>

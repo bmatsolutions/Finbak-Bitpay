@@ -19,3 +19,137 @@ ERROR|30-May-2023 11:16:45|Bl.GetAuthTokenAsync|System.Net.WebException: A socke
    at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
 --- End of stack trace from previous location where exception was thrown ---
    at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in E:\Patrick Work\Bitpay\Bitpay\DBL\HttpClient.cs:line 101
+ERROR|02-Jun-2023 13:53:25|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGPayBill.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 13:53:47|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 13:55:34|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 13:58:14|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 14:02:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 14:03:28|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 14:10:42|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 14:16:02|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 14:17:49|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 15:03:32|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 15:04:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGPayBill.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 15:04:41|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 15:29:05|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|02-Jun-2023 15:40:35|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|05-Jun-2023 09:21:42|Bl.CreatePdfReport()|FastReport.Utils.ClassException: Can't find object MsSqlDataConnection
+   at FastReport.Utils.FRReader.Read()
+   at FastReport.Base.DeserializeSubItems(FRReader reader)
+   at FastReport.Base.Deserialize(FRReader reader)
+   at FastReport.Data.Dictionary.Deserialize(FRReader reader)
+   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
+   at FastReport.Report.DeserializeSubItems(FRReader reader)
+   at FastReport.Base.Deserialize(FRReader reader)
+   at FastReport.Report.Deserialize(FRReader reader)
+   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
+   at FastReport.Report.Load(Stream stream)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+ERROR|05-Jun-2023 09:23:28|Bl.CreatePdfReport()|FastReport.Utils.ClassException: Can't find object MsSqlDataConnection
+   at FastReport.Utils.FRReader.Read()
+   at FastReport.Base.DeserializeSubItems(FRReader reader)
+   at FastReport.Base.Deserialize(FRReader reader)
+   at FastReport.Data.Dictionary.Deserialize(FRReader reader)
+   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
+   at FastReport.Report.DeserializeSubItems(FRReader reader)
+   at FastReport.Base.Deserialize(FRReader reader)
+   at FastReport.Report.Deserialize(FRReader reader)
+   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
+   at FastReport.Report.Load(Stream stream)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
+INFOR|05-Jun-2023 18:42:53|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1106 Bill Paid:4095.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1106","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4095.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|05-Jun-2023 18:42:54|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1106) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|06-Jun-2023 08:25:24|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1107 Bill Paid:2516.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1107","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2516.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|06-Jun-2023 08:25:26|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1107) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|06-Jun-2023 08:27:22|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1108 Bill Paid:3150.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1108","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":3150.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|06-Jun-2023 08:27:23|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1108) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|06-Jun-2023 08:57:51|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1109 Bill Paid:11187.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1109","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":11187.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|06-Jun-2023 08:58:01|Bl.PostToFlex >> |{"BankRef":"100BCTC231020067","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020067","AddText":null}
+INFOR|06-Jun-2023 10:46:44|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1110 Bill Paid:1890.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1110","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1890.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|06-Jun-2023 10:46:46|Bl.PostToFlex >> |{"BankRef":"100BCTC231020069","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020069","AddText":null}

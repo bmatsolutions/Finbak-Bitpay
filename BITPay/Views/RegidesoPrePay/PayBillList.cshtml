@@ -54,7 +54,14 @@
                     <td>@item.Amount.ToString("#,##0.00")</td>
                         <td>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</td>
                     <td>@item.UserName</td>
-                    <td><a asp-action="PostPayReceipt" asp-controller="report" asp-route-code="@item.InvoiceNo" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
+                    <td>
+
+                            <a asp-action="generate"
+                           asp-controller="newreport"
+                           asp-route-reportCode="53"
+                           asp-route-filter1="@item.InvoiceNo"><i class="fa fa-print"></i>Print Receipt</a>
+                      
+                    </td>
                 </tr>
                 }
             </tbody>

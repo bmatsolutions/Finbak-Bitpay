@@ -68,5 +68,45 @@ namespace BITPay.Controllers
 
             return View(result);
         }
+        [HttpPost, HttpGet]
+        public async Task<IActionResult> GenerateBuyToken(ReportFilterModel model, int typ = 0)
+        {
+            var result = new CreateFileResultModel();
+            try
+            {
+                result = await bl.GenerateReportAsync(model, typ);
+                if (result.Successful)
+                {
+                    return File(result.FileData, result.ContentType, result.DownloadName);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogUtil.Error(logFile, "Report.Generate()", ex);
+                result.Message = "Report generation failed due to an error!";
+            }
+
+            return View(result);
+        }
+        [HttpPost, HttpGet]
+        public async Task<IActionResult> GeneratePayBill(ReportFilterModel model, int typ = 0)
+        {
+            var result = new CreateFileResultModel();
+            try
+            {
+                result = await bl.GenerateReportAsync(model, typ);
+                if (result.Successful)
+                {
+                    return File(result.FileData, result.ContentType, result.DownloadName);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogUtil.Error(logFile, "Report.Generate()", ex);
+                result.Message = "Report generation failed due to an error!";
+            }
+
+            return View(result);
+        }
     }
 }
