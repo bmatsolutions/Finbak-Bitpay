@@ -13,12 +13,12 @@
     var groups = (from data in reportData
                   group data by data.ModeCode into grp
                   select new ReportGroupData
-                  {
-                      paymentmode = grp.FirstOrDefault().Mode,
-                      GroupCode = grp.FirstOrDefault().ModeCode,
-                      GroupAmount = grp.Sum(x => x.Amount)
+                          {
+                              paymentmode = grp.FirstOrDefault().Mode,
+                              GroupCode = grp.FirstOrDefault().ModeCode,
+                              GroupAmount = grp.Sum(x => x.Amount)
 
-                  });
+                          });
     bool authenticated = false;
     string userId = "";
     UserDataModel currentUserData = null;
@@ -58,78 +58,70 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var g in groups)
-            {
-            @*<tr>
-                <th colspan="5">@g.paymentmode</th>
-                </tr>*@
-
-            @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+                @foreach (var rec in reportData)
                 {
-            <tr>
-                <td>@rec.ReferenceNo</td>
-                <td>@rec.CustomerName</td>
-                <td>@rec.TaxName</td>
-                <td>@rec.ModeName</td>
-                <td>@rec.AccountCredit</td>
-                <td>@rec.AccDebit </td>
-                <td>@rec.Amount.ToString("#,##0.00")</td>
-                <td>@rec.PostDate.ToString("dd/MM/yyyy")</td>
-                <td>@rec.RefNo</td>
-                <td>@rec.BranchName</td>
-                <td>@rec.UserName</td>
+                    <tr>
+                        <td>@rec.ReferenceNo</td>
+                        <td>@rec.CustomerName</td>
+                        <td>@rec.TaxName</td>
+                        <td>@rec.ModeName</td>
+                        <td>@rec.AccountCredit</td>
+                        <td>@rec.AccDebit </td>
+                        <td>@rec.Amount.ToString("#,##0.00")</td>
+                        <td>@rec.PostDate.ToString("dd/MM/yyyy")</td>
+                        <td>@rec.RefNo</td>
+                        <td>@rec.BranchName</td>
+                        <td>@rec.UserName</td>
 
-            </tr>
+                    </tr>
 
                 }
-            @*<tr>
-                    <th class="group-header">Group Totals:</th>
-                    <th class="group-header">@g.GroupAmount.ToString("#,##0.00")</th>
-                </tr>*@
-        <tfoot>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>General Totals:</th>
-                <th class="text-right">@totals.ToString("#,##0.00")</th>
-            </tr>
-        </tfoot>
-
-        }
-            </tbody>
-        </table>
-    </div>
+                @*<tr>
+            <th class="group-header">Group Totals:</th>
+            <th class="group-header">@g.GroupAmount.ToString("#,##0.00")</th>
+            </tr>*@
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>General Totals:</th>
+                    <th class="text-right">@totals.ToString("#,##0.00")</th>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
+</div>
 <script>
-        $(document).ready(function () {
-            var d = new Date();
-            var n = d.toString();
-            $('#Data').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'excel',
-                        messageTop: ' Domestic Tax Report',
-                        messageBottom: 'Print Date   :  ' + n,
-                        title: '@title',
-                        footer: true
-                    },
-                    {
-                        extend: 'pdf',
-                        messageTop: ' Domestic Tax Report',
-                        messageBottom: 'Print Date   :  ' + n,
-                        title: '@title',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        footer: true
-                    },
-                ]
-            });
+    $(document).ready(function () {
+        var d = new Date();
+        var n = d.toString();
+        $('#Data').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    messageTop: ' Domestic Tax Report',
+                    messageBottom: 'Print Date   :  ' + n,
+                    title: '@title',
+                    footer: true
+                },
+                {
+                    extend: 'pdf',
+                    messageTop: ' Domestic Tax Report',
+                    messageBottom: 'Print Date   :  ' + n,
+                    title: '@title',
+                    orientation: 'landscape',
+                    pageSize: 'A4',
+                    footer: true
+                },
+            ]
         });
+    });
 </script>

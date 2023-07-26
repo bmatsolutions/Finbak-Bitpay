@@ -33,3 +33,12 @@ E:\Patrick Work\Bitpay\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CoreCompileIn
 E:\Patrick Work\Bitpay\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CopyComplete
 E:\Patrick Work\Bitpay\Bitpay\OBRClient\obj\Debug\OBRClient.dll
 E:\Patrick Work\Bitpay\Bitpay\OBRClient\obj\Debug\OBRClient.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\bin\Debug\OBRClient.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\bin\Debug\OBRClient.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.AssemblyReference.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CoreCompileInputs.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\obj\Debug\OBRClient.csproj.CopyComplete
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\obj\Debug\OBRClient.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\OBRClient\obj\Debug\OBRClient.pdb

@@ -59,12 +59,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var g in groups)
-            {
-                @*<tr>
-                        <th colspan="5">@g.paymentmode</th>
-                    </tr>*@
-                @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+         
+                @foreach (var rec in reportData)
                 {
             <tr>
                 <td>@rec.CbsResp</td>

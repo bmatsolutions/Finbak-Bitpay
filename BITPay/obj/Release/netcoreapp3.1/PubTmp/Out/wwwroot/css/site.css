@@ -27,6 +27,14 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.4;
 }
 
+
+.row_selected {
+    color: #5c87b2;
+}
+
+    .row_selected td {
+        background-color: #e5f0da;
+    }
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;

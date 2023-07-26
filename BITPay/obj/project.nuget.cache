@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pdCjiR6wps0GeFg+3o9Ys82v9fZ8Ir2JEQ0YASXqWBbDb8jWK23nH/034pS73cDrt8S1o8O22/zGTtuNsMk0uA==",
+  "dgSpecHash": "g9e8IAV9JZdhhN0VAQkb6u6OM/ySAPmCH7a3xyaA1FUKxb27mnnBmIGglqw2ZuYBweJQHyq4gKwGlPp6vjxe6g==",
   "success": true,
-  "projectFilePath": "E:\\Patrick Work\\Bitpay\\Bitpay\\BITPay\\BITPay.csproj",
+  "projectFilePath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\BITPay\\BITPay.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Amoh\\.nuget\\packages\\bmat.tools.security\\1.0.0\\bmat.tools.security.1.0.0.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\dapper\\1.50.5\\dapper.1.50.5.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\dotnetcore.npoi\\1.2.3\\dotnetcore.npoi.1.2.3.nupkg.sha512",
@@ -203,6 +204,8 @@
     "C:\\Users\\Amoh\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\uaparser\\3.1.40\\uaparser.3.1.40.nupkg.sha512",
+    "C:\\Users\\Amoh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Amoh\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],

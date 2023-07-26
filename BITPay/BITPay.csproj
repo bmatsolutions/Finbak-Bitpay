@@ -77,9 +77,6 @@
     <Reference Include="Bmat.Tools.DbManager">
       <HintPath>bin\Debug\netcoreapp3.1\Bmat.Tools.DbManager.dll</HintPath>
     </Reference>
-    <Reference Include="Bmat.Tools.Security">
-      <HintPath>..\..\..\..\BmatSolution\BitPay_finbank\BITPay\bin\Debug\netcoreapp3.1\Bmat.Tools.Security.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

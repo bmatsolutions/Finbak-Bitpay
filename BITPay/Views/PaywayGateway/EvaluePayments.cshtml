@@ -65,7 +65,7 @@
                     <td>@item.ReceivedFrom</td>
                     <td>@item.ReceiptDate</td>
                     <td>@item.Amount</td>
-                    <td><a asp-action="topupreceipt" asp-controller="report" asp-route-code="@item.PaymentCode" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
+                        <td><a asp-action="generate" asp-controller="newreport" asp-route-filter1="@item.PaymentCode" asp-route-reportCode="56" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
                 </tr>
                 }
             </tbody>

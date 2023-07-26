@@ -12,7 +12,7 @@
         {
             <div class="text-center text-muted">
                 <span>Click on the button below to view transaction receipt</span><br />
-                <a target="_blank" asp-action="tokenreceipt" asp-controller="report" asp-route-code="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"> Print Receipt</i></a>
+                <a target="_blank" asp-action="generate" asp-controller="newreport" asp-route-filter1="@Model.Code" asp-route-reportCode="56" class="text-right"><i class="fa fa-print"></i> Print Receipt</a>
             </div>
         }
     </div>
@@ -31,7 +31,8 @@
                     <input asp-for="ApprovalMessage" id="paymentStatusMessage" readonly="readonly" style="outline: none; border:none; width:400px;" />
                     @if (Model.AutoPrint==1)
                     {
-                        <a target="_blank" asp-action="tokenreceipt" asp-controller="report" asp-route-code="@Model.Code" class="btn btn-default btn-sm m-t-5"><i class="fa fa-print"> Print Receipt</i></a>
+                            <a target="_blank" asp-action="generate" asp-controller="newreport" asp-route-filter1="@Model.Code" asp-route-reportCode="56" class="text-right"><i class="fa fa-print"></i> Print Receipt</a>
+
                     }
                 </div>
                 }

@@ -153,3 +153,349 @@ INFOR|06-Jun-2023 08:57:51|Bl.PostToFlex:Data |{"accountnocr":"10032609203","acc
 INFOR|06-Jun-2023 08:58:01|Bl.PostToFlex >> |{"BankRef":"100BCTC231020067","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020067","AddText":null}
 INFOR|06-Jun-2023 10:46:44|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1110 Bill Paid:1890.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1110","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1890.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
 INFOR|06-Jun-2023 10:46:46|Bl.PostToFlex >> |{"BankRef":"100BCTC231020069","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020069","AddText":null}
+ERROR|15-Jun-2023 12:05:33|TopUpReport.Receipt()|System.NullReferenceException: Object reference not set to an instance of an object.
+   at BITPay.Controllers.ReportController.TopUpReceipt(Int32 code) in E:\Patrick Work\Bitpay\Bitpay\BITPay\Controllers\ReportController.cs:line 144
+ERROR|15-Jun-2023 12:30:53|TopUpReport.Receipt()|System.NullReferenceException: Object reference not set to an instance of an object.
+   at BITPay.Controllers.ReportController.TopUpReceipt(Int32 code) in E:\Patrick Work\Bitpay\Bitpay\BITPay\Controllers\ReportController.cs:line 144
+ERROR|19-Jun-2023 13:37:23|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+
+   at FastReport.Code.AssemblyDescriptor.InternalCompile()
+   at FastReport.Code.AssemblyDescriptor.Compile()
+   at FastReport.Report.Compile()
+   at FastReport.Report.Prepare(Boolean append)
+   at FastReport.Report.Prepare()
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
+ERROR|19-Jun-2023 13:45:00|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+
+   at FastReport.Code.AssemblyDescriptor.InternalCompile()
+   at FastReport.Code.AssemblyDescriptor.Compile()
+   at FastReport.Report.Compile()
+   at FastReport.Report.Prepare(Boolean append)
+   at FastReport.Report.Prepare()
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
+ERROR|19-Jun-2023 13:45:13|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+
+   at FastReport.Code.AssemblyDescriptor.InternalCompile()
+   at FastReport.Code.AssemblyDescriptor.Compile()
+   at FastReport.Report.Compile()
+   at FastReport.Report.Prepare(Boolean append)
+   at FastReport.Report.Prepare()
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
+ERROR|19-Jun-2023 15:36:00|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+
+   at FastReport.Code.AssemblyDescriptor.InternalCompile()
+   at FastReport.Code.AssemblyDescriptor.Compile()
+   at FastReport.Report.Compile()
+   at FastReport.Report.Prepare(Boolean append)
+   at FastReport.Report.Prepare()
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
+ERROR|19-Jun-2023 15:46:56|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
+
+   at FastReport.Code.AssemblyDescriptor.InternalCompile()
+   at FastReport.Code.AssemblyDescriptor.Compile()
+   at FastReport.Report.Compile()
+   at FastReport.Report.Prepare(Boolean append)
+   at FastReport.Report.Prepare()
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
+ERROR|18-Jul-2023 11:29:36|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\Payment.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
+ERROR|18-Jul-2023 11:30:39|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\Payment.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
+ERROR|18-Jul-2023 11:34:19|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at FastReport.Report.Load(String fileName)
+   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
+ERROR|18-Jul-2023 11:36:59|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:9ccd368f-5385-4c68-9810-02d262da22e3
+Error Number:-2,State:0,Class:11
+ERROR|18-Jul-2023 13:28:04|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportHeader(Int32 reportCode) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 57
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3683
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:7076c443-7598-46c2-837f-0116dad48d97
+Error Number:-2,State:0,Class:11
+ERROR|18-Jul-2023 14:17:30|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:398c4477-7093-4d4d-8ecd-d3ad076b2b3e
+Error Number:-2,State:0,Class:11
+ERROR|18-Jul-2023 14:19:04|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportHeader(Int32 reportCode) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 57
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3683
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:398c4477-7093-4d4d-8ecd-d3ad076b2b3e
+Error Number:-2,State:0,Class:11
+ERROR|18-Jul-2023 14:26:24|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:2fa2ee06-c21a-4ba8-b7bb-8b9080cd5672
+Error Number:-2,State:0,Class:11
+ERROR|18-Jul-2023 14:59:39|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
+   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
+   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
+   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
+ClientConnectionId:8ab4dbf5-64aa-4bf1-8443-c21b543b1c3b
+Error Number:-2,State:0,Class:11

@@ -56,7 +56,7 @@
                     <td>@item.PaymentMode</td>
                     <td>@item.BranchName</td>
                     <td>@item.ReceiptDate</td>
-                    <td><a asp-action="domesticTaxReceipt" asp-controller="report" asp-route-code="@item.PaymentCode" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
+                        <td><a asp-action="generate" asp-controller="newreport" asp-route-filter1="@item.PaymentCode" asp-route-reportCode="55" class="text-right"><i class="fa fa-print"></i> Print Receipt</a></td>
                 </tr>
                 }
             </tbody>

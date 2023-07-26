@@ -56,6 +56,10 @@
         "jquery.validate.unobtrusive.min.js",
         "jquery.validate.unobtrusive.js"
       ]
+    },
+    {
+      "library": "jspdf@2.5.1",
+      "destination": "wwwroot/lib/jspdf/"
     }
   ]
 }

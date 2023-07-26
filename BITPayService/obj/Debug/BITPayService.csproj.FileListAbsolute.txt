@@ -112,3 +112,32 @@ E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.application
 E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CopyComplete
 E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.exe
 E:\Patrick Work\Bitpay\Bitpay\BITPayService\obj\Debug\BITPayService.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\BITPayService.exe.config
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\BITPayService.exe.manifest
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\BITPayService.application
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\BITPayService.exe
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\BITPayService.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\ClosedXML.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\Dapper.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\OBRClient.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\OBRClient.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\ClosedXML.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\ClosedXML.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\Dapper.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.AssemblyReference.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.SuggestedBindingRedirects.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.Form1.resources
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.ProjectInstaller.resources
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.GenerateResource.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CoreCompileInputs.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.exe.manifest
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.application
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.csproj.CopyComplete
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.exe
+C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPayService\obj\Debug\BITPayService.pdb
