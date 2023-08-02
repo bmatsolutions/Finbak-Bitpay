@@ -54,3 +54,16 @@ C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\obj\Release\netcoreapp3.1\D
 C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.csproj.CopyComplete
 C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\obj\Release\netcoreapp3.1\BITPay.DBL.dll
 C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\obj\Release\netcoreapp3.1\BITPay.DBL.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\bin\Release\netcoreapp3.1\NOTICE.TXT
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\bin\Release\netcoreapp3.1\BITPay.DBL.deps.json
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\bin\Release\netcoreapp3.1\BITPay.DBL.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\bin\Release\netcoreapp3.1\BITPay.DBL.pdb
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\bin\Release\netcoreapp3.1\FastReport.Compat.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.AssemblyInfo.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\DBL.csproj.CopyComplete
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\BITPay.DBL.dll
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Release\netcoreapp3.1\BITPay.DBL.pdb

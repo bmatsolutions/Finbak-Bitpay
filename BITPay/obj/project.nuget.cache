@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g9e8IAV9JZdhhN0VAQkb6u6OM/ySAPmCH7a3xyaA1FUKxb27mnnBmIGglqw2ZuYBweJQHyq4gKwGlPp6vjxe6g==",
+  "dgSpecHash": "yyFDvQaI4/beogb4adD69aXyKPQ6tWRTrkEKlA07uzYsVmbE+9yhoRGjccagaAj1GKUfLNeiULMDpPJB0DEJtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\BITPay\\BITPay.csproj",
+  "projectFilePath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\BITPay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amoh\\.nuget\\packages\\bmat.tools.security\\1.0.0\\bmat.tools.security.1.0.0.nupkg.sha512",
     "C:\\Users\\Amoh\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",

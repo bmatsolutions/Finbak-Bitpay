@@ -46,7 +46,6 @@
           "BITPay.DBL.Reference": "1.0.0.0",
           "Bmat.Tools.DbConnection": "1.0.1.0",
           "Bmat.Tools.DbManager": "1.0.0.0",
-          "Bmat.Tools.Security": "1.0.0.0",
           "FastReport.Compat.Reference": "2022.2.0.0",
           "Microsoft.AspNetCore.Antiforgery.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
@@ -334,6 +333,17 @@
         },
         "compile": {
           "BITPay.dll": {}
+        }
+      },
+      "Bmat.Tools.Security/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/Bmat.Tools.Security.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.0/Bmat.Tools.Security.dll": {}
         }
       },
       "BuildBundlerMinifier/3.2.449": {},
@@ -2403,6 +2413,7 @@
       },
       "BITPay.DBL/1.0.0": {
         "dependencies": {
+          "Bmat.Tools.Security": "1.0.0",
           "Dapper": "1.50.5",
           "DotNetCore.NPOI": "1.2.3",
           "FastReport.OpenSource": "2022.3.4",
@@ -2449,17 +2460,6 @@
         },
         "compile": {
           "Bmat.Tools.DbManager.dll": {}
-        }
-      },
-      "Bmat.Tools.Security/1.0.0.0": {
-        "runtime": {
-          "Bmat.Tools.Security.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Bmat.Tools.Security.dll": {}
         }
       },
       "FastReport.Compat.Reference/2022.2.0.0": {
@@ -4161,6 +4161,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Bmat.Tools.Security/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6veXECUZeXjh5upWhGP3zSGGY7js4dETS6zPztfnguSbXQ021lbb9iQkHefmstkvt1FgENqqkWwCQ3DmKhQcWw==",
+      "path": "bmat.tools.security/1.0.0",
+      "hashPath": "bmat.tools.security.1.0.0.nupkg.sha512"
+    },
     "BuildBundlerMinifier/3.2.449": {
       "type": "package",
       "serviceable": true,
@@ -5570,11 +5577,6 @@
       "sha512": ""
     },
     "Bmat.Tools.DbManager/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Bmat.Tools.Security/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

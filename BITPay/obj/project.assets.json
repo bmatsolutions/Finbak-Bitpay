@@ -9612,11 +9612,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\BITPay\\BITPay.csproj",
+      "projectUniqueName": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\BITPay.csproj",
       "projectName": "BITPay",
-      "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\BITPay\\BITPay.csproj",
+      "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\BITPay.csproj",
       "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\BITPay\\obj\\",
+      "outputPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9627,7 +9627,6 @@
       ],
       "sources": {
         "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-        "F:\\BmatSolution\\localNuget": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.pkg.github.com/bmatsolutions/index.json": {}
       },
@@ -9635,8 +9634,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\DBL\\DBL.csproj": {
-              "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay2106\\Bitpay\\DBL\\DBL.csproj"
+            "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj": {
+              "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj"
             }
           }
         }
