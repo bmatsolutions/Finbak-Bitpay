@@ -1,284 +1,97 @@
-ERROR|30-May-2023 11:16:45|Bl.GetAuthTokenAsync|System.Net.WebException: A socket operation was attempted to an unreachable host. A socket operation was attempted to an unreachable host.
- ---> System.Net.Http.HttpRequestException: A socket operation was attempted to an unreachable host.
- ---> System.Net.Sockets.SocketException (10065): A socket operation was attempted to an unreachable host.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+INFOR|03-Aug-2023 19:57:53|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1175 Bill Paid:6232.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1175","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":6232.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|03-Aug-2023 19:57:57|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1175) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+ERROR|03-Aug-2023 19:57:57|Regideso.QueryBills|System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'sp_UpdatePostPayStatus' expects parameter '@Receivedcode', which was not supplied.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__108_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in E:\Patrick Work\Bitpay\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|02-Jun-2023 13:53:25|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGPayBill.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 13:53:47|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 13:55:34|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 13:58:14|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 14:02:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 14:03:28|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 14:10:42|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 14:16:02|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 14:17:49|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 15:03:32|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 15:04:17|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGPayBill.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 15:04:41|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 15:29:05|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|02-Jun-2023 15:40:35|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|05-Jun-2023 09:21:42|Bl.CreatePdfReport()|FastReport.Utils.ClassException: Can't find object MsSqlDataConnection
-   at FastReport.Utils.FRReader.Read()
-   at FastReport.Base.DeserializeSubItems(FRReader reader)
-   at FastReport.Base.Deserialize(FRReader reader)
-   at FastReport.Data.Dictionary.Deserialize(FRReader reader)
-   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
-   at FastReport.Report.DeserializeSubItems(FRReader reader)
-   at FastReport.Base.Deserialize(FRReader reader)
-   at FastReport.Report.Deserialize(FRReader reader)
-   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
-   at FastReport.Report.Load(Stream stream)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-ERROR|05-Jun-2023 09:23:28|Bl.CreatePdfReport()|FastReport.Utils.ClassException: Can't find object MsSqlDataConnection
-   at FastReport.Utils.FRReader.Read()
-   at FastReport.Base.DeserializeSubItems(FRReader reader)
-   at FastReport.Base.Deserialize(FRReader reader)
-   at FastReport.Data.Dictionary.Deserialize(FRReader reader)
-   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
-   at FastReport.Report.DeserializeSubItems(FRReader reader)
-   at FastReport.Base.Deserialize(FRReader reader)
-   at FastReport.Report.Deserialize(FRReader reader)
-   at FastReport.Utils.FRReader.Read(IFRSerializable obj)
-   at FastReport.Report.Load(Stream stream)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5874
-INFOR|05-Jun-2023 18:42:53|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1106 Bill Paid:4095.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1106","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4095.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
-INFOR|05-Jun-2023 18:42:54|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1106) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
-INFOR|06-Jun-2023 08:25:24|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1107 Bill Paid:2516.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1107","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2516.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
-INFOR|06-Jun-2023 08:25:26|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1107) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
-INFOR|06-Jun-2023 08:27:22|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1108 Bill Paid:3150.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1108","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":3150.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
-INFOR|06-Jun-2023 08:27:23|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1108) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
-INFOR|06-Jun-2023 08:57:51|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1109 Bill Paid:11187.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1109","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":11187.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
-INFOR|06-Jun-2023 08:58:01|Bl.PostToFlex >> |{"BankRef":"100BCTC231020067","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020067","AddText":null}
-INFOR|06-Jun-2023 10:46:44|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1110 Bill Paid:1890.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1110","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1890.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
-INFOR|06-Jun-2023 10:46:46|Bl.PostToFlex >> |{"BankRef":"100BCTC231020069","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231020069","AddText":null}
-ERROR|15-Jun-2023 12:05:33|TopUpReport.Receipt()|System.NullReferenceException: Object reference not set to an instance of an object.
-   at BITPay.Controllers.ReportController.TopUpReceipt(Int32 code) in E:\Patrick Work\Bitpay\Bitpay\BITPay\Controllers\ReportController.cs:line 144
-ERROR|15-Jun-2023 12:30:53|TopUpReport.Receipt()|System.NullReferenceException: Object reference not set to an instance of an object.
-   at BITPay.Controllers.ReportController.TopUpReceipt(Int32 code) in E:\Patrick Work\Bitpay\Bitpay\BITPay\Controllers\ReportController.cs:line 144
-ERROR|19-Jun-2023 13:37:23|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-
-   at FastReport.Code.AssemblyDescriptor.InternalCompile()
-   at FastReport.Code.AssemblyDescriptor.Compile()
-   at FastReport.Report.Compile()
-   at FastReport.Report.Prepare(Boolean append)
-   at FastReport.Report.Prepare()
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
-ERROR|19-Jun-2023 13:45:00|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-
-   at FastReport.Code.AssemblyDescriptor.InternalCompile()
-   at FastReport.Code.AssemblyDescriptor.Compile()
-   at FastReport.Report.Compile()
-   at FastReport.Report.Prepare(Boolean append)
-   at FastReport.Report.Prepare()
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
-ERROR|19-Jun-2023 13:45:13|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-
-   at FastReport.Code.AssemblyDescriptor.InternalCompile()
-   at FastReport.Code.AssemblyDescriptor.Compile()
-   at FastReport.Report.Compile()
-   at FastReport.Report.Prepare(Boolean append)
-   at FastReport.Report.Prepare()
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
-ERROR|19-Jun-2023 15:36:00|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-
-   at FastReport.Code.AssemblyDescriptor.InternalCompile()
-   at FastReport.Code.AssemblyDescriptor.Compile()
-   at FastReport.Report.Compile()
-   at FastReport.Report.Prepare(Boolean append)
-   at FastReport.Report.Prepare()
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
-ERROR|19-Jun-2023 15:46:56|Bl.CreatePdfReport()|FastReport.Utils.CompilerException: (Text5): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text146): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text147): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text148): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text149): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text153): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text154): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text155): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text157): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text163): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text164): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text165): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-(Text166): Error CS0103: The name 'vw_DomesticTaxReceipts' does not exist in the current context
-
-   at FastReport.Code.AssemblyDescriptor.InternalCompile()
-   at FastReport.Code.AssemblyDescriptor.Compile()
-   at FastReport.Report.Compile()
-   at FastReport.Report.Prepare(Boolean append)
-   at FastReport.Report.Prepare()
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in E:\Patrick Work\Bitpay\Bitpay\DBL\Bl.cs:line 5900
-ERROR|18-Jul-2023 11:29:36|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\Payment.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
-ERROR|18-Jul-2023 11:30:39|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\Payment.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
-ERROR|18-Jul-2023 11:34:19|Bl.CreatePdfReport()|System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\BMAT\BITPay\Reports\RGBuyToken.frx'.
-   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at FastReport.Report.Load(String fileName)
-   at BITPay.DBL.Bl.CreatePdfReport(PrintReportModel reportModel) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 5874
-ERROR|18-Jul-2023 11:36:59|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in C:\projects\dapper\Dapper\SqlMapper.Async.cs:line 483
+   at BITPay.DBL.Repositories.RegidesoRepository.UpdatePostPaymentStatusAsync(Int32 level, Int32 paymentCode, Int32 status, String CbsStat, String Cbsref, String Cbsmessage, String Rgmessage) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Repositories\RegidesoRepository.cs:line 395
+   at BITPay.DBL.Bl.PostPayAsync(Bills Payment) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 3951
+   at BITPay.Controllers.RegidesoController.MakePayment(Bills model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\Controllers\RegidesoController.cs:line 278
+ClientConnectionId:68f45ae6-83b6-4fb8-9454-1a533f1904cf
+Error Number:201,State:4,Class:16
+INFOR|03-Aug-2023 20:02:29|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1176 Bill Paid:1533.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1176","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1533.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|03-Aug-2023 20:02:29|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1176) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|03-Aug-2023 20:03:43|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1177 Bill Paid:6232.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1177","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":6232.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|03-Aug-2023 20:03:44|Bl.PostToFlex >> |{"BankRef":"100BCTC231570027","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570027","AddText":null}
+INFOR|04-Aug-2023 09:46:15|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1178 Bill Paid:29010.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1178","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":29010.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 09:46:16|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1178) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 09:47:11|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1179 Bill Paid:9765.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1179","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":9765.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 09:47:11|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1179) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 09:48:03|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1180 Bill Paid:1885024.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1180","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1885024.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 09:48:04|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1180) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 09:49:08|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1181 Bill Paid:239294.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1181","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":239294.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 09:49:11|Bl.PostToFlex >> |{"BankRef":"100BCTC231570028","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570028","AddText":null}
+INFOR|04-Aug-2023 09:51:26|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10004185011","narration":"FNB1124 Bill Paid:4095.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1124","txncode":"503","Txntype":"503","officer":"PesaFlash","flag":"0","Amount":4095.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"1217613","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 09:51:28|Bl.PostToFlex >> |{"BankRef":null,"Successful":false,"Response":"CA-CKUSEDCheque already used","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 11:18:04|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1182 Bill Paid:1885024.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1182","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1885024.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 11:18:05|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1182) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 11:19:31|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1183 Bill Paid:5355.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1183","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":5355.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 11:19:32|Bl.PostToFlex >> |{"BankRef":"100BCTC231570033","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570033","AddText":null}
+INFOR|04-Aug-2023 11:33:46|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1184 Bill Paid:5355.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1184","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":5355.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 11:33:47|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1184) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 11:34:18|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1185 Bill Paid:1004707.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1185","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1004707.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 11:34:19|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1185) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 11:35:07|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1186 Bill Paid:831118.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1186","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":831118.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 11:35:08|Bl.PostToFlex >> |{"BankRef":"100BCTC231570034","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570034","AddText":null}
+INFOR|04-Aug-2023 12:18:45|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1187 Bill Paid:34249665.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1187","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":34249665.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 12:18:46|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1187) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 12:30:24|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1188 Bill Paid:1390897.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1188","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1390897.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 12:30:25|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1188) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 13:19:09|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1189 Bill Paid:1053134.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1189","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1053134.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 13:19:10|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1189) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|04-Aug-2023 13:25:17|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1190 Bill Paid:1390897.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1190","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1390897.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 13:25:18|Bl.PostToFlex >> |{"BankRef":"100BCTC231570037","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570037","AddText":null}
+INFOR|04-Aug-2023 14:30:32|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1191 Bill Paid:1621005.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1191","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1621005.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|04-Aug-2023 14:30:37|Bl.PostToFlex >> |{"BankRef":"100BCTC231570038","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570038","AddText":null}
+INFOR|07-Aug-2023 18:05:03|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1192 Bill Paid:510757.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1192","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":510757.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:05:06|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1192) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:05:37|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1193 Bill Paid:1533.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1193","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1533.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:05:38|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1193) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:05:58|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1194 Bill Paid:9765.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1194","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":9765.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:05:58|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1194) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:06:33|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1195 Bill Paid:491626.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1195","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":491626.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:06:34|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1195) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:07:13|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1196 Bill Paid:4517258.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1196","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4517258.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:07:13|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1196) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:07:41|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1197 Bill Paid:2275456.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1197","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2275456.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:07:42|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1197) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:08:12|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1198 Bill Paid:1496590.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1198","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1496590.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:08:12|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1198) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:10:18|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1199 Bill Paid:34930271.00 Declarant: IRAMBONA       ,GERARD","currencycode":"BIF","docreference":"FNB1199","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":34930271.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:10:18|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1199) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:11:02|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1200 Bill Paid:120437.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1200","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":120437.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:11:02|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1200) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:11:48|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1201 Bill Paid:1772183.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1201","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1772183.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:11:49|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1201) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:15:09|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1202 Bill Paid:1058970.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1202","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1058970.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:15:10|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1202) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:15:34|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1203 Bill Paid:34249665.00 Declarant: HATUNGIMANA    ,PASCAL","currencycode":"BIF","docreference":"FNB1203","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":34249665.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:15:35|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1203) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:19:14|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1204 Bill Paid:742870.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1204","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":742870.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:19:14|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1204) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:20:10|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1205 Bill Paid:1058970.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1205","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1058970.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:20:10|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1205) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:22:54|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1206 Bill Paid:1200744.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1206","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":1200744.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:22:55|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1206) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|07-Aug-2023 18:28:05|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1207 Bill Paid:4517258.00 Declarant: S.O.S","currencycode":"BIF","docreference":"FNB1207","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4517258.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|07-Aug-2023 18:28:13|Bl.PostToFlex >> |{"BankRef":"100BCTC231570054","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570054","AddText":null}
+INFOR|08-Aug-2023 11:48:11|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1232 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1232","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4368.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 11:48:19|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1232) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|08-Aug-2023 11:53:28|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1233 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1233","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 11:53:37|Bl.PostToFlex >> |{"BankRef":"100BCTC231570057","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570057","AddText":null}
+INFOR|08-Aug-2023 11:54:56|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1235 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1235","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":4914.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 11:54:58|Bl.PostToFlex >> |{"BankRef":"100BCTC231570058","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570058","AddText":null}
+INFOR|08-Aug-2023 12:09:37|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1236 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1236","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 12:09:55|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1236) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+INFOR|08-Aug-2023 12:16:43|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1237 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1237","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 12:16:53|Bl.PostToFlex >> |{"BankRef":"100BCTC231570059","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570059","AddText":null}
+INFOR|08-Aug-2023 12:39:23|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"110111005","narration":"FNB1241 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1241","txncode":"501","Txntype":"501","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 12:39:41|Bl.PostToFlex >> |{"BankRef":"100BCTC231570060","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":999999990.0,"Cbsref2":"100BCTC231570060","AddText":null}
+ERROR|08-Aug-2023 13:09:23|Regideso.QueryBills|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
  ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
@@ -303,44 +116,8 @@ ERROR|18-Jul-2023 11:36:59|Report.Generate|System.Data.SqlClient.SqlException (0
    at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location where exception was thrown ---
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:9ccd368f-5385-4c68-9810-02d262da22e3
-Error Number:-2,State:0,Class:11
-ERROR|18-Jul-2023 13:28:04|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
- ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
-   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
-   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportHeader(Int32 reportCode) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 57
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3683
+   at BITPay.DBL.Repositories.GeneralRepository.GetListModel(ListModelType listType) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Repositories\GeneralRepository.cs:line 44
+   at BITPay.DBL.Bl.<>c__DisplayClass90_0.<GetListModel>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 3516
    at System.Threading.Tasks.Task`1.InnerInvoke()
    at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
    at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
@@ -348,426 +125,56 @@ ERROR|18-Jul-2023 13:28:04|Report.Generate|System.Data.SqlClient.SqlException (0
    at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
 --- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:7076c443-7598-46c2-837f-0116dad48d97
+   at BITPay.DBL.Bl.GetListModel(ListModelType listType) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 3514
+   at BITPay.Controllers.RegidesoPrePayController.query(PrePaidModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\Controllers\RegidesoPrePayController.cs:line 150
+ClientConnectionId:37b1e7d5-1666-4d0e-8cce-080d04e0170b
 Error Number:-2,State:0,Class:11
-ERROR|18-Jul-2023 14:17:30|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ERROR|08-Aug-2023 13:11:11|Bl.GetAuthTokenAsync|System.Net.WebException: The remote server returned an error: (503) Service Unavailable.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
+ERROR|08-Aug-2023 13:12:56|Bl.GetAuthTokenAsync|System.Net.WebException: The remote server returned an error: (503) Service Unavailable.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
+INFOR|08-Aug-2023 13:25:12|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1244 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1244","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 13:25:17|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(FNB1244) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
+ERROR|08-Aug-2023 13:26:26|SuperviseDomesticTax.Supervise|System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=0; handshake=15006; 
  ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
-   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
-   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location where exception was thrown ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:398c4477-7093-4d4d-8ecd-d3ad076b2b3e
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at BITPay.DBL.Repositories.RegidesoRepository.GetPrePay(Int32 paymentCode) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Repositories\RegidesoRepository.cs:line 166
+   at BITPay.DBL.Bl.ApproveBuyTokenAsync(Int32 FileCode, Int32 action, String reason, Int32 userCode) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 4684
+   at BITPay.Controllers.SupervisorController.SupervisePrePay(SuperviseModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\Controllers\SupervisorController.cs:line 157
+ClientConnectionId:36c12d1b-5b7d-49d6-86f2-3e7c0e497c9e
 Error Number:-2,State:0,Class:11
-ERROR|18-Jul-2023 14:19:04|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ERROR|08-Aug-2023 13:26:54|SuperviseDomesticTax.Supervise|System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=1; handshake=15008; 
  ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
-   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
-   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportHeader(Int32 reportCode) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 57
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3683
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location where exception was thrown ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:398c4477-7093-4d4d-8ecd-d3ad076b2b3e
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at BITPay.DBL.Repositories.RegidesoRepository.GetPrePay(Int32 paymentCode) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Repositories\RegidesoRepository.cs:line 166
+   at BITPay.DBL.Bl.ApproveBuyTokenAsync(Int32 FileCode, Int32 action, String reason, Int32 userCode) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 4684
+   at BITPay.Controllers.SupervisorController.SupervisePrePay(SuperviseModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\Controllers\SupervisorController.cs:line 157
+ClientConnectionId:bee2ff4d-e1c3-4601-a07a-a4de0860c5d0
 Error Number:-2,State:0,Class:11
-ERROR|18-Jul-2023 14:26:24|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
- ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
-   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
-   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location where exception was thrown ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:2fa2ee06-c21a-4ba8-b7bb-8b9080cd5672
-Error Number:-2,State:0,Class:11
-ERROR|18-Jul-2023 14:59:39|Report.Generate|System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
- ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
-   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
-   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
-   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in C:\projects\dapper\Dapper\SqlMapper.cs:line 1053
-   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in C:\projects\dapper\Dapper\SqlMapper.cs:line 1081
-   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\projects\dapper\Dapper\SqlMapper.cs:line 723
-   at BITPay.DBL.Repositories.ReportRepository.GetReportData(Int32 reportCode, DateTime dateFrom, DateTime dateTo, Int32 branch, Int32 user) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Repositories\ReportRepository.cs:line 30
-   at BITPay.DBL.Bl.<>c__DisplayClass105_0.<ProcessReportData>b__0() in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3689
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location where exception was thrown ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.Bl.ProcessReportData(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\DBL\Bl.cs:line 3671
-   at BITPay.Controllers.ReportController.GenerateReport(ReportGenModel model) in C:\Users\Amoh\Desktop\Projects\Bitpay2106\Bitpay\BITPay\Controllers\ReportController.cs:line 351
-ClientConnectionId:8ab4dbf5-64aa-4bf1-8443-c21b543b1c3b
-Error Number:-2,State:0,Class:11
-ERROR|27-Jul-2023 12:54:29|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:54:29|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:54:51|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:54:51|Bl.GetMiarieTaxTypeFieldsAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:55:08|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:55:08|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:55:29|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:55:29|Bl.GetMiarieTaxTypeFieldsAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:55:46|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:55:46|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:55:48|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:55:48|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 12:56:09|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 12:56:09|Bl.GetMiarieTaxTypeFieldsAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 13:11:23|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 13:11:23|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 13:11:44|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 13:11:44|Bl.GetMiarieTaxTypesAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 13:11:45|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 13:11:45|Bl.GetMiarieTaxTypeFieldsAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-ERROR|27-Jul-2023 13:12:06|Bl.GetAuthTokenAsync|System.Net.WebException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   --- End of inner exception stack trace ---
-   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
-   at System.Net.HttpWebRequest.SendRequest()
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
-   at System.Net.WebRequest.<>c.<GetResponseAsync>b__68_2(IAsyncResult iar)
-   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
---- End of stack trace from previous location where exception was thrown ---
-   at BITPay.DBL.HttpClient.SendRequestAsync(String requestData) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\HttpClient.cs:line 101
-ERROR|27-Jul-2023 13:12:06|Bl.GetMiarieTaxTypeFieldsAsync|System.Exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-INFOR|27-Jul-2023 18:46:10|Bl.PostToFlex:Data |{"accountnocr":"20002576012","accountnodr":"110111007","narration":"me","currencycode":"","docreference":"TX2211","txncode":"534","Txntype":"401","officer":"PesaFlash","flag":"0","Amount":11677.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0.00","DebitBr":"100","Appid":200}
-INFOR|27-Jul-2023 18:46:12|Bl.PostToFlex >> |{"BankRef":"","Successful":false,"Response":"GW-RTL-008Duplication External Reference No(TX2211) received in the request.","Balance":0.0,"Cbsref2":null,"AddText":null}
-ERROR|27-Jul-2023 18:46:12|Miarie.ConfirmPayment|System.Exception: Transaction posting to the core banking failed! GW-RTL-008Duplication External Reference No(TX2211) received in the request.
-ERROR|28-Jul-2023 10:05:56|Miarie.Query|Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.Decimal'. Path 'tax_notes[0].amt', line 20, position 17.
- ---> System.InvalidCastException: Null object cannot be converted to a value type.
-   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
-   --- End of inner exception stack trace ---
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
-   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
-   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
-   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
-   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
-   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
-   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
-   at BITPay.DBL.Gateways.FinBridgeGateway.MairieService.QueryTaxItemAsync(Int32 taxType, String referenceNo, String endpoint) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Gateways\FinBridgeGateway.cs:line 151
-   at BITPay.DBL.Bl.QueryMiarieTaxAsync(QueryMarie model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\Bl.cs:line 4913
-   at BITPay.Controllers.MiarieController.Query(QueryMarie model) in C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\Controllers\MiarieController.cs:line 44
+INFOR|08-Aug-2023 13:28:46|Bl.PostToFlex:Data |{"accountnocr":"10032609203","accountnodr":"10027118011","narration":"FNB1243 Bill Paid: Declarant: ","currencycode":"BIF","docreference":"FNB1243","txncode":"502","Txntype":"502","officer":"PesaFlash","flag":"0","Amount":2730.00,"nameofdepositororwithdrawer":"PesaFlash","chqno":"","Txndata":"0","DebitBr":"100","Appid":200}
+INFOR|08-Aug-2023 13:29:02|Bl.PostToFlex >> |{"BankRef":"100BCFT231570001","Successful":true,"Response":"GW-SAV-03Transaction completed Succesfully","Balance":154991.0,"Cbsref2":"100BCFT231570001","AddText":null}

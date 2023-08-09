@@ -15,6 +15,21 @@
 
 
                   });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
 }
 
 <div class="text-center">@Model.Title</div>
@@ -86,14 +101,14 @@
                     extend: 'excel',
                     messageTop: 'OBR Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: 'OBR Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true

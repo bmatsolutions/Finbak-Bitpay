@@ -14,6 +14,21 @@
                       GroupAmount = grp.Sum(x => x.Amount)
 
                   });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
 }
 
     <div class="table-responsive">
@@ -32,7 +47,7 @@
                     <th class="header">DR ACCOUNT</th>
                     <th class="header">MODE</th>
                     <th class="header text-right">AMOUNT</th>
-                    <th class="header text-right">CheckerId</th>
+                    @*<th class="header text-right">CheckerId</th>*@
                     <th class="header text-right">Status</th>
 
                 </tr>
@@ -53,7 +68,7 @@
                     <td>@rec.DR_Account</td>
                     <td>@rec.PaymentMode</td>
                     <td>@rec.Amount.ToString("#,##0.00")</td>
-                    <td>@rec.Checker_Id</td>
+                   @*// <td>@rec.Checker_Id</td>*@
                     <td>@rec.Status</td>
                 </tr>
             }
@@ -96,14 +111,14 @@
                     extend: 'excel',
                     messageTop: 'Multiple Custom Tax Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: 'Multiple Custom Tax Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true

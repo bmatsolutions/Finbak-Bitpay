@@ -14,6 +14,23 @@
                       GroupAmount = grp.Sum(x => x.Amount)
 
                   });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    int posttocbs = -1;
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+            posttocbs = currentUserData.Post;
+        }
+    }
 }
 
 <div class="text-center">@Model.Title</div>
@@ -29,7 +46,10 @@
             <th class="header">Amount</th>
             <th class="header">Date</th>
             <th class="header">Maker Id</th>
-            <th class="header">Checker Id</th>
+            @if (posttocbs == 1)
+            {
+                <th class="header">Checker Id</th>
+            }
             <th class="header">Office Code</th>
             <th class="header">Company Code</th>
             <th class="header">Receipt Number</th>
@@ -40,38 +60,30 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var g in groups)
-        {
-            <tr>
-                <th colspan="5">@g.paymentmode</th>
-            </tr>
-
-            @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+        
+            @foreach (var rec in reportData)
             {
-            <tr>
-                <td>@rec.CbsResp</td>
-                <td>@rec.CR_Account</td>
-                <td>@rec.DR_Account</td>
-                <td>@rec.Amount.ToString("#,##0.00")</td>
-                <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
-                <td>@rec.MakerID</td>
-                <td>@rec.Checker_Id</td>
-                <td>@rec.OfficeCode</td>
-                <td>@rec.CompanyCode</td>
-                <td>@rec.ReceiptNo</td>
-                <td>@rec.delcarationRef</td>
-                <td>@rec.DeclarantNo</td>
-                <td>@rec.Reason</td>
-                <td>@rec.CbsResp</td>
-            </tr>
+    <tr>
+        <td>@rec.CbsResp</td>
+        <td>@rec.CR_Account</td>
+        <td>@rec.DR_Account</td>
+        <td>@rec.Amount.ToString("#,##0.00")</td>
+        <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
+        <td>@rec.MakerID</td>
+        @if (posttocbs == 1)
+        {
+            <td>@rec.Checker_Id</td>
+        }
+        <td>@rec.OfficeCode</td>
+        <td>@rec.CompanyCode</td>
+        <td>@rec.ReceiptNo</td>
+        <td>@rec.delcarationRef</td>
+        <td>@rec.DeclarantNo</td>
+        <td>@rec.Reason</td>
+        <td>@rec.CbsResp</td>
+    </tr>
 
             }
-            <tr>
-                <th class="group-header" colspan="5">Group Totals:</th>
-                <th class="group-header text-right">@g.GroupAmount.ToString("#,##0.00")</th>
-            </tr>
-
-        }
 
     </tbody>
 </table>
@@ -93,14 +105,14 @@
                     extend: 'excel',
                     messageTop: 'Payment Failed At OBR Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: 'Payment Failed At OBR Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true

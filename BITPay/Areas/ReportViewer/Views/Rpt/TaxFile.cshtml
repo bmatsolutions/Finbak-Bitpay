@@ -14,6 +14,21 @@
                       GroupAmount = grp.Sum(x => x.Amount)
 
                   });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
 }
 
     <div class="table-responsive">
@@ -29,7 +44,7 @@
                     <th class="header">Amount</th>
                     <th class="header">Date</th>
                     <th class="header">Maker Id</th>
-                    <th class="header">Checker Id</th>
+                   <th class="header">Checker Id</th>
                     <th class="header">Office Code</th>
                     <th class="header">Company Code</th>
                     <th class="header">Receipt Number</th>
@@ -39,13 +54,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var g in groups)
-                {
-                    @*<tr>
-                    <th colspan="5">@g.paymentmode</th>
-                </tr>*@
-
-                    @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+              
+                    @foreach (var rec in reportData)
                     {
                         <tr>
                             <td>@rec.CbsResp</td>
@@ -54,7 +64,7 @@
                             <td>@rec.Amount.ToString("#,##0.00")</td>
                             <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
                             <td>@rec.MakerID</td>
-                            <td>@rec.Checker_Id</td>
+                          <td>@rec.Checker_Id</td>
                             <td>@rec.OfficeCode</td>
                             <td>@rec.CompanyCode</td>
                             <td>@rec.ReceiptNo</td>
@@ -81,7 +91,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
+                   <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -110,14 +120,14 @@
                     extend: 'excel',
                     messageTop: 'Tax File Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: 'Tax File Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true

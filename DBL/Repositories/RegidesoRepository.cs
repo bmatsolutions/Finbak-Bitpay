@@ -56,6 +56,7 @@ namespace BITPay.DBL.Repositories
 
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@MeterNo", bill.Meter_No);
+                parameters.Add("@PhoneNo", bill.PhoneNo);
                 parameters.Add("@AccountNo", bill.Accnt_no);
                 parameters.Add("@Amount", bill.Amount);
                 parameters.Add("@PayAmount", bill.Amount);
@@ -377,7 +378,7 @@ namespace BITPay.DBL.Repositories
                 return await connection.QueryFirstOrDefaultAsync<BuyTokenPostModel>("sp_RGPostPayment", parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public async Task<BaseEntity> UpdatePostPaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage)
+        public async Task<BaseEntity> UpdatePostPaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage, int receivedcode,string installationcode)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -391,6 +392,8 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@cbsref", Cbsref);
                 parameters.Add("@CBSMsg", Cbsmessage);
                 parameters.Add("@RgMsg", Rgmessage);
+                parameters.Add("@Receivedcode", receivedcode);
+                parameters.Add("@InstallationCode", installationcode);
 
                 return await connection.QueryFirstOrDefaultAsync<BaseEntity>("sp_UpdatePostPayStatus", parameters, commandType: CommandType.StoredProcedure);
             }

@@ -3787,10 +3787,10 @@ namespace BITPay.DBL
                 resp.Msg = payResult.RespMessage;
                 return resp;
             }
-
+            model.TransanctionId = model.CBSRef;
             //---Create Mairie gateway
             var regideso = finBridge.CreateRegidesoService(authData.Token);
-            return await regideso.PayBillsAsync(model.Invoice_no,model.txnId,model.PhoneNo);
+            return await regideso.PayBillsAsync(model.Invoice_no,model.txnId,model.PhoneNo,model.TransanctionId);
         }
 
         public async Task<GenericModel> ValidateRegidesoPostBillPayment(Bills Payment)
@@ -3909,7 +3909,7 @@ namespace BITPay.DBL
             {
                 if (result.ApprovalNeeded)
                 {
-                    await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 0,"","","", "");
+                    await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 0,"","","", "",0, "");
                     makePaymentResponse.RespStatus = 0;
                     makePaymentResponse.RespMessage = "Payment created awaiting approval.";
                     makePaymentResponse.Data1 = Payment.Cust_name;
@@ -3948,14 +3948,14 @@ namespace BITPay.DBL
                         }
 
                         //---- Update payment status (4 - Failed)
-                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 4,"2", postResp.CBSRefNo, postResp.Message, "");
+                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 4,"2", postResp.CBSRefNo, postResp.Message, "",0,"");
 
                         return makePaymentResponse;
                     }
                     else
                     {
                         //---- Update payment status 
-                        var r = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode,3, "1", postResp.CBSRefNo, postResp.Message, "");
+                        var r = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode,3, "1", postResp.CBSRefNo, postResp.Message, "", 0,"");
                         var data = await db.GeneralRepository.GetSystemSettingAsync(SettingType.RegidesoPayBill);
                         if (data.RespStatus != 0)
                         {
@@ -3971,12 +3971,13 @@ namespace BITPay.DBL
                             makePaymentResponse.RespMessage = authData.ErrorMsg;
                             return makePaymentResponse;
                         }
+                        Payment.TransanctionId = postResp.CBSRefNo;
                         var regideso = finBridge.CreateRegidesoService(authData.Token);
-                        var resp = await regideso.PayBillsAsync(Payment.Invoice_no, data1.Data20.ToString(), Payment.PhoneNo);
+                        var resp = await regideso.PayBillsAsync(Payment.Invoice_no, data1.Data20.ToString(), Payment.PhoneNo,Payment.TransanctionId);
                         if(resp.Success)
                         {
                             //--- Posting successfully
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "1", "","", "successful.");
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "1", "","", "successful.",resp.received_code,resp.installation_code);
                             postRespMessage = postResp.Message;
                             makePaymentResponse.RespStatus = 0;
                             makePaymentResponse.RespMessage = "Regideso Payment was successful.";
@@ -3992,7 +3993,7 @@ namespace BITPay.DBL
                         else
                         {
                             //--- Posting failed
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4, "", "", "", resp.Msg);
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4, "", "", "", resp.Msg, resp.received_code,resp.installation_code);
 
                             postRespMessage = resp.Msg;
                             makePaymentResponse.RespStatus = 1;
@@ -4044,7 +4045,7 @@ namespace BITPay.DBL
             {
                 if (action == 0)
                 {
-                    var res1 = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 2, "", "", "", "");
+                    var res1 = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 2, "", "", "", "", 0,"");
                     makePaymentResponse.RespStatus = res1.RespStatus;
                     makePaymentResponse.RespMessage = "Payment Rejected Successifully.";
                     makePaymentResponse.Data1 = payment.BillCode.ToString();
@@ -4078,13 +4079,13 @@ namespace BITPay.DBL
                         }
 
                         //---- Update payment status (4 - Failed)
-                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 4, "2", "", postResp.Message, "");
+                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 4, "2", "", postResp.Message, "", 0,"");
 
                         return makePaymentResponse;
                     }
                     else
                     {
-                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 1, "1", postResp.CBSRefNo, postResp.Message, "");
+                        await db.RegidesoRepository.UpdatePostPaymentStatusAsync(1, result.PaymentCode, 1, "1", postResp.CBSRefNo, postResp.Message, "",0,"");
                         var data = await db.GeneralRepository.GetSystemSettingAsync(SettingType.RegidesoPayBill);
                         if (data.RespStatus != 0)
                         {
@@ -4100,12 +4101,13 @@ namespace BITPay.DBL
                             makePaymentResponse.RespMessage = authData.ErrorMsg;
                             return makePaymentResponse;
                         }
+                        
                         var regideso = finBridge.CreateRegidesoService(authData.Token);
-                        var resp = await regideso.PayBillsAsync(payment.InvoiceNo, payment.txnId, payment.PhoneNo);
+                        var resp = await regideso.PayBillsAsync(payment.InvoiceNo, payment.txnId, payment.PhoneNo, postResp.CBSRefNo);
                         if (resp.Success)
                         {
                             //--- Posting successfully
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "", "", "", "Transaction posting was successful.");
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "", "", "", "Transaction posting was successful.",resp.received_code, resp.installation_code);
                             //--- Posting successfully
                             postRespMessage = postResp.Message;
                             makePaymentResponse.RespStatus = 0;
@@ -4116,7 +4118,7 @@ namespace BITPay.DBL
                         else
                         {
                             //--- Posting failed
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4,"", "", "",resp.Msg);
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4,"", "", "",resp.Msg,resp.received_code, resp.installation_code);
                             //--- Posting failed
                             postRespMessage = resp.Msg;
                             makePaymentResponse.RespStatus = 1;
@@ -4159,7 +4161,7 @@ namespace BITPay.DBL
             {
                 if (action == 0)
                 {
-                    var res1 = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 2, "", "", "", "");
+                    var res1 = await db.RegidesoRepository.UpdatePostPaymentStatusAsync(0, result.PaymentCode, 2, "", "", "", "", 0,"");
                     makePaymentResponse.RespStatus = res1.RespStatus;
                     makePaymentResponse.RespMessage = "Payment Rejected Successifully.";
                     makePaymentResponse.Data1 = payment.BillCode.ToString();
@@ -4192,11 +4194,11 @@ namespace BITPay.DBL
                             return makePaymentResponse;
                         }
                         var regideso = finBridge.CreateRegidesoService(authData.Token);
-                        var resp = await regideso.PayBillsAsync(payment.InvoiceNo, payment.txnId, payment.PhoneNo);
+                        var resp = await regideso.PayBillsAsync(payment.InvoiceNo, payment.txnId, payment.PhoneNo,payment.CBSRef);
                         if (resp.Success)
                         {
                             //--- Posting successfully
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "", "", "", "Transaction posting was successful.");
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 1, "", "", "", "Transaction posting was successful.",resp.received_code, resp.installation_code);
                             //--- Posting successfully
                             postRespMessage = resp.Msg;
                         makePaymentResponse.RespStatus = 0;
@@ -4207,7 +4209,7 @@ namespace BITPay.DBL
                         else
                         {
                             //--- Posting failed
-                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4, "", "", "", resp.Msg);
+                            await db.RegidesoRepository.UpdatePostPaymentStatusAsync(2, result.PaymentCode, 4, "", "", "", resp.Msg,resp.received_code, resp.installation_code);
                             //--- Posting failed
                             postRespMessage = resp.Msg;
                             makePaymentResponse.RespStatus = 1;
@@ -4570,12 +4572,14 @@ namespace BITPay.DBL
                     makePaymentResponse.Data2 = prepaid.Meter_No;
                     makePaymentResponse.Data21 = result.ApprovalNeeded;
                     makePaymentResponse.Data4 = Convert.ToString(result.PaymentCode);
+                    makePaymentResponse.Data8 = prepaid.PhoneNo;
                 }
                 else
                 {
                     makePaymentResponse.Data1 = result.PaymentCode.ToString();
                     makePaymentResponse.Data2 = "1";
                     makePaymentResponse.Data21 = result.ApprovalNeeded;
+                    makePaymentResponse.Data8 = prepaid.PhoneNo;
                     string statMessage = Payment.CBSRef;
                     string postRespMessage = "";
                     makePaymentResponse.RespMessage = "Transaction processed successfully.";
@@ -4623,8 +4627,12 @@ namespace BITPay.DBL
                                     return makePaymentResponse;
                                 }
                                 var regideso = finBridge.CreateRegidesoService(authData.Token);
+                                prepaid.CBSRef = postResp.CBSRefNo;
+                                 prepaid.telephon = prepaid.PhoneNo;
+                       // prepaid.OperationId = prepaid.BillCode;
                                 var res = await regideso.RequestPrePayAsync(prepaid);
                                     res.Maker = prepaid.Maker;
+                                    res.PhoneNo = prepaid.PhoneNo;
                                     res.BillCode = result.PaymentCode;
                                     res.Stat = 1;
                                     res.Meter_No = prepaid.Meter_No;
@@ -4636,7 +4644,8 @@ namespace BITPay.DBL
                                 makePaymentResponse.Data21 = result.ApprovalNeeded;
                                 makePaymentResponse.RespMessage = "Regideso Payment was successful.";
                                 statMessage = postResp.Message;
-                                makePaymentResponse.Data1 = res.Token3;
+                            makePaymentResponse.Data8 = prepaid.PhoneNo;
+                            makePaymentResponse.Data1 = res.Token3;
                                 makePaymentResponse.Data19 = res.Consumption;
                                 makePaymentResponse.Data20 = Payment.BillCode;
                             }
@@ -4648,6 +4657,7 @@ namespace BITPay.DBL
                                 makePaymentResponse.Data21 = result.ApprovalNeeded;
                                 makePaymentResponse.RespMessage = res.Msg;
                                 statMessage = postResp.Message;
+                            makePaymentResponse.Data8 = prepaid.PhoneNo;
                             makePaymentResponse.Data1 = res.Token3;
                             makePaymentResponse.Data19 = res.Consumption;
                             makePaymentResponse.Data20 = Payment.BillCode;
@@ -4692,6 +4702,7 @@ namespace BITPay.DBL
                 {
                     var res1 = await db.RegidesoRepository.UpdatePrePaymentStatusAsync(0, result.PaymentCode, 2, "", "","", "");
                     makePaymentResponse.RespStatus = res1.RespStatus;
+                    makePaymentResponse.Data8 = payment.PhoneNo;
                     makePaymentResponse.RespMessage = "Payment Rejected Successifully.";
                     makePaymentResponse.Data1 = payment.BillCode.ToString();
                     makePaymentResponse.Data3 = "1";
@@ -4704,6 +4715,7 @@ namespace BITPay.DBL
 
                     string statMessage = payment.CBSRef;
                     string postRespMessage = "";
+                    makePaymentResponse.Data8 = payment.PhoneNo;
                     makePaymentResponse.RespMessage = "Transaction processed successfully.";
                     makePaymentResponse.RespStatus = 0;
 
@@ -4748,10 +4760,13 @@ namespace BITPay.DBL
                             return makePaymentResponse;
                         }
                         var regideso = finBridge.CreateRegidesoService(authData.Token);
+                        payment.CBSRef = postResp.CBSRefNo;
                         var res = await regideso.RequestPrePayAsync(payment);
                         res.Maker = payment.Maker;
+                        res.PhoneNo = payment.PhoneNo;
                         res.BillCode = result.PaymentCode;
                         res.Stat = 1;
+                        makePaymentResponse.Data8 = payment.PhoneNo;
                         res.Meter_No = payment.Meter_No;
                         if (res.Success)
                         {
@@ -4815,6 +4830,7 @@ namespace BITPay.DBL
                 {
                     var res1 = await db.RegidesoRepository.UpdatePrePaymentStatusAsync(0, result.PaymentCode, 2, "", "", "", "");
                     makePaymentResponse.RespStatus = res1.RespStatus;
+                    makePaymentResponse.Data8 = payment.PhoneNo;
                     makePaymentResponse.RespMessage = "Payment Rejected Successifully.";
                     makePaymentResponse.Data1 = payment.BillCode.ToString();
                     makePaymentResponse.Data3 = "1";
@@ -4824,7 +4840,7 @@ namespace BITPay.DBL
                 {
                     makePaymentResponse.Data1 = result.PaymentCode.ToString();
                     makePaymentResponse.Data2 = "1";
-
+                    makePaymentResponse.Data8 = payment.PhoneNo;
                     string statMessage = payment.CBSRef;
                     string postRespMessage = "";
                     makePaymentResponse.RespMessage = "Transaction processed successfully.";
@@ -4847,11 +4863,13 @@ namespace BITPay.DBL
                             return makePaymentResponse;
                         }
                         var regideso = finBridge.CreateRegidesoService(authData.Token);
-                        var res = await regideso.RequestPrePayAsync(payment);
+                    var res = await regideso.RequestPrePayAsync(payment);
                         res.Maker = payment.Maker;
+                        res.PhoneNo = payment.PhoneNo;
                         res.BillCode = result.PaymentCode;
                         res.Stat = 1;
-                        res.Meter_No = payment.Meter_No;
+                    makePaymentResponse.Data8 = payment.PhoneNo;
+                    res.Meter_No = payment.Meter_No;
                         if (res.Success)
                         {
                             res.Msg = "successful.";
@@ -4861,7 +4879,8 @@ namespace BITPay.DBL
                         makePaymentResponse.RespStatus = 0;
                             makePaymentResponse.RespMessage = "Transaction posting was successful.";
                             statMessage = res.Msg;
-                            makePaymentResponse.Data1 = res.Token3;
+                        makePaymentResponse.Data8 = payment.PhoneNo;
+                        makePaymentResponse.Data1 = res.Token3;
                             makePaymentResponse.Data19 = res.Consumption;
                             makePaymentResponse.Data20 = payment.BillCode;
                         }

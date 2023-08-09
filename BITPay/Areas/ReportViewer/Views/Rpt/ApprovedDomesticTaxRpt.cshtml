@@ -19,6 +19,21 @@
                       GroupAmount = grp.Sum(x => x.Amount)
 
                   });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
 }
 
 <div class="table-responsive">
@@ -40,13 +55,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var g in groups)
-            {
-                @*<tr>
-                        <th colspan="5">@g.paymentmode</th>
-                    </tr>*@
-
-                @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+            @foreach (var rec in reportData)
                 {
             <tr>
                 <td>@rec.ReceiptNo</td>
@@ -81,7 +90,6 @@
                 </tr>
             </tfoot>
 
-             }
 
             </tbody>
         </table>
@@ -99,14 +107,14 @@
                     extend: 'excel',
                     messageTop: 'Approved Domestic Tax Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: 'Approved Domestic Tax Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true

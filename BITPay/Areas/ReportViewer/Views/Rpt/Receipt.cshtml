@@ -1,110 +1,24 @@
 ﻿@model ReceiptReportModels
 @{
     Layout = "_LayoutReceipt";
+    String title = "";
+    UserDataModel currentUserData = Util.GetCurrentUserData(User.Identities);
+    Console.WriteLine(currentUserData);
+    if (currentUserData != null)
+    {
+
+        title = currentUserData.Title;
+    }
 }
 
-<br/>
-    <table style="width:100%">
-        <tr>
-            <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
-            <td>
-                <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
-            </td>
-        </tr>
-
-
-    </table>
-<table style="width:100%;font-size:10px">
-    <tr>
-        <td style="text-align:left;">
-            <table style="width:100%;">
-                <tr>
-                    <td><strong>Quittance No:</strong> @Model.OBRReceiptNo</td>
-                    <td style="text-align: right;"><strong>Du:</strong> @Model.ReceiptDate.ToString("dd/MM/yyyy hh:mm tt")</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:left;">
-            <strong> Bureau de douane: </strong> @Model.OfficeCode-@Model.OfficeName
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:left;">
-            <strong>Délivrée à:</strong> @Model.BranchName
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:left;">
-            <strong>Entreprise:</strong> @Model.CompanyCode - @Model.CompanyName
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-
-            <table style="width:100%;">
-                <tr>
-                    <td><strong>Déclarant:</strong> @Model.DeclarantCode -  @Model.DeclarantName</td>
-                    <td style="text-align: right;"><strong>Déposant:</strong>  @Model.ReceivedFrom </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-<table class="table  table-striped" style="width:100%;font-size:12px">
-    <tr>
-        <td> <strong>Référence du déclarant </strong></td>
-        <td> <strong>Référence déclaration</strong></td>
-        <td> <strong>Modéle </strong></td>
-        <td> <strong>Montant payé </strong></td>
-
-    </tr>
-    <tr>
-        <td></td>
-        <td>@Model.RegYear-@Model.AsmtSerial-@Model.AsmtNumber</td>
-        <td></td>
-        <td>@Model.Amount.ToString("#,##0.00")</td>
-    </tr>
-    <tr><td></td> <td><strong> Total à encaisser pour les Déclarations </strong></td><td></td> <td> @Model.Amount.ToString("#,##0.00")</td></tr>
-    <tr>
-
-        <td><strong>Moyen de paiement</strong></td>
-        <td><strong> Référence </strong></td>
-        <td><strong>Banque </strong></td>
-        <td><strong>Montant payé </strong></td>
-    <tr />
-    <tr>
-        <td>@Model.PaymentMode</td>
-        <td>@Model.Extra3</td>
-        <td>Finbank SA</td>
-        <td>@Model.Amount</td>
-    </tr>
-    @*<tr><td></td> <td style="text-align:right;"> <strong>Total par moyens de paiement  </strong></td><td></td>  <td>@Model.Amount.ToString("#,##0.00")</td></tr>*@
-    <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>
-</table>
-@*<p class="text-center">
-    Finbank SA Reconnait avoir encaisse la somme ci-dessus.
-</p>*@
-
-<table >
-    <tr>
-        <td> <div style="text-align:right;">  Signature et Cachet:  </div></td>
-        <td></td>
-        <td><div style="text-align:right;">................................................................</div></td>
-    </tr>
-</table>
 <br />
-<br />
-<br />
-<br />
-<br/>
-<br/>
-<br/>
 <table style="width:100%">
     <tr>
-        <td><div style="text-align:right;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
+
+        <td>
+            <div><img class="logo" src="~/images/logo.jpg" alt=".." /> </div>
+        </td>
+        <td><div style="text-align:center;"><h4 style="font:bold;">RECU DE PAIEMENT</h4></div></td>
         <td>
             <div style="text-align:right;"><img class="logo" src="~/images/ObrLogo.png" alt=".." /> </div>
         </td>
@@ -112,95 +26,242 @@
 
 
 </table>
-<table style="width:100%;font-size:10px">
+<table style="width: 100%;font-size: 10px;border-collapse: separate;border-spacing: 0.25em;">
     <tr>
         <td style="text-align:left;">
             <table style="width:100%;">
                 <tr>
                     <td><strong>Quittance No:</strong> @Model.OBRReceiptNo</td>
-                    <td style="text-align: right;"><strong>Du:</strong> @Model.ReceiptDate.ToString("dd/MM/yyyy hh:mm tt")</td>
+                    <td style="text-align: right;"><strong> Bureau de douane: </strong> @Model.OfficeCode-@Model.OfficeName</td>
                 </tr>
             </table>
         </td>
     </tr>
     <tr>
         <td style="text-align:left;">
-            <strong> Bureau de douane: </strong> @Model.OfficeCode-@Model.OfficeName
-        </td>
-    </tr>
-
-    <tr>
-        <td style="text-align:left;">
-            <strong>Délivrée à:</strong> @Model.BranchName
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:left;">
-            <strong>Entreprise:</strong> @Model.CompanyCode - @Model.CompanyName
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-
             <table style="width:100%;">
                 <tr>
-                    <td><strong>Déclarant:</strong> @Model.DeclarantCode -  @Model.DeclarantName</td>
-                    <td style="text-align: right;"><strong>Déposant:</strong>  @Model.ReceivedFrom </td>
+                    <td><strong>Délivrée à:</strong> </td>
+                    <td style="text-align: right;"> <strong>Date de la quittance:</strong> @Model.ReceiptDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:left;">
+            <table style="width:100%;">
+                <tr>
+                    <td><strong>Nif de I'entreprise:</strong> @Model.CompanyCode</td>
+                    @if (Model.PayType == 1 || Model.PayType == 6 || Model.PayType == 7 || Model.PayType == 4 || Model.PayType == 9)
+                    {
+                    <td><strong>Code du déclarant:</strong> @Model.DeclarantCode</td>
+                    }
+                    <td style="text-align: right;"><strong>Agence:</strong>@Model.BranchName</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:left;">
+            <table style="width:100%;">
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td style="width: 250px;">
+                                    @if (Model.PayType == 3)
+                                    {<strong>Rèfèrence du compte</strong>  @Model.RegSerial<br />}<strong>Nom de I'entreprise:</strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    @if (Model.PayType == 1 || Model.PayType == 6 || Model.PayType == 7 || Model.PayType == 4 || Model.PayType == 9)
+                    {
+                    <td> <table><tr><td style="width: 250px;"><strong>Nom du déclarant:</strong></td></tr></table></td>
+                    }
+                    <td style="text-align: right;"><strong>Réf. Bordereau:</strong>@Model.Extra3</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td style="text-align:left;">
+            <table style="width:100%;">
+                <tr>
+                    <td> <table><tr><td style="width: 250px;">@Model.CompanyName</td></tr></table></td>
+                    @if (Model.PayType == 1 || Model.PayType == 6 || Model.PayType == 7 || Model.PayType == 4 || Model.PayType == 9)
+                    {
+                    <td style="text-align:center;"><table><tr><td style="width: 250px;">@Model.DeclarantName</td></tr></table></td>
+                    }
+         
+                    <td style="text-align:left;">
+                        <table style="width: 100%;border-collapse: separate;border-spacing: 0.25em;">
+                            <tr>
+                                <td style="text-align: right;"><strong>Montant: </strong>@Model.Amount.ToString("#,##0.00")        </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"><strong>Déposant: </strong>@Model.ReceivedFrom </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"><strong>Type: </strong>@Model.PaymentType      </td>
+                            </tr>
+                            @if (Model.PayType == 3)
+                            {
+                            <tr>
+                                <td style="text-align: right;"><strong>Rèfèrence: </strong>@Model.RegYear-@Model.OfficeCode-@Model.RegNo</td>
+                            </tr>
+                            }
+                        </table>
+                    </td>
                 </tr>
             </table>
         </td>
     </tr>
 </table>
-<table class="table table-striped" style="width:100%;font-size:12px">
-    <tr>
-        <td> <strong>Référence du déclarant </strong></td>
-        <td> <strong>Référence déclaration</strong></td>
-        <td> <strong>Modéle </strong></td>
-        <td> <strong>Montant payé </strong></td>
+@if (Model.PayType == 9 || Model.PayType == 4)
+{
+<p style="text-align:center;">Liste des taxes</p>
+}
+else
+{
+<p style="text-align:center;">Liste des declarations</p>
+}
+<table class="table  table-striped" style="width:100%;font-size:12px">
 
-    </tr>
     <tr>
-        <td></td>
-        <td>@Model.RegYear-@Model.AsmtSerial-@Model.AsmtNumber</td>
-        <td></td>
-        <td>@Model.Amount.ToString("#,##0.00")</td>
-    </tr>
-    <tr><td></td> <td><strong> Total à encaisser pour les Déclarations </strong></td><td></td> <td> @Model.Amount.ToString("#,##0.00")</td></tr>
-    <tr>
+        @if (Model.PayType == 1 || Model.PayType == 2 || Model.PayType == 6 || Model.PayType == 7)
+        {
+            <td>Enregistrement</td>
+        }
+        else if( Model.PayType == 4 || Model.PayType == 9)
+        {
+            <td>Référence de la déclaration</td>
+        }
+        else
+        {
+            <td></td>
+        }
+        @if (Model.PayType == 9 || Model.PayType == 4)
+        {
+            <td>Reference du payment</td>
+        }
+        else
+        {
+            <td>Liquidation</td>
+        }
 
-        <td><strong>Moyen de paiement</strong></td>
-        <td><strong> Référence </strong></td>
-        <td><strong>Banque </strong></td>
-        <td><strong>Montant payé </strong></td>
-    <tr />
-    <tr>
-        <td>@Model.PaymentMode</td>
-        <td>@Model.Extra3</td>
-        <td>Finbank SA</td>
-        <td>@Model.Amount</td>
+        @if (Model.PayType == 9 || Model.PayType == 4)
+        {
+            <td>Monnaie</td>
+        }
+
+        <td style="text-align: right;">Montant payé</td>
+        <td></td>
     </tr>
-    @*<tr><td></td> <td style="text-align:right;"> <strong>Total par moyens de paiement  </strong></td><td></td>  <td>@Model.Amount.ToString("#,##0.00")</td></tr>*@
-    <tr><td></td> <td style="text-align:right;"> <strong>Montant total encaissé  </strong></td><td></td>  <td> @Model.Amount.ToString("#,##0.00")</td></tr>
+    @if (Model.PayType == 3 || Model.PayType == 6 || Model.PayType == 7)
+    {
+        @foreach (var rec in Model.CreditData)
+        {
+            <tr>
+                @if (Model.PayType == 1 || Model.PayType == 2 || Model.PayType == 6 || Model.PayType == 7)
+                {
+                <td>@rec.RegYear-@rec.Office-@rec.RegSerial-@rec.RegNo</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+    
+                <td>@rec.RegYear-@rec.Office-@rec.AssessmentSerial-@rec.AssessmentNumber</td>
+                <td style="text-align: right;">@rec.Amount.ToString("#,##0.00")</td>
+                <td></td>
+            </tr>
+        }
+    }
+    else if (Model.PayType == 9)
+    {
+        @foreach (var rec in Model.CreditData)
+            {
+<tr>
+    @if (!String.IsNullOrEmpty(rec.RegSerial) || !String.IsNullOrEmpty(rec.RegNo))
+    {
+        <td>@rec.RegYear-@rec.Office-@rec.RegSerial-@rec.RegNo</td>
+    }
+    else
+    {
+        <td>NULL</td>
+    }
+    <td>@rec.TransactionCode-@rec.TransactionRef</td>
+    <td>@rec.Currency</td>
+    <td style="text-align: right;">@rec.Amount.ToString("#,##0.00")</td>
+    <td></td>
+</tr>
+            }
+    }
+    else
+    {
+<tr>
+    @if (Model.PayType == 1 || Model.PayType == 2 || Model.PayType == 4)
+    {
+        @if (!String.IsNullOrEmpty(@Model.RegSerial) || !String.IsNullOrEmpty(@Model.RegNo))
+        {
+            <td>@Model.RegYear-@Model.OfficeCode-@Model.RegSerial-@Model.RegNo</td>
+        }
+        else
+        {
+            <td>NULL</td>
+
+        }
+
+    }
+    else
+    {
+        <td></td>
+    }
+    @if (Model.PayType == 4)
+    {
+        <td>@Model.TransactionCode-@Model.TransactionRef</td>
+        <td>@Model.Currency</td>
+    }
+    else
+    {
+        <td>@Model.RegYear-@Model.OfficeCode-@Model.AsmtSerial-@Model.AsmtNumber</td>
+    }
+    <td style="text-align: right;">@Model.Amount.ToString("#,##0.00")</td>
+    <td></td>
+</tr>
+
+    }
 
 </table>
-@*<p class="text-center">
-    Finbank SA Reconnait avoir encaisse la somme ci-dessus.
-</p>*@
-
-<table>
+@if (title == "FINBANK SPRL")
+{
+<strong>Remarques : </strong>@Model.CustomMessage
+<br />
+}
+<small>@title confirme avoir reçu une somme de @Model.AmountWords (@Model.Amount.ToString("#,##0.00") @Model.Currency) correspondant au montant des droits et taxes exigibles sur les déclarations de la liste ci-dessus</small>
+<br />
+<br />
+<table style="width:100%;">
     <tr>
-        <td> <div style="text-align:right;">  Signature et Cachet:  </div></td>
-        <td></td>
+        <td> <div>  Signature du Client  </div></td>
+        <td> <div style="text-align:right;">  Signature La  Banque  </div></td>
+    </tr>
+</table>
+<br />
+<table style="width:100%;">
+    <tr>
+        <td><div>................................................................</div></td>
         <td><div style="text-align:right;">................................................................</div></td>
-
-
     </tr>
 </table>
-
-
+<br />
+<br />
+<br />
+<br />
 
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
 }

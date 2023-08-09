@@ -103,6 +103,8 @@ namespace BITPay.DBL.Models
         public string ReceivedFrom { get; set; }
         public bool NeedApproval { get; set; }
         public string CBSRef { get; set; }
+        [JsonProperty("TRANS_ID")]
+        public string TransanctionId { get; set; }
         public string UserName { get; set; }
         [Required]
         public string Remarks { get; set; }
@@ -128,6 +130,7 @@ namespace BITPay.DBL.Models
         public string Cust_no { get; set; }
         public int Year { get; set; }
         [Display(Name = "Phone Number")]
+        [Required]
         public string PhoneNo { get; set; }
         public int Month { get; set; }
         public string Invoice_no { get; set; }
@@ -186,8 +189,15 @@ namespace BITPay.DBL.Models
         public string Lastreadingdate { get; set; }
         [JsonProperty("newreadingdate")]
         public string Newreadingdate { get; set; }
+        [JsonProperty("operation_id")]
+        public string OperationId { get; set; }
 
-        
+        [JsonProperty("telephon")]
+        public string telephon { get; set; }
+
+        [JsonProperty("TRANS_ID")]
+       public string TRANS_ID { get; set; }
+
         public int Cust_Code { get; set; }
         [JsonProperty("cust_name")]
         public string Cust_Name { get; set; }

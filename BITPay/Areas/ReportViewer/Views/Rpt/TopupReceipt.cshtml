@@ -1,6 +1,21 @@
 ﻿@model TopUpReportModels
 @{
     Layout = "_LayoutPaywayTopUpReceipt";
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+        }
+    }
 }
 
 <br />
@@ -87,7 +102,7 @@
     <tr>
         <td>@Model.PaymentMode</td>
         <td>@Model.BankRef</td>
-        <td>Finbank SA</td>
+        <td>@title</td>
         <td>@Model.Amount</td>
     </tr>
 </table>
@@ -196,7 +211,7 @@
     <tr>
         <td>@Model.PaymentMode</td>
         <td>@Model.BankRef</td>
-        <td>Finbank SA</td>
+        <td>@title</td>
         <td>@Model.Amount</td>
     </tr>
 </table>

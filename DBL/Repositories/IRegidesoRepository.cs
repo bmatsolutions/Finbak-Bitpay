@@ -24,7 +24,7 @@ namespace BITPay.DBL.Repositories
         Task<BuyTokenPostModel> MakePostPaymentAsync(Bills payment);
         Task<BuyTokenPostModel> MakeApprovalPostPaymentAsync(PostPayReportModels payment);
         IEnumerable<PostPayReportModels> GetPayBillList();
-        Task<BaseEntity> UpdatePostPaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage);
+        Task<BaseEntity> UpdatePostPaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage,int receivedcode,string installationcode);
         Task<BaseEntity> UpdatePrePaymentStatusAsync(int level, int paymentCode, int status, string CbsStat, string Cbsref, string Cbsmessage, string Rgmessage);
         IEnumerable<BuyTokenReportModels> GetPrePayList();
         IEnumerable<PostPayReportModels> GetPayBillListPayments(int stat);

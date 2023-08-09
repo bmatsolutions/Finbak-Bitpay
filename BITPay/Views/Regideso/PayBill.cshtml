@@ -214,13 +214,15 @@
         }
 
         function setCharge(mode) {
-            var url = "@Url.Action("GetPayMode")";
+            var url = "@Url.Action("GetCharge")";
+            console.log(url);
             $.ajax({
                 type: 'get',
                 url: url,
                 data: { payMode: mode}
             })
                 .done(function (resp) {
+                    console.log(resp);
                     $("#chargeVal").val(resp);
                 });
 

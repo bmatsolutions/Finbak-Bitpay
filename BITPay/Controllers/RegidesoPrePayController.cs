@@ -191,6 +191,11 @@ namespace BITPay.Controllers
                     errorModel.ErrorMessage = "Remarks cannot be blank!";
                     return PartialView("_QueryError", errorModel);
                 }
+                if (string.IsNullOrEmpty(model.PhoneNo))
+                {
+                    errorModel.ErrorMessage = "Phone Number cannot be blank!";
+                    return PartialView("_QueryError", errorModel);
+                }
                 var lists = await bl.GetListModel(DBL.Enums.ListModelType.PaymentModes);
                 var list = lists.Select(x => new SelectListItem
                 {
@@ -245,6 +250,7 @@ namespace BITPay.Controllers
                     model.Token3 = queryResult.Data1;
                     model.Meter_No = model.Meter_No;
                     model.units = model.units;
+                    model.PhoneNo = queryResult.Data8;
                     model.NeedApproval = queryResult.Data21;
                     model.Msg = queryResult.RespMessage;
                     model.BillCode = queryResult.Data20;

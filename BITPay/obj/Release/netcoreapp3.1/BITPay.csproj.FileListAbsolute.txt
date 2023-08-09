@@ -3383,3 +3383,8 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcorea
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\BITPay.dll
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\BITPay.pdb
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\BITPay.genruntimeconfig.cache
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\MiarieTaxReceipt.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PostPayReceipt.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PrePayReceipt.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGBuyToken.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGPayBill.cshtml.g.cs

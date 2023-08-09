@@ -1,4 +1,5 @@
 ﻿using BITPay.DBL.Models;
+using Microsoft.CodeAnalysis;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -276,11 +277,11 @@ namespace BITPay.DBL.Gateways
                     return new RegidesoModel { RespMessage = result.Message };
                 }
             }
-            public async Task<Bills> PayBillsAsync(string Invoice_no,  string txnId, string PhoneNo,string endpoint = "service/call/regideso")
+            public async Task<Bills> PayBillsAsync(string Invoice_no,  string txnId, string PhoneNo, string TransanctionId,string endpoint = "service/call/regideso")
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new { invoice_no = Invoice_no,txnid = txnId, phoneno= PhoneNo };
+                var queryData = new { invoice_no = Invoice_no,txnid = txnId, phoneno= PhoneNo, TransanctionId= TransanctionId };
                 var result = await MakeRequestAsync(url, 901, queryData);
                 if (result.RespStatus == 0)
                 {
@@ -351,7 +352,7 @@ namespace BITPay.DBL.Gateways
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount };
+                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount, TRANS_ID = model.CBSRef, telephon=model.PhoneNo, OperationId=model.BillCode.ToString() };
                 var result = await MakeRequestAsync(url, 902, queryData);
                 if (result.RespStatus == 0)
                 {

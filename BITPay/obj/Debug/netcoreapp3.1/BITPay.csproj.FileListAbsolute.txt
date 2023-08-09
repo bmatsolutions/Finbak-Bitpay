@@ -5204,6 +5204,7 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\Generate.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\Index.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\Main.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\MiarieTaxReceipt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\MultiplePayments.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\NoData.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\ObrRpt.cshtml.g.cs
@@ -5213,8 +5214,12 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PaymentFailedOBR.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PaywayCallOver.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PaywayFailed.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PostPayReceipt.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PrePayReceipt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\Receipt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RejectedDomesticTaxRpt.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGBuyToken.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGPayBill.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\TaxFile.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\Test.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\TokenReceipt.cshtml.g.cs

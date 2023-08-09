@@ -12,6 +12,23 @@
         GroupAmount = grp.Sum(x => x.Amount)
 
     });
+    bool authenticated = false;
+    string userId = "";
+    UserDataModel currentUserData = null;
+    int userRole = -1;
+    int posttocbs = -1;
+    string title = "";
+    if (User.Identities.Any(u => u.IsAuthenticated))
+    {
+        authenticated = true;
+        currentUserData = Util.GetCurrentUserData(User.Identities);
+        if (currentUserData != null)
+        {
+            userRole = currentUserData.UserRole;
+            title = currentUserData.Title;
+            posttocbs = currentUserData.Post;
+        }
+    }
 }
     <div class="table-responsive">
         <div class="text-center">@Model.Title</div>
@@ -27,7 +44,9 @@
                     <th class="header">Amount</th>
                     <th class="header">Date</th>
                     <th class="header">Maker Id</th>
+                    @if(posttocbs == 1){
                     <th class="header">Checker Id</th>
+                    }
                     <th class="header">Office Code</th>
                     <th class="header">Company Code</th>
                     <th class="header">Receipt Number</th>
@@ -36,31 +55,28 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var g in groups)
-                {
-                    @*<tr>
-                        <th colspan="5">@g.paymentmode</th>
-                    </tr>*@
+              
 
-                    @foreach (var rec in reportData.Where(x => x.ModeCode == g.GroupCode))
+                    @foreach (var rec in reportData)
                     {
-                        <tr>
-                            <td>@rec.CbsResp</td>
-                            <td>@rec.CR_Account</td>
-                            <td>@rec.DR_Account</td>
-                            <td>@rec.Amount.ToString("#,##0.00")</td>
-                            <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
-                            <td>@rec.MakerID</td>
-                            <td>@rec.Checker_Id</td>
-                            <td>@rec.OfficeCode</td>
-                            <td>@rec.CompanyCode</td>
-                            <td>@rec.ReceiptNo</td>
-                            <td>@rec.delcarationRef</td>
-                            <td>@rec.DeclarantNo</td>
-                        </tr>
+                    <tr>
+                        <td>@rec.CbsResp</td>
+                        <td>@rec.CR_Account</td>
+                        <td>@rec.DR_Account</td>
+                        <td>@rec.Amount.ToString("#,##0.00")</td>
+                        <td>@rec.PaymentDate.ToString("dd/MM/yyyy")</td>
+                        <td>@rec.MakerID</td>
+                        @if(posttocbs == 1){
+                        <td>@rec.Checker_Id</td>
+                        }
+                        <td>@rec.OfficeCode</td>
+                        <td>@rec.CompanyCode</td>
+                        <td>@rec.ReceiptNo</td>
+                        <td>@rec.delcarationRef</td>
+                        <td>@rec.DeclarantNo</td>
+                    </tr>
 
-                    }
-                <tfoot>
+                    }<tfoot>
                     <tr>
                         <th></th>
                         <th></th>
@@ -68,7 +84,9 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                       @if (posttocbs == 1) { 
+                           <th></th>
+                       }
                         <th></th>
                         <th></th>
                         <th></th>
@@ -77,8 +95,7 @@
                     </tr>
                 </tfoot>
 
-            }
-
+            
                 </tbody>
             </table>
         </div>
@@ -94,14 +111,14 @@
                     extend: 'excel',
                     messageTop: 'Tax Payment Report',
                     messageBottom: 'Print Date   :  ' + n,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     footer: true
                 },
                 {
                     extend: 'pdf',
                     messageTop: ' Tax Payment Report',
                     messageBottom: 'Print Date   :  ' + n ,
-                    title: 'Finbank SA SP.',
+                    title: '@title',
                     orientation: 'landscape',
                     pageSize: 'A4',
                     footer: true
