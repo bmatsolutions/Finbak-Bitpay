@@ -1,0 +1,73 @@
+﻿@model ReportFilterModel
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<h1 class="header-title">Reports</h1>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Select a report form the list.
+            </div>
+            <div class="panel-body">
+                <form asp-action="generate" method="post" target="_blank" class="form-horizontal" role="form">
+                    <div class="form-group row">
+                        <label asp-for="ReportCode" class="col-md-4 control-label"></label>
+                        <div class="col-md-8">
+                            <select id="ReportCode" asp-for="ReportCode" class="form-control" asp-items="@Model.Reports"></select>
+                            <span asp-validation-for="ReportCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div id="report-filters">
+                        <p class="col-md-offset-4 col-md-8"><i class="fa fa-filter"></i> Report filters</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section css{
+    <link href="~/css/daterangepicker.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/js/daterangepicker.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#ReportCode').change(function () {
+            var url = "@Url.Action("filters")?code=" + $(this).val();
+            $.get(url, function (data) {
+                $('#report-filters').html(data);
+                setupDatePicker();
+            });
+        });
+
+        $('#ReportCode').change();
+    })
+
+        function setupDatePicker() {
+            var start = moment().add(-7, "days");
+            var end = moment();
+
+            function cb(start, end) {
+                $('.dtp input').val(start.format('DD MMM YYYY') + ' - ' + end.format('DD MMM YYYY'));
+            }
+
+            $('.dtp').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+             cb(start, end);
+        };
+    </script>
+}
+

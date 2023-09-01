@@ -3388,3 +3388,6 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcorea
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\PrePayReceipt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGBuyToken.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\RGPayBill.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\Generate.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\Main.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Release\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\_Filters.cshtml.g.cs

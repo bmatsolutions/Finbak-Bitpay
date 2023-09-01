@@ -281,7 +281,7 @@ namespace BITPay.DBL.Gateways
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new { invoice_no = Invoice_no,txnid = txnId, phoneno= PhoneNo, TransanctionId= TransanctionId };
+                var queryData = new { invoice_no = Invoice_no,txnid = txnId, phoneno= PhoneNo, TRANS_ID = TransanctionId, operation_id = txnId};
                 var result = await MakeRequestAsync(url, 901, queryData);
                 if (result.RespStatus == 0)
                 {
@@ -352,7 +352,7 @@ namespace BITPay.DBL.Gateways
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount, TRANS_ID = model.CBSRef, telephon=model.PhoneNo, OperationId=model.BillCode.ToString() };
+                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount, TRANS_ID = model.CBSRef, telephon=model.PhoneNo, operation_id = model.BillCode.ToString() };
                 var result = await MakeRequestAsync(url, 902, queryData);
                 if (result.RespStatus == 0)
                 {
@@ -378,7 +378,6 @@ namespace BITPay.DBL.Gateways
                     action = action,
                     Data = data
                 };
-
                 var postData = JsonConvert.SerializeObject(requestData);
                 HttpClient httpClient = new HttpClient(url, requestType, headers);
                 var result = await httpClient.SendRequestAsync(postData);

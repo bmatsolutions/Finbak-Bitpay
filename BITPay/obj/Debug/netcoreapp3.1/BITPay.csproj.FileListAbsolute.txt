@@ -5198,6 +5198,9 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\OBR\Views\_ViewImports.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\OBR\Views\_ViewStart.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\Generate.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\Main.cshtml.g.cs
+C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\NewReport\_Filters.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\ApprovedDomesticTaxRpt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\DomesticTaxReceipt.cshtml.g.cs
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\BITPay\obj\Debug\netcoreapp3.1\Razor\Areas\ReportViewer\Views\Rpt\DomesticTaxRpt.cshtml.g.cs
