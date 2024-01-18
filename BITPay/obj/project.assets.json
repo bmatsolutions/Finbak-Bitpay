@@ -3588,7 +3588,7 @@
   },
   "libraries": {
     "Bmat.Tools.Security/1.0.0": {
-      "sha512": "6veXECUZeXjh5upWhGP3zSGGY7js4dETS6zPztfnguSbXQ021lbb9iQkHefmstkvt1FgENqqkWwCQ3DmKhQcWw==",
+      "sha512": "dQC0/Sy/A5VVxCpB41TkNaCDtXFE26YdTG9GmwKY50SrwNkgzlkMFoQNLrev0nu4ow1wh2F+uxzNSirfl/QJOg==",
       "type": "package",
       "path": "bmat.tools.security/1.0.0",
       "files": [
@@ -9607,35 +9607,41 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Amoh\\.nuget\\packages\\": {}
+    "C:\\Users\\Johnson\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\BITPay.csproj",
+      "projectUniqueName": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\BITPay\\BITPay.csproj",
       "projectName": "BITPay",
-      "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\BITPay.csproj",
-      "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\BITPay\\obj\\",
+      "projectPath": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\BITPay\\BITPay.csproj",
+      "packagesPath": "C:\\Users\\Johnson\\.nuget\\packages\\",
+      "outputPath": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\BITPay\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Johnson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/bmatsolutions/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.312\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Users\\Johnson\\.nuget\\packages\\newtonsoft.json\\12.0.3": {},
+        "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\Finconnect New\\2023\\FinConnect-master\\FinConnect-master\\packages": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj": {
-              "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj"
+            "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {
+              "projectPath": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj"
             }
           }
         }
@@ -9706,24 +9712,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.32, 3.1.32]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9732,7 +9720,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.312\\RuntimeIdentifierGraph.json"
       }
     }
   }

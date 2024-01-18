@@ -108,3 +108,16 @@ C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Debug\netcoreapp3.1
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
 C:\Users\Amoh\Desktop\Projects\Bitpay-finbank\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\NOTICE.TXT
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.deps.json
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\BITPay.DBL.pdb
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\bin\Debug\netcoreapp3.1\FastReport.Compat.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.AssemblyReference.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.GeneratedMSBuildEditorConfig.editorconfig
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfoInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.AssemblyInfo.cs
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CoreCompileInputs.cache
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\DBL.csproj.CopyComplete
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.dll
+F:\OFFICEWORK\PROJECTS\SOURCECODE\Burundi\BITPAY\Finbank\Bitpay\Bitpay\DBL\obj\Debug\netcoreapp3.1\BITPay.DBL.pdb

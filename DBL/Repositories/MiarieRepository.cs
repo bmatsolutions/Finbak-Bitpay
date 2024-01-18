@@ -123,8 +123,8 @@ namespace BITPay.DBL.Repositories
                 parameters.Add("@From", dateFrom);
                 parameters.Add("@To", dateTo);
 
-                var sql = "Select top 20 * From vw_MiarieTaxPayments Where StatusCode = @Stat and PayDate Between @From and @To Order By PayDate Desc";
-
+              //  var sql = "Select top 20 * From vw_MiarieTaxPayments Where StatusCode = @Stat and PayDate Between @From and @To Order By PayDate Desc";
+                var sql = "Select * From vw_MiarieTaxPayments Where StatusCode = @Stat and cast(PayDate as date)>= @From and cast(PayDate as date)<= @To Order By Filecode Desc";
                 return (await Connection.QueryAsync<MiariePaymentModel>(sql, parameters)).ToList();
             }
         }

@@ -352,7 +352,7 @@ namespace BITPay.DBL.Gateways
             {
                 var url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + endpoint;
 
-                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount, TRANS_ID = model.CBSRef, telephon=model.PhoneNo, operation_id = model.BillCode.ToString() };
+                var queryData = new {meter_no = model.Meter_No,amnt = model.Amount, TRANS_ID = model.CBSRef, telephon=model.PhoneNo, operation_id = model.BillCode.ToString(),Type="1" };
                 var result = await MakeRequestAsync(url, 902, queryData);
                 if (result.RespStatus == 0)
                 {

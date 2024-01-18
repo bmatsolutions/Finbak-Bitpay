@@ -1,28 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj": {}
+    "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj": {
+    "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj",
+        "projectUniqueName": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj",
         "projectName": "BITPay.DBL",
-        "projectPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\DBL.csproj",
-        "packagesPath": "C:\\Users\\Amoh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amoh\\Desktop\\Projects\\Bitpay-finbank\\Bitpay\\DBL\\obj\\",
+        "projectPath": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\DBL.csproj",
+        "packagesPath": "C:\\Users\\Johnson\\.nuget\\packages\\",
+        "outputPath": "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\BITPAY\\Finbank\\Bitpay\\Bitpay\\DBL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Amoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Johnson\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/bmatsolutions/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\Johnson\\.nuget\\packages\\newtonsoft.json\\12.0.3": {},
+          "F:\\OFFICEWORK\\PROJECTS\\SOURCECODE\\Burundi\\Finconnect New\\2023\\FinConnect-master\\FinConnect-master\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -84,26 +89,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.312\\RuntimeIdentifierGraph.json"
         }
       }
     }

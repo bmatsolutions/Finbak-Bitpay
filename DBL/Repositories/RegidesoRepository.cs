@@ -199,7 +199,7 @@ namespace BITPay.DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Id", paymentCode);
 
-                string sql = FindStatement("vw_RGPostPayReceipts", "BillCode");
+                string sql = FindStatement("vw_RGPostPayApproval", "BillCode");
 
                 return connection.Query<PostPayReportModels>(sql, parameters, commandType: CommandType.Text).FirstOrDefault();
             }
